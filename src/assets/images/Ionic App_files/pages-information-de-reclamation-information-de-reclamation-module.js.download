@@ -1,0 +1,265 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["pages-information-de-reclamation-information-de-reclamation-module"],{
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/pages/information-de-reclamation/information-de-reclamation.page.html":
+/*!*****************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/pages/information-de-reclamation/information-de-reclamation.page.html ***!
+  \*****************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<link href=\"https://fonts.googleapis.com/css?family=Montserrat&display=swap\" rel=\"stylesheet\">\n<ion-content class=\"full-screen bg-gradient-hot\">\n  <div class=\"head\"></div>\n  <div class=\"background\">\n  </div>\n  <!-- <img class=\"background\" src=\"./assets/images/aboutBg.png\" alt=\"\" srcset=\"\"> -->\n\n  <img id=\"back\" src=\"./assets/icon/back.png\" style=\"position: absolute;\n      position: fixed;\n      width: 7%;\n      z-index: 10;\n      top: 3%;\n      left: 8%;\n      margin: 0;\" (click)=\"backward()\">\n  <img *ngIf=\"checkDataEmpty()\" style=\"position: fixed;\n      width: 7%;\n      z-index: 10;\n      top: 3%;\n      right : 8%;\n      margin: 0;\" (click)=\"forward()\" id=\" forward\" src=\"./assets/icon/forward.png\" (click)=\"forward()\">\n\n\n  <ion-item lines=\"full\" lines=\"none\" style=\"position: absolute;\n  top: 15%;\n  width: 100%;\n  padding: 1em;\n  --background: #f8ebdb;\n  --border-radius: 30px;\n  color: #394958;\">\n    <ion-input placeholder=\"Subject Title\" [(ngModel)]=\"data.subject\" name=\"subject\"></ion-input>\n  </ion-item>\n\n  <ion-item lines=\"none\" style=\"position: absolute;\n    top: 25%;\n    width: 100%;\n    \n  --min-height:100px ;\n    padding: 1em;\n    --background: #f8ebdb;\n    --border-radius: 30px;\n    color: #394958;\">\n    <ion-textarea placeholder=\"Enter more information here...\" [(ngModel)]=\"data.description\" name=\"description\">\n    </ion-textarea>\n  </ion-item>\n\n  <ion-icon name=\"camera-empty\" style=\"    position: absolute;\n  top: 50%;\n  color: #f8ebdb;\n  font-size: 40px;\n  right: 20%;\"></ion-icon>\n  <!-- <ion-button (click)=\"loadCamera()\">camera</ion-button>\n  <ion-button (click)=\"loadFileChooser()\">gallery</ion-button>\n  <img [src]=\"getImgContent(data.image)\" alt=\"\"> -->\n\n\n\n\n  <div style=\"position: fixed;bottom: 0;background: bisque;width: 100%;height: 10%;\">\n    <ion-button (click)=\"submit()\"\n      style=\"--box-shadow: none;margin-left: 15%;font-family:'Montserrat';--border-radius:50px;width:70%;margin-left: 7%;--background: linear-gradient(90deg, #ebab6c, #f88686);\">\n      confirm\n    </ion-button>\n  </div>\n</ion-content>"
+
+/***/ }),
+
+/***/ "./src/app/pages/information-de-reclamation/information-de-reclamation-routing.module.ts":
+/*!***********************************************************************************************!*\
+  !*** ./src/app/pages/information-de-reclamation/information-de-reclamation-routing.module.ts ***!
+  \***********************************************************************************************/
+/*! exports provided: InformationDeReclamationPageRoutingModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InformationDeReclamationPageRoutingModule", function() { return InformationDeReclamationPageRoutingModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _information_de_reclamation_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./information-de-reclamation.page */ "./src/app/pages/information-de-reclamation/information-de-reclamation.page.ts");
+
+
+
+
+const routes = [
+    {
+        path: '',
+        component: _information_de_reclamation_page__WEBPACK_IMPORTED_MODULE_3__["InformationDeReclamationPage"]
+    }
+];
+let InformationDeReclamationPageRoutingModule = class InformationDeReclamationPageRoutingModule {
+};
+InformationDeReclamationPageRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
+        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]],
+    })
+], InformationDeReclamationPageRoutingModule);
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/information-de-reclamation/information-de-reclamation.module.ts":
+/*!***************************************************************************************!*\
+  !*** ./src/app/pages/information-de-reclamation/information-de-reclamation.module.ts ***!
+  \***************************************************************************************/
+/*! exports provided: InformationDeReclamationPageModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InformationDeReclamationPageModule", function() { return InformationDeReclamationPageModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _information_de_reclamation_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./information-de-reclamation-routing.module */ "./src/app/pages/information-de-reclamation/information-de-reclamation-routing.module.ts");
+/* harmony import */ var _information_de_reclamation_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./information-de-reclamation.page */ "./src/app/pages/information-de-reclamation/information-de-reclamation.page.ts");
+
+
+
+
+
+
+
+let InformationDeReclamationPageModule = class InformationDeReclamationPageModule {
+};
+InformationDeReclamationPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        imports: [
+            _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"],
+            _information_de_reclamation_routing_module__WEBPACK_IMPORTED_MODULE_5__["InformationDeReclamationPageRoutingModule"]
+        ],
+        declarations: [_information_de_reclamation_page__WEBPACK_IMPORTED_MODULE_6__["InformationDeReclamationPage"]]
+    })
+], InformationDeReclamationPageModule);
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/information-de-reclamation/information-de-reclamation.page.scss":
+/*!***************************************************************************************!*\
+  !*** ./src/app/pages/information-de-reclamation/information-de-reclamation.page.scss ***!
+  \***************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "* {\n  font-family: \"Montserrat\";\n}\n\nion-button {\n  margin-top: 4%;\n}\n\nion-content {\n  top: 0;\n  width: 100%;\n  padding-top: 6em;\n  --background: bisque;\n  --padding-bottom: 6em;\n}\n\nimg {\n  width: 70%;\n  margin-left: 15%;\n  margin-left: 15%;\n}\n\nmain {\n  margin-top: 50px;\n  border-radius: 50px;\n}\n\n.cardTitle {\n  color: #0c1925;\n  font-size: 18px;\n  text-transform: uppercase;\n  padding-left: 3px;\n}\n\n.cardIcon {\n  position: absolute;\n  color: white;\n  right: 5%;\n  top: 5%;\n}\n\n.cardImg {\n  position: absolute;\n  width: 100%;\n  padding: 25%;\n  margin: 0;\n  bottom: 20%;\n  height: 100%;\n}\n\n.background {\n  z-index: 0;\n  position: fixed;\n  height: 100%;\n  width: 100%;\n  border-radius: 25px;\n  top: 10%;\n  background: #c9b6a0;\n}\n\n.customType {\n  position: absolute;\n  width: 2.4em;\n  height: 2.4em;\n  left: 0;\n  margin-top: 4%;\n  top: 0;\n  margin-left: 83%;\n  text-align: center;\n  color: white;\n  border-radius: 50%;\n  background: #072953;\n}\n\nion-card {\n  box-shadow: none;\n  border-radius: unset;\n  width: 10%;\n}\n\n.head {\n  position: fixed;\n  width: 100%;\n  height: 10%;\n  background: bisque;\n  z-index: 5;\n}\n\nion-card-header {\n  font-size: 10px;\n  text-align: center;\n  font-family: \"Montserrat\";\n  font-weight: 800;\n  position: absolute;\n  bottom: 0;\n  background: white;\n  width: 100%;\n  padding-left: 0;\n  padding-right: 0;\n}\n\n.native-input.sc-ion-input-md {\n  position: absolute;\n  top: 0;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvaW5mb3JtYXRpb24tZGUtcmVjbGFtYXRpb24vRDpcXHdlYlByb2plY3RcXGlvbmljXFxNdW5pY2lwYWxpdGUvc3JjXFxhcHBcXHBhZ2VzXFxpbmZvcm1hdGlvbi1kZS1yZWNsYW1hdGlvblxcaW5mb3JtYXRpb24tZGUtcmVjbGFtYXRpb24ucGFnZS5zY3NzIiwic3JjL2FwcC9wYWdlcy9pbmZvcm1hdGlvbi1kZS1yZWNsYW1hdGlvbi9pbmZvcm1hdGlvbi1kZS1yZWNsYW1hdGlvbi5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBR0E7RUFDSSx5QkFBQTtBQ0ZKOztBRElBO0VBQ0ksY0FBQTtBQ0RKOztBRElBO0VBQ0ksTUFBQTtFQUNBLFdBQUE7RUFDQSxnQkFBQTtFQUNBLG9CQUFBO0VBQ0EscUJBQUE7QUNESjs7QURHQTtFQUNJLFVBQUE7RUFDQSxnQkFBQTtFQUNBLGdCQUFBO0FDQUo7O0FESUE7RUFDSSxnQkFBQTtFQUNBLG1CQUFBO0FDREo7O0FER0E7RUFDSSxjQUFBO0VBQ0EsZUFBQTtFQUNBLHlCQUFBO0VBQ0EsaUJBQUE7QUNBSjs7QURFQTtFQUNJLGtCQUFBO0VBQ0EsWUFBQTtFQUNBLFNBQUE7RUFDQSxPQUFBO0FDQ0o7O0FEQ0E7RUFFSSxrQkFBQTtFQUNBLFdBQUE7RUFDQSxZQUFBO0VBQ0EsU0FBQTtFQUNBLFdBQUE7RUFDQSxZQUFBO0FDQ0o7O0FERUE7RUFDSSxVQUFBO0VBQ0EsZUFBQTtFQUNBLFlBQUE7RUFDQSxXQUFBO0VBQ0EsbUJBQUE7RUFDQSxRQUFBO0VBQ0EsbUJBQUE7QUNDSjs7QURFQTtFQUNJLGtCQUFBO0VBQ0EsWUFBQTtFQUNBLGFBQUE7RUFDQSxPQUFBO0VBQ0EsY0FBQTtFQUNBLE1BQUE7RUFDQSxnQkFBQTtFQUNBLGtCQUFBO0VBQ0EsWUFBQTtFQUNBLGtCQUFBO0VBQ0EsbUJBQUE7QUNDSjs7QURDQTtFQUNJLGdCQUFBO0VBQ0Esb0JBQUE7RUFDQSxVQUFBO0FDRUo7O0FEQUE7RUFDRSxlQUFBO0VBQ0EsV0FBQTtFQUNBLFdBQUE7RUFDQSxrQkFBQTtFQUNBLFVBQUE7QUNHRjs7QUREQTtFQUNJLGVBQUE7RUFDQSxrQkFBQTtFQUNELHlCQUFBO0VBQ0EsZ0JBQUE7RUFDQyxrQkFBQTtFQUNBLFNBQUE7RUFDQSxpQkFBQTtFQUNBLFdBQUE7RUFDQSxlQUFBO0VBQ0EsZ0JBQUE7QUNJSjs7QURGQTtFQUNJLGtCQUFBO0VBQ0EsTUFBQTtBQ0tKIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvaW5mb3JtYXRpb24tZGUtcmVjbGFtYXRpb24vaW5mb3JtYXRpb24tZGUtcmVjbGFtYXRpb24ucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLy8gaW9uLWNvbnRlbnR7XHJcbi8vICAgICAtLWJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCgxMzVkZWcsIzQ3ZWZjNSwgIzFlOGQ2Yyk7XHJcbi8vIH1cclxuKntcclxuICAgIGZvbnQtZmFtaWx5OiAnTW9udHNlcnJhdCc7XHJcbn1cclxuaW9uLWJ1dHRvbntcclxuICAgIG1hcmdpbi10b3A6IDQlO1xyXG59XHJcblxyXG5pb24tY29udGVudHtcclxuICAgIHRvcDogMDtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgcGFkZGluZy10b3A6IDZlbTtcclxuICAgIC0tYmFja2dyb3VuZDogYmlzcXVlO1xyXG4gICAgLS1wYWRkaW5nLWJvdHRvbTogNmVtO1xyXG59XHJcbmltZ3tcclxuICAgIHdpZHRoOiA3MCU7XHJcbiAgICBtYXJnaW4tbGVmdDogMTUlO1xyXG4gICAgbWFyZ2luLWxlZnQ6IDE1JTtcclxufVxyXG5cclxuXHJcbm1haW57XHJcbiAgICBtYXJnaW4tdG9wOiA1MHB4OyBcclxuICAgIGJvcmRlci1yYWRpdXM6IDUwcHg7XHJcbn1cclxuLmNhcmRUaXRsZXtcclxuICAgIGNvbG9yOiAjMGMxOTI1O1xyXG4gICAgZm9udC1zaXplOjE4cHg7XHJcbiAgICB0ZXh0LXRyYW5zZm9ybTp1cHBlcmNhc2U7XHJcbiAgICBwYWRkaW5nLWxlZnQ6IDNweDtcclxufVxyXG4uY2FyZEljb257XHJcbiAgICBwb3NpdGlvbjphYnNvbHV0ZTtcclxuICAgIGNvbG9yOiB3aGl0ZTtcclxuICAgIHJpZ2h0OiA1JTtcclxuICAgIHRvcDogNSU7XHJcbn1cclxuLmNhcmRJbWd7XHJcbiAgICBcclxuICAgIHBvc2l0aW9uOmFic29sdXRlO1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBwYWRkaW5nOiAyNSU7XHJcbiAgICBtYXJnaW46IDA7XHJcbiAgICBib3R0b206IDIwJTtcclxuICAgIGhlaWdodDogMTAwJTtcclxufVxyXG5cclxuLmJhY2tncm91bmR7XHJcbiAgICB6LWluZGV4OiAwO1xyXG4gICAgcG9zaXRpb246IGZpeGVkO1xyXG4gICAgaGVpZ2h0OiAxMDAlO1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBib3JkZXItcmFkaXVzOiAyNXB4O1xyXG4gICAgdG9wOiAxMCU7XHJcbiAgICBiYWNrZ3JvdW5kOiAjYzliNmEwO1xyXG59XHJcblxyXG4uY3VzdG9tVHlwZXtcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIHdpZHRoOiAyLjRlbTtcclxuICAgIGhlaWdodDogMi40ZW07XHJcbiAgICBsZWZ0OiAwO1xyXG4gICAgbWFyZ2luLXRvcDogNCU7XHJcbiAgICB0b3A6IDA7XHJcbiAgICBtYXJnaW4tbGVmdDogODMlO1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgY29sb3I6IHdoaXRlO1xyXG4gICAgYm9yZGVyLXJhZGl1czogNTAlO1xyXG4gICAgYmFja2dyb3VuZDogIzA3Mjk1MztcclxufVxyXG5pb24tY2FyZHtcclxuICAgIGJveC1zaGFkb3c6IG5vbmU7XHJcbiAgICBib3JkZXItcmFkaXVzOiB1bnNldDtcclxuICAgIHdpZHRoOiAxMCU7XHJcbn1cclxuLmhlYWR7XHJcbiAgcG9zaXRpb246IGZpeGVkO1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGhlaWdodDogMTAlO1xyXG4gIGJhY2tncm91bmQ6IGJpc3F1ZTtcclxuICB6LWluZGV4OiA1O1xyXG59XHJcbmlvbi1jYXJkLWhlYWRlcntcclxuICAgIGZvbnQtc2l6ZTogMTBweDtcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgZm9udC1mYW1pbHk6IFwiTW9udHNlcnJhdFwiO1xyXG4gICBmb250LXdlaWdodDogODAwO1xyXG4gICAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgYm90dG9tOiAwO1xyXG4gICAgYmFja2dyb3VuZDogd2hpdGU7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIHBhZGRpbmctbGVmdDogMDtcclxuICAgIHBhZGRpbmctcmlnaHQ6IDA7XHJcbn1cclxuLm5hdGl2ZS1pbnB1dC5zYy1pb24taW5wdXQtbWR7XHJcbiAgICBwb3NpdGlvbjphYnNvbHV0ZTtcclxuICAgIHRvcDogMDtcclxufSIsIioge1xuICBmb250LWZhbWlseTogXCJNb250c2VycmF0XCI7XG59XG5cbmlvbi1idXR0b24ge1xuICBtYXJnaW4tdG9wOiA0JTtcbn1cblxuaW9uLWNvbnRlbnQge1xuICB0b3A6IDA7XG4gIHdpZHRoOiAxMDAlO1xuICBwYWRkaW5nLXRvcDogNmVtO1xuICAtLWJhY2tncm91bmQ6IGJpc3F1ZTtcbiAgLS1wYWRkaW5nLWJvdHRvbTogNmVtO1xufVxuXG5pbWcge1xuICB3aWR0aDogNzAlO1xuICBtYXJnaW4tbGVmdDogMTUlO1xuICBtYXJnaW4tbGVmdDogMTUlO1xufVxuXG5tYWluIHtcbiAgbWFyZ2luLXRvcDogNTBweDtcbiAgYm9yZGVyLXJhZGl1czogNTBweDtcbn1cblxuLmNhcmRUaXRsZSB7XG4gIGNvbG9yOiAjMGMxOTI1O1xuICBmb250LXNpemU6IDE4cHg7XG4gIHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7XG4gIHBhZGRpbmctbGVmdDogM3B4O1xufVxuXG4uY2FyZEljb24ge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIGNvbG9yOiB3aGl0ZTtcbiAgcmlnaHQ6IDUlO1xuICB0b3A6IDUlO1xufVxuXG4uY2FyZEltZyB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgd2lkdGg6IDEwMCU7XG4gIHBhZGRpbmc6IDI1JTtcbiAgbWFyZ2luOiAwO1xuICBib3R0b206IDIwJTtcbiAgaGVpZ2h0OiAxMDAlO1xufVxuXG4uYmFja2dyb3VuZCB7XG4gIHotaW5kZXg6IDA7XG4gIHBvc2l0aW9uOiBmaXhlZDtcbiAgaGVpZ2h0OiAxMDAlO1xuICB3aWR0aDogMTAwJTtcbiAgYm9yZGVyLXJhZGl1czogMjVweDtcbiAgdG9wOiAxMCU7XG4gIGJhY2tncm91bmQ6ICNjOWI2YTA7XG59XG5cbi5jdXN0b21UeXBlIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB3aWR0aDogMi40ZW07XG4gIGhlaWdodDogMi40ZW07XG4gIGxlZnQ6IDA7XG4gIG1hcmdpbi10b3A6IDQlO1xuICB0b3A6IDA7XG4gIG1hcmdpbi1sZWZ0OiA4MyU7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgY29sb3I6IHdoaXRlO1xuICBib3JkZXItcmFkaXVzOiA1MCU7XG4gIGJhY2tncm91bmQ6ICMwNzI5NTM7XG59XG5cbmlvbi1jYXJkIHtcbiAgYm94LXNoYWRvdzogbm9uZTtcbiAgYm9yZGVyLXJhZGl1czogdW5zZXQ7XG4gIHdpZHRoOiAxMCU7XG59XG5cbi5oZWFkIHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICB3aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiAxMCU7XG4gIGJhY2tncm91bmQ6IGJpc3F1ZTtcbiAgei1pbmRleDogNTtcbn1cblxuaW9uLWNhcmQtaGVhZGVyIHtcbiAgZm9udC1zaXplOiAxMHB4O1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIGZvbnQtZmFtaWx5OiBcIk1vbnRzZXJyYXRcIjtcbiAgZm9udC13ZWlnaHQ6IDgwMDtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBib3R0b206IDA7XG4gIGJhY2tncm91bmQ6IHdoaXRlO1xuICB3aWR0aDogMTAwJTtcbiAgcGFkZGluZy1sZWZ0OiAwO1xuICBwYWRkaW5nLXJpZ2h0OiAwO1xufVxuXG4ubmF0aXZlLWlucHV0LnNjLWlvbi1pbnB1dC1tZCB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgdG9wOiAwO1xufSJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/pages/information-de-reclamation/information-de-reclamation.page.ts":
+/*!*************************************************************************************!*\
+  !*** ./src/app/pages/information-de-reclamation/information-de-reclamation.page.ts ***!
+  \*************************************************************************************/
+/*! exports provided: InformationDeReclamationPage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InformationDeReclamationPage", function() { return InformationDeReclamationPage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic-native/camera/ngx */ "./node_modules/@ionic-native/camera/ngx/index.js");
+/* harmony import */ var _ionic_native_file_chooser_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/file-chooser/ngx */ "./node_modules/@ionic-native/file-chooser/ngx/index.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var src_app_services_http_http_claim_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/services/http/http-claim.service */ "./src/app/services/http/http-claim.service.ts");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
+
+
+
+
+
+
+
+
+let InformationDeReclamationPage = class InformationDeReclamationPage {
+    constructor(router, http, route, sanitizer, camera, fileChooser, platform) {
+        this.router = router;
+        this.http = http;
+        this.route = route;
+        this.sanitizer = sanitizer;
+        this.camera = camera;
+        this.fileChooser = fileChooser;
+        this.platform = platform;
+        this.data = {
+            type: "",
+            email: "",
+            city: "",
+            municipalite: "",
+            lat: 0,
+            lng: 0,
+            image: "",
+            subject: "",
+            description: "",
+            uid: ""
+        };
+        this.route.queryParams.subscribe((res) => {
+            this.data = JSON.parse(res.p);
+        });
+        this.platform.backButton.subscribe(() => {
+            this.backward();
+        });
+    }
+    ngOnInit() {
+    }
+    cameraOptions(sourceType) {
+        let options = {
+            quality: 50,
+            sourceType: sourceType,
+            saveToPhotoAlbum: false,
+            correctOrientation: true,
+            allowEdit: false,
+            destinationType: this.camera.DestinationType.DATA_URL,
+            mediaType: this.camera.MediaType.PICTURE,
+            encodingType: this.camera.EncodingType.JPEG,
+            targetHeight: 400,
+            targetWidth: 400,
+        };
+        return options;
+    }
+    loadCamera() {
+        let cameraOptions = this.cameraOptions(this.camera.PictureSourceType.CAMERA);
+        this.camera.getPicture(cameraOptions).then((imageData) => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            this.data.image = 'data:image/jpeg;base64,' + imageData;
+        }), (err) => {
+            this.data.image = "./assets/images/NoImage.jpeg";
+        });
+    }
+    getImgContent(image) {
+        if (image == './assets/images/NoImage.jpeg')
+            return './assets/images/NoImage.jpg';
+        else {
+            let x = this.sanitizer.bypassSecurityTrustResourceUrl(image);
+            return x;
+        }
+    }
+    loadFileChooser() {
+        let cameraOptions = this.cameraOptions(this.camera.PictureSourceType.PHOTOLIBRARY);
+        this.camera.getPicture(cameraOptions).then((imageData) => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            console.log(imageData);
+            this.data.image = 'data:image/jpeg;base64,' + imageData;
+        }), (err) => {
+            this.data.image = "./assets/images/NoImage.jpeg";
+        });
+        console.log(this.data.image);
+        if (this.data.image = '')
+            this.data.image = "./assets/images/NoImage.jpeg";
+    }
+    backward() {
+        this.router.navigate(["/information-personnel"], {
+            queryParams: { p: JSON.stringify(this.data) },
+        });
+    }
+    forward() {
+        this.router.navigate(["/resultat-final"], {
+            queryParams: { p: JSON.stringify(this.data) },
+        });
+    }
+    checkDataEmpty() {
+        if (this.data.email !== "" && this.data.city !== "")
+            return true;
+        return false;
+    }
+    submit() {
+        let Data = {
+            type: this.data.type,
+            email: this.data.email,
+            city: this.data.city,
+            municipality: this.data.municipalite,
+            lat: this.data.lat,
+            lng: this.data.lng,
+            photo: this.data.image,
+            description: this.data.description,
+            topic: this.data.subject,
+            uid: this.data.uid,
+            state: 'waiting'
+        };
+        this.http.postData(this.data);
+        // console.log(this.data);
+    }
+};
+InformationDeReclamationPage.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] },
+    { type: src_app_services_http_http_claim_service__WEBPACK_IMPORTED_MODULE_6__["HttpClaimService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"] },
+    { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_7__["DomSanitizer"] },
+    { type: _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_3__["Camera"] },
+    { type: _ionic_native_file_chooser_ngx__WEBPACK_IMPORTED_MODULE_4__["FileChooser"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"] }
+];
+InformationDeReclamationPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-information-de-reclamation',
+        template: __webpack_require__(/*! raw-loader!./information-de-reclamation.page.html */ "./node_modules/raw-loader/index.js!./src/app/pages/information-de-reclamation/information-de-reclamation.page.html"),
+        styles: [__webpack_require__(/*! ./information-de-reclamation.page.scss */ "./src/app/pages/information-de-reclamation/information-de-reclamation.page.scss")]
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"],
+        src_app_services_http_http_claim_service__WEBPACK_IMPORTED_MODULE_6__["HttpClaimService"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"],
+        _angular_platform_browser__WEBPACK_IMPORTED_MODULE_7__["DomSanitizer"],
+        _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_3__["Camera"],
+        _ionic_native_file_chooser_ngx__WEBPACK_IMPORTED_MODULE_4__["FileChooser"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"]])
+], InformationDeReclamationPage);
+
+
+
+/***/ })
+
+}]);
+//# sourceMappingURL=pages-information-de-reclamation-information-de-reclamation-module.js.map

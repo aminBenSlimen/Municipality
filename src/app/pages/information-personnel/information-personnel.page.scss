@@ -1,0 +1,112 @@
+// ion-content{
+//     --background: linear-gradient(135deg,#47efc5, #1e8d6c);
+// }
+.select-icon-inner{
+    opacity: 0 !important;
+}
+*{
+    font-family: 'Montserrat';
+}
+ion-button{
+    margin-top: 4%;
+}
+
+ion-content{
+    top: 0;
+    width: 100%;
+    padding-top: 6em;
+    --background: #ffd7c4;
+    --padding-bottom: 6em;
+    scroll-behavior: smooth;
+}
+img{
+    width: 70%;
+    margin-left: 15%;
+    margin-left: 15%;
+}
+
+
+main{
+    margin-top: 50px; 
+    border-radius: 50px;
+}
+.cardTitle{
+    color: #0c1925;
+    font-size:18px;
+    text-transform:uppercase;
+    padding-left: 3px;
+}
+.cardIcon{
+    position:absolute;
+    color: white;
+    right: 5%;
+    top: 5%;
+}
+.cardImg{
+    
+    position:absolute;
+    width: 100%;
+    padding: 25%;
+    margin: 0;
+    bottom: 20%;
+    height: 100%;
+}
+
+.background{
+    z-index: 0;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    border-radius: 25px;
+    top: 30%;
+    background: #ffffff;
+}
+.customType{
+    position: absolute;
+    width: 2.4em;
+    height: 2.4em;
+    left: 0;
+    margin-top: 4%;
+    top: 0;
+    margin-left: 83%;
+    text-align: center;
+    color: white;
+    border-radius: 50%;
+    background: #072953;
+}
+ion-card{
+    box-shadow: none;
+    border-radius: unset;
+    width: 10%;
+}
+.head{
+  position: fixed;
+  width: 100%;
+  height: 10%;
+  background: #ffe4c4;
+  z-index: 5;
+}
+ion-card-header{
+    font-size: 10px;
+    text-align: center;
+   font-family: "Montserrat";
+   font-weight: 800;
+    position: absolute;
+    bottom: 0;
+    background: white;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+}
+.item-inner{
+    border-style: unset !important;
+    }
+#map{
+  position: absolute;
+  width:90%;
+  margin-left: 5%;
+  height:100vw;
+  border-radius: 30px;
+  top: 31%;
+  margin-bottom: 30%;
+}

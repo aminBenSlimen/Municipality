@@ -1,0 +1,227 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["pages-resultat-final-resultat-final-module"],{
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/pages/resultat-final/resultat-final.page.html":
+/*!*****************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/pages/resultat-final/resultat-final.page.html ***!
+  \*****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>resultatFinal</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n  <ion-button (click)=\"onsubmit()\">submit</ion-button>\n  <!-- <img src=\"\" alt=\"\" srcset=\"\" -->\n\n  <!-- <img [src]=\"getImgContent(data.image)\" alt=\"\"> -->\n  <!-- {{data.image}} -->\n</ion-content>"
+
+/***/ }),
+
+/***/ "./src/app/pages/resultat-final/resultat-final-routing.module.ts":
+/*!***********************************************************************!*\
+  !*** ./src/app/pages/resultat-final/resultat-final-routing.module.ts ***!
+  \***********************************************************************/
+/*! exports provided: ResultatFinalPageRoutingModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResultatFinalPageRoutingModule", function() { return ResultatFinalPageRoutingModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _resultat_final_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./resultat-final.page */ "./src/app/pages/resultat-final/resultat-final.page.ts");
+
+
+
+
+const routes = [
+    {
+        path: '',
+        component: _resultat_final_page__WEBPACK_IMPORTED_MODULE_3__["ResultatFinalPage"]
+    }
+];
+let ResultatFinalPageRoutingModule = class ResultatFinalPageRoutingModule {
+};
+ResultatFinalPageRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
+        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]],
+    })
+], ResultatFinalPageRoutingModule);
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/resultat-final/resultat-final.module.ts":
+/*!***************************************************************!*\
+  !*** ./src/app/pages/resultat-final/resultat-final.module.ts ***!
+  \***************************************************************/
+/*! exports provided: ResultatFinalPageModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResultatFinalPageModule", function() { return ResultatFinalPageModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _resultat_final_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./resultat-final-routing.module */ "./src/app/pages/resultat-final/resultat-final-routing.module.ts");
+/* harmony import */ var _resultat_final_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./resultat-final.page */ "./src/app/pages/resultat-final/resultat-final.page.ts");
+
+
+
+
+
+
+
+let ResultatFinalPageModule = class ResultatFinalPageModule {
+};
+ResultatFinalPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        imports: [
+            _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"],
+            _resultat_final_routing_module__WEBPACK_IMPORTED_MODULE_5__["ResultatFinalPageRoutingModule"]
+        ],
+        declarations: [_resultat_final_page__WEBPACK_IMPORTED_MODULE_6__["ResultatFinalPage"]]
+    })
+], ResultatFinalPageModule);
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/resultat-final/resultat-final.page.scss":
+/*!***************************************************************!*\
+  !*** ./src/app/pages/resultat-final/resultat-final.page.scss ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3Jlc3VsdGF0LWZpbmFsL3Jlc3VsdGF0LWZpbmFsLnBhZ2Uuc2NzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/pages/resultat-final/resultat-final.page.ts":
+/*!*************************************************************!*\
+  !*** ./src/app/pages/resultat-final/resultat-final.page.ts ***!
+  \*************************************************************/
+/*! exports provided: ResultatFinalPage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResultatFinalPage", function() { return ResultatFinalPage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var src_app_services_http_http_claim_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/http/http-claim.service */ "./src/app/services/http/http-claim.service.ts");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+
+
+
+
+
+let ResultatFinalPage = class ResultatFinalPage {
+    constructor(router, route, http, platform) {
+        this.router = router;
+        this.route = route;
+        this.http = http;
+        this.platform = platform;
+        this.data = {
+            type: "",
+            email: "",
+            city: "",
+            municipalite: "",
+            lat: 0,
+            lng: 0,
+            image: "",
+            subject: "",
+            description: "",
+            uid: ""
+        };
+        this.route.queryParams.subscribe((res) => {
+            this.data = JSON.parse(res.p);
+            if (this.data.image == '')
+                this.data.image = "./assets/images/NoImage.jpeg";
+        });
+        this.platform.backButton.subscribe(() => {
+            this.backward();
+        });
+    }
+    backward() {
+        this.router.navigate(["/information-de-reclamation"], {
+            queryParams: { p: JSON.stringify(this.data) },
+        });
+    }
+    submit() {
+        this.http.postData(this.data);
+    }
+    ngOnInit() {
+    }
+    onsubmit(uuid, data) {
+        let syscreated_at = new Date();
+        let userClaims = [];
+        let d1 = syscreated_at.getFullYear() * 1000000 + (syscreated_at.getMonth() + 1) * 10000 +
+            syscreated_at.getDate() * 100 + syscreated_at.getHours();
+        //collect all user's claims
+        for (var i = 0; i < data.length; i++) {
+            if (data[i].id == uuid) {
+                userClaims.push(data[i]);
+            }
+        }
+        let top5 = [];
+        var cond = (userClaims.length <= 5) ? userClaims.length : 5;
+        // Select the 5 recent Claims and Push them to the Top5 Array
+        for (var i = 0; i < cond; i++) {
+            let min = 0;
+            userClaims.forEach(elm => {
+                const hours = Number(elm.created_at.substring(11, 13));
+                const day = Number(elm.created_at.substring(8, 11));
+                const year = Number(elm.created_at.substring(0, 4));
+                const month = Number(elm.created_at.substring(5, 7));
+                let elmDate = year * 1000000 + month * 10000 + day * 100 + hours;
+                if (elmDate > min && !this.containsObject(elmDate, top5)) {
+                    min = elmDate;
+                }
+            });
+            top5.push(min);
+        }
+        // the 5th Claim and the first Claim must be offceted by at least 24 Hours
+        if ((top5.length < 5) || (Math.abs(top5[0] - top5[top5.length - 1]) > 24))
+            console.log("let him");
+        else if (Math.abs(d1 - top5[0]) < 24)
+            console.log("not let him" + Math.abs(d1 - top5[0]));
+        else
+            console.log("let him from the other cond");
+    }
+    containsObject(obj, list) {
+        for (var i = 0; i < list.length; i++)
+            if (list[i] === obj)
+                return true;
+        return false;
+    }
+};
+ResultatFinalPage.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
+    { type: src_app_services_http_http_claim_service__WEBPACK_IMPORTED_MODULE_3__["HttpClaimService"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["Platform"] }
+];
+ResultatFinalPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-resultat-final',
+        template: __webpack_require__(/*! raw-loader!./resultat-final.page.html */ "./node_modules/raw-loader/index.js!./src/app/pages/resultat-final/resultat-final.page.html"),
+        styles: [__webpack_require__(/*! ./resultat-final.page.scss */ "./src/app/pages/resultat-final/resultat-final.page.scss")]
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+        src_app_services_http_http_claim_service__WEBPACK_IMPORTED_MODULE_3__["HttpClaimService"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["Platform"]])
+], ResultatFinalPage);
+
+
+
+/***/ })
+
+}]);
+//# sourceMappingURL=pages-resultat-final-resultat-final-module.js.map

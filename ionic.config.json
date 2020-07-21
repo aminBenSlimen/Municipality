@@ -1,5 +1,8 @@
 {
   "name": "Municipalite",
-  "integrations": {},
-  "type": "angular"
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular",
+  "id": "cd171d93"
 }

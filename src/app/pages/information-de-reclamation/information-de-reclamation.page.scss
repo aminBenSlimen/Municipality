@@ -1,0 +1,116 @@
+// ion-content{
+//     --background: linear-gradient(135deg,#47efc5, #1e8d6c);
+// }
+*{
+    font-family: 'Montserrat';
+}
+ion-button{
+    margin-top: 4%;
+}
+
+ion-content{
+    top: 0;
+    width: 100%;
+    padding-top: 6em;
+    --background:  #ffd7c4;
+    --padding-bottom: 6em;
+}
+img{
+    width: 70%;
+    margin-left: 15%;
+    margin-left: 15%;
+}
+
+.cardTitle{
+    font-size:15px;
+    text-transform:uppercase;
+    padding-left: 3px;
+}
+.cardIcon{
+    position:absolute;
+    color: white;
+    right: 5%;
+    top: 5%;
+}
+ion-card{
+    border-radius: 30px;
+    width: 10%;
+    box-shadow: 3px 3px 15px 3px rgba(0, 0, 0, 0.06), 0 0px 0px 0 rgba(0,0,0,.14), 0 0px 0px 0 rgba(0,0,0,.12);
+}
+ion-card-header{
+    font-size: 10px;
+    text-align: center;
+   font-family: "Montserrat";
+   font-weight: 800;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+}
+main{
+    margin-top: 50px; 
+    border-radius: 50px;
+}
+.cardTitle{
+    color: #ffffff;
+    font-size:18px;
+    text-transform:uppercase;
+    padding-left: 3px;
+}
+.cardIcon{
+    position:absolute;
+    color: white;
+    right: 5%;
+    top: 5%;
+}
+.cardImg{
+    position: absolute;
+  top: 15%;
+}
+
+.background{
+    z-index: 0;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    border-radius: 25px;
+    top: 10%;
+    background: #ffffff ;
+}
+
+.customType{
+    position: absolute;
+    width: 2.4em;
+    height: 2.4em;
+    left: 0;
+    margin-top: 4%;
+    top: 0;
+    margin-left: 83%;
+    text-align: center;
+    color: white;
+    border-radius: 50%;
+    background: #072953;
+}
+.head{
+  position: fixed;
+  width: 100%;
+  height: 10%;
+  background: #ffe4c4;
+  z-index: 5;
+}
+ion-card-header{
+    font-size: 10px;
+    text-align: center;
+   font-family: "Montserrat";
+   font-weight: 800;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+}
+.native-input.sc-ion-input-md{
+    position:absolute;
+    top: 0;
+}

@@ -8,45 +8,55 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
+        path: 'type-de-reclamation',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+              import('../pages/type-de-reclamation/type-de-reclamation.module').then(m => m.TypeDeReclamationPageModule)
           }
         ]
       },
       {
-        path: 'tab2',
+        path: 'information-personnel',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+              import('../pages/information-personnel/information-personnel.module').then(m => m.InformationPersonnelPageModule)
           }
         ]
       },
       {
-        path: 'tab3',
+        path: 'information-de-reclamation',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+              import('../pages/information-de-reclamation/information-de-reclamation.module').then(m => m.InformationDeReclamationPageModule)
           }
         ]
       },
       {
-        path: '',
-        redirectTo: '/tabs/tab1',
+        path: 'resultat-final',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../pages/resultat-final/resultat-final.module').then(m => m.ResultatFinalPageModule)
+          }
+        ]
+      },
+      {
+        path: 'tabs',
+        redirectTo: '/tabs/information-personnel',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/welcome',
     pathMatch: 'full'
   }
 ];
@@ -55,4 +65,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class TabsPageRoutingModule {}
+export class TabsPageRoutingModule { }

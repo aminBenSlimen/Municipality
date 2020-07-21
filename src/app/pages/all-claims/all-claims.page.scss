@@ -1,0 +1,45 @@
+
+
+ion-content{
+    padding-top: 6em;
+    --background: linear-gradient(0deg, #f8ebcf, #fac1c1);
+    --padding-bottom: 6em;
+}
+ion-card{
+   
+    margin-top: 3em;
+    height: 55%;
+    border-radius: 5%;
+    margin-top: 6em;
+    margin-bottom: -3em;
+    box-shadow: none;
+}
+ion-searchbar{
+
+    position: fixed;
+    z-index: 10;
+    background: none;
+    --background: #ffffff;
+    opacity: .6;
+     
+}
+ion-card-header{
+    height: 40%;
+    padding-bottom: 2em;
+    padding-top: 2em;
+    position: absolute;
+    bottom: 0;
+    background: white;
+    width: 100%;
+    border-radius: 0em 0em 1em 1em;
+}
+.background{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+}
+app-animated-like{
+    position: absolute;
+    right: 10%;
+    bottom: 5%;
+}

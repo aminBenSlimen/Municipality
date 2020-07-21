@@ -1,0 +1,601 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["pages-information-personnel-information-personnel-module"],{
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/pages/information-personnel/information-personnel.page.html":
+/*!*******************************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/pages/information-personnel/information-personnel.page.html ***!
+  \*******************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<link href=\"https://fonts.googleapis.com/css?family=Montserrat&display=swap\" rel=\"stylesheet\">\n\n<ion-content class=\"full-screen bg-gradient-hot\">\n  <div class=\"head\"></div>\n  <div class=\"background\">\n  </div>\n  <!-- <img class=\"background\" src=\"./assets/images/aboutBg.png\" alt=\"\" srcset=\"\"> -->\n\n  <img id=\"back\" src=\"./assets/icon/back.png\" style=\"position: absolute;\n    position: fixed;\n    width: 7%;\n    z-index: 10;\n    top: 3%;\n    left: 8%;\n    margin: 0;\" (click)=\"backward()\">\n  <img *ngIf=\"checkDataEmpty()\" style=\"position: fixed;\n    width: 7%;\n    z-index: 10;\n    top: 3%;\n    right : 8%;\n    margin: 0;\" (click)=\"forward()\" id=\" forward\" src=\"./assets/icon/forward.png\" (click)=\"forward()\">\n\n\n  <ion-select style=\"\n  position: sticky;\n  top: 20%;\n  left: 5%;\n  width: 45%;\n  font-size: 20px;\n  background: #f8ebdb;\n  border-radius: 25px 0 0 25px;\n  text-align: center;\" placeholder=\"Your City\" (click)=\"clickByMouse = true\" interface=\"popover\"\n    [selectedText]=\"data.city\" (ionChange)=\"changed($event)\" [(ngModel)]=\"data.city\" name=\"city\">\n    <ion-select-option *ngFor=\"let city of cities\">{{city.c}}\n    </ion-select-option>\n  </ion-select>\n\n\n  <ion-select (ionChange)=\"changedMuni($event)\" placeholder=\"Municipality\" style=\"\n  position: sticky;\n  top: 20%;\n  left: 50%;\n  width: 45%;\n  font-size: 20px;\n  background: #f8ebdb;\n  border-radius: 0 25px 25px 0;\n  text-align: center;\" interface=\"popover\" [(ngModel)]=\"data.municipalite\" name=\"muni\">\n    <ion-select-option *ngFor=\"let m of muni\">{{m}}</ion-select-option>\n  </ion-select>\n  <ion-item lines=\"none\" style=\"position: absolute;\n  top: 25%;\n  width: 100%;\n  padding: 1em;\n  --background: #f8ebdb;\n  --border-radius: 30px;\">\n    <ion-input placeholder=\"e-mail\" [(ngModel)]=\"data.email\" name=\"title\"></ion-input>\n  </ion-item>\n\n  <!-- <ion-button ion-button type=\"submit\" (click)=\"forward()\">Add Todo</ion-button> -->\n\n\n  <div class=\"container\" hidden>\n    <form action=\"\" id=\"signupForm\">\n      <label for=\"lat\">lat</label>\n      <input type=\"text\" id=\"lat\" name=\"lat\" placeholder=\"Your lat..\">\n\n      <label for=\"lng\">lng</label>\n      <input type=\"text\" id=\"lng\" name=\"lng\" placeholder=\"Your lng..\">\n    </form>\n  </div>\n\n  <div class=\"geocoder\">\n    <div id=\"geocoder\"></div>\n  </div>\n\n  <div id=\"map\" style=\"width: 90%;\n  margin-left: 5%;\n  height: 50%;\n  border-radius: 30px;\n  top: 30%;\" (click)='GetLatLng()'></div>\n  <div style=\"position: fixed;bottom: 0;background: bisque;width: 100%;height: 10%;\">\n    <ion-button (click)=\"forward()\"\n      style=\"--box-shadow: none;margin-left: 15%;font-family:'Montserrat';--border-radius:50px;width:70%;--background: linear-gradient(90deg, #ebab6c, #f88686);\">\n      confirm\n    </ion-button>\n    <!-- <ion-button (click)=\"trainModule()\"> train </ion-button> -->\n  </div>\n\n</ion-content>"
+
+/***/ }),
+
+/***/ "./src/app/pages/information-personnel/information-personnel-routing.module.ts":
+/*!*************************************************************************************!*\
+  !*** ./src/app/pages/information-personnel/information-personnel-routing.module.ts ***!
+  \*************************************************************************************/
+/*! exports provided: InformationPersonnelPageRoutingModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InformationPersonnelPageRoutingModule", function() { return InformationPersonnelPageRoutingModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _information_personnel_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./information-personnel.page */ "./src/app/pages/information-personnel/information-personnel.page.ts");
+
+
+
+
+const routes = [
+    {
+        path: '',
+        component: _information_personnel_page__WEBPACK_IMPORTED_MODULE_3__["InformationPersonnelPage"]
+    }
+];
+let InformationPersonnelPageRoutingModule = class InformationPersonnelPageRoutingModule {
+};
+InformationPersonnelPageRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
+        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]],
+    })
+], InformationPersonnelPageRoutingModule);
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/information-personnel/information-personnel.module.ts":
+/*!*****************************************************************************!*\
+  !*** ./src/app/pages/information-personnel/information-personnel.module.ts ***!
+  \*****************************************************************************/
+/*! exports provided: InformationPersonnelPageModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InformationPersonnelPageModule", function() { return InformationPersonnelPageModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _information_personnel_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./information-personnel-routing.module */ "./src/app/pages/information-personnel/information-personnel-routing.module.ts");
+/* harmony import */ var _information_personnel_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./information-personnel.page */ "./src/app/pages/information-personnel/information-personnel.page.ts");
+
+
+
+
+
+
+
+let InformationPersonnelPageModule = class InformationPersonnelPageModule {
+};
+InformationPersonnelPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        imports: [
+            _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"],
+            _information_personnel_routing_module__WEBPACK_IMPORTED_MODULE_5__["InformationPersonnelPageRoutingModule"]
+        ],
+        declarations: [_information_personnel_page__WEBPACK_IMPORTED_MODULE_6__["InformationPersonnelPage"]]
+    })
+], InformationPersonnelPageModule);
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/information-personnel/information-personnel.page.scss":
+/*!*****************************************************************************!*\
+  !*** ./src/app/pages/information-personnel/information-personnel.page.scss ***!
+  \*****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".select-icon-inner {\n  opacity: 0 !important;\n}\n\n* {\n  font-family: \"Montserrat\";\n}\n\nion-button {\n  margin-top: 4%;\n}\n\nion-content {\n  top: 0;\n  width: 100%;\n  padding-top: 6em;\n  --background: bisque;\n  --padding-bottom: 6em;\n}\n\nimg {\n  width: 70%;\n  margin-left: 15%;\n  margin-left: 15%;\n}\n\nmain {\n  margin-top: 50px;\n  border-radius: 50px;\n}\n\n.cardTitle {\n  color: #0c1925;\n  font-size: 18px;\n  text-transform: uppercase;\n  padding-left: 3px;\n}\n\n.cardIcon {\n  position: absolute;\n  color: white;\n  right: 5%;\n  top: 5%;\n}\n\n.cardImg {\n  position: absolute;\n  width: 100%;\n  padding: 25%;\n  margin: 0;\n  bottom: 20%;\n  height: 100%;\n}\n\n.background {\n  z-index: 0;\n  position: fixed;\n  height: 100%;\n  width: 100%;\n  border-radius: 25px;\n  top: 10%;\n  background: #c9b6a0;\n}\n\n.customType {\n  position: absolute;\n  width: 2.4em;\n  height: 2.4em;\n  left: 0;\n  margin-top: 4%;\n  top: 0;\n  margin-left: 83%;\n  text-align: center;\n  color: white;\n  border-radius: 50%;\n  background: #072953;\n}\n\nion-card {\n  box-shadow: none;\n  border-radius: unset;\n  width: 10%;\n}\n\n.head {\n  position: fixed;\n  width: 100%;\n  height: 10%;\n  background: bisque;\n  z-index: 5;\n}\n\nion-card-header {\n  font-size: 10px;\n  text-align: center;\n  font-family: \"Montserrat\";\n  font-weight: 800;\n  position: absolute;\n  bottom: 0;\n  background: white;\n  width: 100%;\n  padding-left: 0;\n  padding-right: 0;\n}\n\n.item-inner {\n  border-style: unset !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvaW5mb3JtYXRpb24tcGVyc29ubmVsL0Q6XFx3ZWJQcm9qZWN0XFxpb25pY1xcTXVuaWNpcGFsaXRlL3NyY1xcYXBwXFxwYWdlc1xcaW5mb3JtYXRpb24tcGVyc29ubmVsXFxpbmZvcm1hdGlvbi1wZXJzb25uZWwucGFnZS5zY3NzIiwic3JjL2FwcC9wYWdlcy9pbmZvcm1hdGlvbi1wZXJzb25uZWwvaW5mb3JtYXRpb24tcGVyc29ubmVsLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFHQTtFQUNJLHFCQUFBO0FDRko7O0FESUE7RUFDSSx5QkFBQTtBQ0RKOztBREdBO0VBQ0ksY0FBQTtBQ0FKOztBREdBO0VBQ0ksTUFBQTtFQUNBLFdBQUE7RUFDQSxnQkFBQTtFQUNBLG9CQUFBO0VBQ0EscUJBQUE7QUNBSjs7QURFQTtFQUNJLFVBQUE7RUFDQSxnQkFBQTtFQUNBLGdCQUFBO0FDQ0o7O0FER0E7RUFDSSxnQkFBQTtFQUNBLG1CQUFBO0FDQUo7O0FERUE7RUFDSSxjQUFBO0VBQ0EsZUFBQTtFQUNBLHlCQUFBO0VBQ0EsaUJBQUE7QUNDSjs7QURDQTtFQUNJLGtCQUFBO0VBQ0EsWUFBQTtFQUNBLFNBQUE7RUFDQSxPQUFBO0FDRUo7O0FEQUE7RUFFSSxrQkFBQTtFQUNBLFdBQUE7RUFDQSxZQUFBO0VBQ0EsU0FBQTtFQUNBLFdBQUE7RUFDQSxZQUFBO0FDRUo7O0FEQ0E7RUFDSSxVQUFBO0VBQ0EsZUFBQTtFQUNBLFlBQUE7RUFDQSxXQUFBO0VBQ0EsbUJBQUE7RUFDQSxRQUFBO0VBQ0EsbUJBQUE7QUNFSjs7QURDQTtFQUNJLGtCQUFBO0VBQ0EsWUFBQTtFQUNBLGFBQUE7RUFDQSxPQUFBO0VBQ0EsY0FBQTtFQUNBLE1BQUE7RUFDQSxnQkFBQTtFQUNBLGtCQUFBO0VBQ0EsWUFBQTtFQUNBLGtCQUFBO0VBQ0EsbUJBQUE7QUNFSjs7QURBQTtFQUNJLGdCQUFBO0VBQ0Esb0JBQUE7RUFDQSxVQUFBO0FDR0o7O0FEREE7RUFDRSxlQUFBO0VBQ0EsV0FBQTtFQUNBLFdBQUE7RUFDQSxrQkFBQTtFQUNBLFVBQUE7QUNJRjs7QURGQTtFQUNJLGVBQUE7RUFDQSxrQkFBQTtFQUNELHlCQUFBO0VBQ0EsZ0JBQUE7RUFDQyxrQkFBQTtFQUNBLFNBQUE7RUFDQSxpQkFBQTtFQUNBLFdBQUE7RUFDQSxlQUFBO0VBQ0EsZ0JBQUE7QUNLSjs7QURIQTtFQUNJLDhCQUFBO0FDTUoiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9pbmZvcm1hdGlvbi1wZXJzb25uZWwvaW5mb3JtYXRpb24tcGVyc29ubmVsLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi8vIGlvbi1jb250ZW50e1xyXG4vLyAgICAgLS1iYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQoMTM1ZGVnLCM0N2VmYzUsICMxZThkNmMpO1xyXG4vLyB9XHJcbi5zZWxlY3QtaWNvbi1pbm5lcntcclxuICAgIG9wYWNpdHk6IDAgIWltcG9ydGFudDtcclxufVxyXG4qe1xyXG4gICAgZm9udC1mYW1pbHk6ICdNb250c2VycmF0JztcclxufVxyXG5pb24tYnV0dG9ue1xyXG4gICAgbWFyZ2luLXRvcDogNCU7XHJcbn1cclxuXHJcbmlvbi1jb250ZW50e1xyXG4gICAgdG9wOiAwO1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBwYWRkaW5nLXRvcDogNmVtO1xyXG4gICAgLS1iYWNrZ3JvdW5kOiBiaXNxdWU7XHJcbiAgICAtLXBhZGRpbmctYm90dG9tOiA2ZW07XHJcbn1cclxuaW1ne1xyXG4gICAgd2lkdGg6IDcwJTtcclxuICAgIG1hcmdpbi1sZWZ0OiAxNSU7XHJcbiAgICBtYXJnaW4tbGVmdDogMTUlO1xyXG59XHJcblxyXG5cclxubWFpbntcclxuICAgIG1hcmdpbi10b3A6IDUwcHg7IFxyXG4gICAgYm9yZGVyLXJhZGl1czogNTBweDtcclxufVxyXG4uY2FyZFRpdGxle1xyXG4gICAgY29sb3I6ICMwYzE5MjU7XHJcbiAgICBmb250LXNpemU6MThweDtcclxuICAgIHRleHQtdHJhbnNmb3JtOnVwcGVyY2FzZTtcclxuICAgIHBhZGRpbmctbGVmdDogM3B4O1xyXG59XHJcbi5jYXJkSWNvbntcclxuICAgIHBvc2l0aW9uOmFic29sdXRlO1xyXG4gICAgY29sb3I6IHdoaXRlO1xyXG4gICAgcmlnaHQ6IDUlO1xyXG4gICAgdG9wOiA1JTtcclxufVxyXG4uY2FyZEltZ3tcclxuICAgIFxyXG4gICAgcG9zaXRpb246YWJzb2x1dGU7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIHBhZGRpbmc6IDI1JTtcclxuICAgIG1hcmdpbjogMDtcclxuICAgIGJvdHRvbTogMjAlO1xyXG4gICAgaGVpZ2h0OiAxMDAlO1xyXG59XHJcblxyXG4uYmFja2dyb3VuZHtcclxuICAgIHotaW5kZXg6IDA7XHJcbiAgICBwb3NpdGlvbjogZml4ZWQ7XHJcbiAgICBoZWlnaHQ6IDEwMCU7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIGJvcmRlci1yYWRpdXM6IDI1cHg7XHJcbiAgICB0b3A6IDEwJTtcclxuICAgIGJhY2tncm91bmQ6ICNjOWI2YTA7XHJcbn1cclxuXHJcbi5jdXN0b21UeXBle1xyXG4gICAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgd2lkdGg6IDIuNGVtO1xyXG4gICAgaGVpZ2h0OiAyLjRlbTtcclxuICAgIGxlZnQ6IDA7XHJcbiAgICBtYXJnaW4tdG9wOiA0JTtcclxuICAgIHRvcDogMDtcclxuICAgIG1hcmdpbi1sZWZ0OiA4MyU7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICBjb2xvcjogd2hpdGU7XHJcbiAgICBib3JkZXItcmFkaXVzOiA1MCU7XHJcbiAgICBiYWNrZ3JvdW5kOiAjMDcyOTUzO1xyXG59XHJcbmlvbi1jYXJke1xyXG4gICAgYm94LXNoYWRvdzogbm9uZTtcclxuICAgIGJvcmRlci1yYWRpdXM6IHVuc2V0O1xyXG4gICAgd2lkdGg6IDEwJTtcclxufVxyXG4uaGVhZHtcclxuICBwb3NpdGlvbjogZml4ZWQ7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgaGVpZ2h0OiAxMCU7XHJcbiAgYmFja2dyb3VuZDogYmlzcXVlO1xyXG4gIHotaW5kZXg6IDU7XHJcbn1cclxuaW9uLWNhcmQtaGVhZGVye1xyXG4gICAgZm9udC1zaXplOiAxMHB4O1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICBmb250LWZhbWlseTogXCJNb250c2VycmF0XCI7XHJcbiAgIGZvbnQtd2VpZ2h0OiA4MDA7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICBib3R0b206IDA7XHJcbiAgICBiYWNrZ3JvdW5kOiB3aGl0ZTtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgcGFkZGluZy1sZWZ0OiAwO1xyXG4gICAgcGFkZGluZy1yaWdodDogMDtcclxufVxyXG4uaXRlbS1pbm5lcntcclxuICAgIGJvcmRlci1zdHlsZTogdW5zZXQgIWltcG9ydGFudDtcclxuICAgIH0iLCIuc2VsZWN0LWljb24taW5uZXIge1xuICBvcGFjaXR5OiAwICFpbXBvcnRhbnQ7XG59XG5cbioge1xuICBmb250LWZhbWlseTogXCJNb250c2VycmF0XCI7XG59XG5cbmlvbi1idXR0b24ge1xuICBtYXJnaW4tdG9wOiA0JTtcbn1cblxuaW9uLWNvbnRlbnQge1xuICB0b3A6IDA7XG4gIHdpZHRoOiAxMDAlO1xuICBwYWRkaW5nLXRvcDogNmVtO1xuICAtLWJhY2tncm91bmQ6IGJpc3F1ZTtcbiAgLS1wYWRkaW5nLWJvdHRvbTogNmVtO1xufVxuXG5pbWcge1xuICB3aWR0aDogNzAlO1xuICBtYXJnaW4tbGVmdDogMTUlO1xuICBtYXJnaW4tbGVmdDogMTUlO1xufVxuXG5tYWluIHtcbiAgbWFyZ2luLXRvcDogNTBweDtcbiAgYm9yZGVyLXJhZGl1czogNTBweDtcbn1cblxuLmNhcmRUaXRsZSB7XG4gIGNvbG9yOiAjMGMxOTI1O1xuICBmb250LXNpemU6IDE4cHg7XG4gIHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7XG4gIHBhZGRpbmctbGVmdDogM3B4O1xufVxuXG4uY2FyZEljb24ge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIGNvbG9yOiB3aGl0ZTtcbiAgcmlnaHQ6IDUlO1xuICB0b3A6IDUlO1xufVxuXG4uY2FyZEltZyB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgd2lkdGg6IDEwMCU7XG4gIHBhZGRpbmc6IDI1JTtcbiAgbWFyZ2luOiAwO1xuICBib3R0b206IDIwJTtcbiAgaGVpZ2h0OiAxMDAlO1xufVxuXG4uYmFja2dyb3VuZCB7XG4gIHotaW5kZXg6IDA7XG4gIHBvc2l0aW9uOiBmaXhlZDtcbiAgaGVpZ2h0OiAxMDAlO1xuICB3aWR0aDogMTAwJTtcbiAgYm9yZGVyLXJhZGl1czogMjVweDtcbiAgdG9wOiAxMCU7XG4gIGJhY2tncm91bmQ6ICNjOWI2YTA7XG59XG5cbi5jdXN0b21UeXBlIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB3aWR0aDogMi40ZW07XG4gIGhlaWdodDogMi40ZW07XG4gIGxlZnQ6IDA7XG4gIG1hcmdpbi10b3A6IDQlO1xuICB0b3A6IDA7XG4gIG1hcmdpbi1sZWZ0OiA4MyU7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgY29sb3I6IHdoaXRlO1xuICBib3JkZXItcmFkaXVzOiA1MCU7XG4gIGJhY2tncm91bmQ6ICMwNzI5NTM7XG59XG5cbmlvbi1jYXJkIHtcbiAgYm94LXNoYWRvdzogbm9uZTtcbiAgYm9yZGVyLXJhZGl1czogdW5zZXQ7XG4gIHdpZHRoOiAxMCU7XG59XG5cbi5oZWFkIHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICB3aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiAxMCU7XG4gIGJhY2tncm91bmQ6IGJpc3F1ZTtcbiAgei1pbmRleDogNTtcbn1cblxuaW9uLWNhcmQtaGVhZGVyIHtcbiAgZm9udC1zaXplOiAxMHB4O1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIGZvbnQtZmFtaWx5OiBcIk1vbnRzZXJyYXRcIjtcbiAgZm9udC13ZWlnaHQ6IDgwMDtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBib3R0b206IDA7XG4gIGJhY2tncm91bmQ6IHdoaXRlO1xuICB3aWR0aDogMTAwJTtcbiAgcGFkZGluZy1sZWZ0OiAwO1xuICBwYWRkaW5nLXJpZ2h0OiAwO1xufVxuXG4uaXRlbS1pbm5lciB7XG4gIGJvcmRlci1zdHlsZTogdW5zZXQgIWltcG9ydGFudDtcbn0iXX0= */"
+
+/***/ }),
+
+/***/ "./src/app/pages/information-personnel/information-personnel.page.ts":
+/*!***************************************************************************!*\
+  !*** ./src/app/pages/information-personnel/information-personnel.page.ts ***!
+  \***************************************************************************/
+/*! exports provided: InformationPersonnelPage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InformationPersonnelPage", function() { return InformationPersonnelPage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var src_app_popover_component_popover_component_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/popover-component/popover-component.component */ "./src/app/popover-component/popover-component.component.ts");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+
+
+
+
+
+let InformationPersonnelPage = class InformationPersonnelPage {
+    constructor(route, platform, router, popOver) {
+        this.route = route;
+        this.platform = platform;
+        this.router = router;
+        this.popOver = popOver;
+        this.citieSelected = false;
+        this.clickByMouse = false;
+        this.xY = { lan: 0, lng: 0 };
+        this.muni = [];
+        this.data = {
+            type: "",
+            email: "",
+            city: "",
+            municipalite: "",
+            lat: 0,
+            lng: 0,
+            image: "",
+            subject: "",
+            description: "",
+            uid: ""
+        };
+        this.cities = [
+            {
+                c: "tunis", m: [
+                    "tunis",
+                    "Le Bardo",
+                    "Le Kram",
+                    "La Goulette",
+                    "Carthage",
+                    "Sidi Bou Said",
+                    "La Marsa",
+                    "Sidi Hassine"
+                ]
+            },
+            {
+                c: "ariana", m: [
+                    "ariana",
+                    "La Soukra",
+                    "Raoued",
+                    "Kalâat el-Andalous",
+                    "Sidi Thabet	",
+                    "Ettadhamen-Mnihla"
+                ]
+            },
+            {
+                c: "Zaghouan", m: [
+                    "Zaghouan",
+                    "Zriba",
+                    "Bir Mcherga",
+                    "Djebel Oust",
+                    "El Fahs",
+                    "Nadhour"
+                ]
+            },
+            {
+                c: "Beja", m: [
+                    "Beja",
+                    "El Maâgoula",
+                    "Zahret Medien",
+                    "Nefza",
+                    "Teboursouk",
+                    "Testour",
+                    "Goubellat",
+                    "Majaz al Bab"
+                ]
+            },
+            {
+                c: "benarous", m: [
+                    "benarous",
+                    "El Mourouj",
+                    "Hammam Lif",
+                    "Hammam Chott",
+                    "Bou Mhel el-Bassatine",
+                    "Ezzahra",
+                    "Radès	",
+                    "Mégrine",
+                    "Mohamedia-Fouchana",
+                    "Mornag	",
+                    "Khalidia"
+                ]
+            },
+            {
+                c: "Manouba", m: ["Den Den",
+                    "Douar Hicher",
+                    "Oued Ellil",
+                    "Mornaguia",
+                    "Borj El Amri",
+                    "Djedeida",
+                    "Tebourba",
+                    "El Battan"]
+            },
+            {
+                c: "Nabel", m: ["Dar Chaabane",
+                    "Béni Khiar",
+                    "El Maâmoura	",
+                    "Somâa",
+                    "Korba",
+                    "Tazerka",
+                    "Menzel Temime",
+                    "Menzel Horr",
+                    "El Mida",
+                    "Kelibia	",
+                    "Azmour	",
+                    "Hammam Ghezèze",
+                    "Dar Allouch	",
+                    "El Haouaria",
+                    "Takelsa	",
+                    "Soliman",
+                    "Korbous	",
+                    "Menzel Bouzelfa",
+                    "Béni Khalled",
+                    "Zaouiet Djedidi	",
+                    "Grombalia	",
+                    "Bou Argoub",
+                    "Hammamet	",
+                    "Zriba",
+                    "Bir Mcherga",
+                    "Djebel Oust	",
+                    "El Fahs	",
+                    "Nadhour"]
+            },
+            {
+                c: "Bizerte", m: ["Bizerte",
+                    "Sejnane",
+                    "Mateur",
+                    "Menzel Bourguiba",
+                    "Tinja",
+                    "Ghar al Milh",
+                    "Aousja",
+                    "Menzel Jemil",
+                    "Menzel Abderrahmane	",
+                    "El Alia	",
+                    "	Ras Jebel",
+                    "Metline",
+                    "Raf Raf	"
+                ]
+            },
+            {
+                c: "Jendouba", m: ["Jendouba",
+                    "Bou Salem",
+                    "Tabarka",
+                    "Aïn Draham",
+                    "Fernana",
+                    "Beni M'Tir",
+                    "Ghardimaou",
+                    "Oued Melliz"]
+            },
+            {
+                c: "Kef", m: ["Kef",
+                    "Nebeur",
+                    "Touiref",
+                    "Sakiet Sidi Youssef",
+                    "Tajerouine",
+                    "Menzel Salem",
+                    "Kalaat es Senam	",
+                    "Kalâat Khasba",
+                    "Jérissa",
+                    "El Ksour",
+                    "Dahmani",
+                    "Sers"]
+            },
+            {
+                c: "Siliana", m: ["Siliana",
+                    "Bou Arada",
+                    "Gaâfour",
+                    "El Krib",
+                    "Sidi Bou Rouis",
+                    "Maktar",
+                    "Rouhia",
+                    "Kesra",
+                    "Bargou",
+                    "El Aroussa"]
+            },
+            {
+                c: "Sousse", m: ["Sousse",
+                    "Ksibet Thrayet",
+                    "Ezzouhour",
+                    "Zaouiet Sousse",
+                    "Hammam Sousse",
+                    "Akouda",
+                    "Kalâa Kebira",
+                    "Sidi Bou Ali",
+                    "Hergla",
+                    "Enfidha",
+                    "Bouficha",
+                    "Sidi El Hani",
+                    "M'saken",
+                    "Kalâa Seghira",
+                    "Messaadine",
+                    "Kondar"]
+            },
+            {
+                c: "Monastir", m: ["Monastir",
+                    "Khniss",
+                    "Ouerdanin",
+                    "Sahline Moôtmar",
+                    "Sidi Ameur",
+                    "Zéramdine	",
+                    "Beni Hassen",
+                    "Ghenada",
+                    "Jemmal",
+                    "Menzel Kamel",
+                    "Zaouiet Kontoch",
+                    "Bembla-Mnara",
+                    "Menzel Ennour",
+                    "El Masdour",
+                    "Moknine",
+                    "Sidi Bennour",
+                    "Menzel Farsi	",
+                    "Amiret El Fhoul",
+                    "Amiret Touazra",
+                    "Amiret El Hojjaj ",
+                    "Cherahil",
+                    "Bekalta",
+                    "Téboulba",
+                    "Ksar Hellal",
+                    "Ksibet El Mediouni",
+                    "Benen Bodher",
+                    "Touza",
+                    "Sayada",
+                    "Lemta",
+                    "Bouhjar",
+                    "Menzel Hayet"]
+            },
+            {
+                c: "Mahdia", m: ["Mahdia",
+                    "Rejiche",
+                    "Bou Merdes",
+                    "Ouled Chamekh",
+                    "Chorbane",
+                    "Hebira",
+                    "Essouassi",
+                    "El Djem	",
+                    "Kerker",
+                    "Chebba",
+                    "Melloulèche",
+                    "Sidi Alouane",
+                    "Ksour Essef",
+                    "El Bradâa"]
+            },
+            {
+                c: "Sfax", m: ["Sfax",
+                    "Sakiet Ezzit",
+                    "Chihia",
+                    "Sakiet Eddaïer",
+                    "Gremda",
+                    "El Ain",
+                    "Thyna",
+                    "Agareb",
+                    "Jebiniana",
+                    "El Hencha",
+                    "Menzel Chaker",
+                    "Ghraïba ",
+                    "Bir Ali Ben Khélifa",
+                    "Skhira",
+                    "Mahares",
+                    "Kerkennah"]
+            },
+            {
+                c: "Kairouan", m: ["Kairouan",
+                    "Chebika",
+                    "Sbikha",
+                    "Oueslatia",
+                    "Aïn Djeloula",
+                    "Haffouz",
+                    "Alaâ",
+                    "Hajeb El Ayoun",
+                    "Nasrallah",
+                    "Menzel Mehiri",
+                    "Echrarda",
+                    "Bou Hajla"]
+            },
+            {
+                c: "Kasserine", m: ["Kasserine",
+                    "Sbeitla",
+                    "Sbiba",
+                    "Jedelienne",
+                    "Thala",
+                    "Haïdra",
+                    "Foussana",
+                    "Fériana",
+                    "Thélepte",
+                    "Magel Bel Abbès"]
+            },
+            {
+                c: "Sidi Bouzid", m: ["Sidi Bouzid",
+                    "Jilma",
+                    "Cebalet",
+                    "Bir El Hafey",
+                    "Sidi Ali Ben Aoun",
+                    "Menzel Bouzaiane",
+                    "Meknassy ",
+                    "Mezzouna",
+                    "Regueb",
+                    "Ouled Haffouz"]
+            },
+            {
+                c: "Gabès", m: ["Gabès",
+                    "Chenini Nahal	",
+                    "Ghannouch",
+                    "Métouia",
+                    "Oudhref",
+                    "El Hamma",
+                    "Matmata",
+                    "Nouvelle Matmata",
+                    "Mareth",
+                    "Zarat"]
+            },
+            {
+                c: "Mednine", m: ["Mednine",
+                    "Beni Khedache	",
+                    "Ben Gardane	",
+                    "Zarzis",
+                    "Houmt El Souk (Djerba)",
+                    "Midoun (Djerba)",
+                    "Ajim (Djerba)"]
+            },
+            {
+                c: "Tataouine", m: ["Tataouine",
+                    "Bir Lahmar",
+                    "Ghomrassen",
+                    "Dehiba",
+                    "Remada"]
+            },
+            {
+                c: "Gafsa", m: ["Gafsa",
+                    "El Ksar",
+                    "Moularès",
+                    "Redeyef",
+                    "Métlaoui",
+                    "Mdhila",
+                    "El Guettar ",
+                    "Sened"]
+            },
+            {
+                c: "Tozeur", m: ["Tozeur",
+                    "Degache",
+                    "Hamet Jerid",
+                    "Nafta",
+                    "Tamerza"]
+            },
+            {
+                c: "Kebili", m: ["Kebili",
+                    "Djemna",
+                    "Douz",
+                    "El Golâa",
+                    "Souk Lahad"]
+            }
+        ];
+        this.route.queryParams.subscribe((res) => {
+            this.data = JSON.parse(res.p);
+        });
+        this.platform.backButton.subscribe(() => {
+            this.backward();
+        });
+        this.cities.forEach((elm) => {
+            elm.m.forEach(element => {
+                this.muni.push(element);
+            });
+        });
+        setup();
+    }
+    changedMuni(event) {
+        if (event.detail.value.toString().trim() == '')
+            return;
+        const m = event.detail.value.toString().trim();
+        this.cities.forEach((elm) => {
+            elm.m.forEach(element => {
+                if (m == element.toString().trim()) {
+                    this.data.city = elm.c.toString().trim();
+                    this.muni = elm.m;
+                    return;
+                }
+            });
+        });
+    }
+    changed(event) {
+        if (!this.clickByMouse)
+            return;
+        this.data.municipalite = '';
+        this.citieSelected = true;
+        this.cities.forEach(element => {
+            if (element.c.toString().trim() == event.detail.value.toString().trim())
+                this.muni = element.m;
+        });
+        this.clickByMouse = false;
+    }
+    backward() {
+        this.router.navigate(["/type-de-reclamation"], {
+            queryParams: { p: JSON.stringify(this.data) },
+        });
+    }
+    forward() {
+        this.router.navigate(["/information-de-reclamation"], {
+            queryParams: { p: JSON.stringify(this.data) },
+        });
+    }
+    checkDataEmpty() {
+        if (this.data.email !== "" && this.data.city !== "")
+            return true;
+        return false;
+    }
+    ngOnInit() {
+    }
+    ionViewWillEnter() {
+        let pos = map();
+        this.data.lat = pos[0];
+        this.data.lng = pos[1];
+        map();
+        const ionSelects = document.querySelectorAll('ion-select');
+        ionSelects.forEach((sel) => {
+            sel.shadowRoot.querySelectorAll('.select-icon-inner')
+                .forEach((elem) => {
+                elem.setAttribute('style', 'display: none;');
+            });
+        });
+    }
+    GetLatLng() {
+        let pos = getLatLng();
+        this.data.lat = pos.lat;
+        this.data.lng = pos.lng;
+        collectData(pos.lat, pos.lng, this.Module);
+        setTimeout(() => {
+            if (this.data.city != returnToTs() && this.data.city != '')
+                this.presentPopover(null, {
+                    bigImage: "assets/images/geoLocation.png",
+                    content: "Your Selected City is Not in this area you maybe mean you live in " + returnToTs() + " So We fix it for you !"
+                });
+            this.data.city = returnToTs();
+            this.data.municipalite = '';
+            this.cities.forEach(element => {
+                if (element.c.toString().trim() == this.data.city)
+                    this.muni = element.m;
+            });
+        }, 100);
+    }
+    trainModule() {
+        this.Module = train();
+    }
+    presentPopover(ev, type) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            const popover = yield this.popOver.create({
+                component: src_app_popover_component_popover_component_component__WEBPACK_IMPORTED_MODULE_3__["PopoverComponentComponent"],
+                event: ev,
+                componentProps: type,
+                translucent: true,
+                animated: true,
+                backdropDismiss: false
+            });
+            return yield popover.present();
+        });
+    }
+};
+InformationPersonnelPage.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["Platform"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["PopoverController"] }
+];
+InformationPersonnelPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-information-personnel',
+        template: __webpack_require__(/*! raw-loader!./information-personnel.page.html */ "./node_modules/raw-loader/index.js!./src/app/pages/information-personnel/information-personnel.page.html"),
+        styles: [__webpack_require__(/*! ./information-personnel.page.scss */ "./src/app/pages/information-personnel/information-personnel.page.scss")]
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["Platform"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["PopoverController"]])
+], InformationPersonnelPage);
+
+
+
+/***/ })
+
+}]);
+//# sourceMappingURL=pages-information-personnel-information-personnel-module.js.map

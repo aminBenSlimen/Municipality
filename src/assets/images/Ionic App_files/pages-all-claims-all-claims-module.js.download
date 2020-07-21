@@ -1,0 +1,264 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["pages-all-claims-all-claims-module"],{
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/pages/all-claims/all-claims.page.html":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/pages/all-claims/all-claims.page.html ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ion-content>\n  <div *ngIf=\"searchBar == ''\" style=\"padding-left: 15%;\n  margin-left: 2.1%;\n  padding-top: 3.5%;\n    position: fixed;\n    width: 96%;\n    height: 6.7%;\n    margin-top: 2%;\n    z-index: 10;\">Your City</div>\n  <ion-searchbar [showCancelButton]=\"never\" (keyup)=\" filterList($event)\" placeholder=\"\">\n  </ion-searchbar>\n  <img class=\"background\" src=\"./assets/images/aboutBg.png\" alt=\"\" srcset=\"\">\n\n  <ion-card (click)=\"forward()\" *ngFor=\"let claim of claims\"\n    style=\"background:  linear-gradient(0deg, #fbdab8, #ffa3a3);\">\n    <img [src]=\"getImgContent(claim.image)\" />\n    <ion-card-header>\n      <ion-card-subtitle>\n        <ion-icon name=\"pin\" style=\"margin-bottom: -1px;\"></ion-icon> {{claim.city}} | {{claim.municipalite}}\n      </ion-card-subtitle>\n      <ion-card-title style=\"color: #0c1925;font-size:30px;text-transform:uppercase;padding-left: 3px;\">\n        {{claim.subject}}</ion-card-title>\n      <ion-text style=\"padding-left: 3px;\">{{getTime(claim.created_at)}}</ion-text>\n    </ion-card-header>\n  </ion-card>\n  <h3 style=\"padding: 1em;padding-top: 2em;\" *ngIf=\"showSkeleton\">\n    <ion-skeleton-text animated style=\"width: 100%;padding: 3em;\"></ion-skeleton-text>\n  </h3>\n  <h3 style=\"padding: 1em;padding-top: 2em;\" *ngIf=\"showSkeleton\">\n    <ion-skeleton-text animated style=\"width: 100%;padding: 3em;\"></ion-skeleton-text>\n  </h3>\n  <h3 style=\"padding: 1em;padding-top: 2em;\" *ngIf=\"showSkeleton\">\n    <ion-skeleton-text animated style=\"width: 100%;padding: 3em;\"></ion-skeleton-text>\n  </h3>\n  <h3 style=\"padding: 1em;padding-top: 2em;\" *ngIf=\"showSkeleton\">\n    <ion-skeleton-text animated style=\"width: 100%;padding: 3em;\"></ion-skeleton-text>\n  </h3>\n</ion-content>"
+
+/***/ }),
+
+/***/ "./src/app/pages/all-claims/all-claims-routing.module.ts":
+/*!***************************************************************!*\
+  !*** ./src/app/pages/all-claims/all-claims-routing.module.ts ***!
+  \***************************************************************/
+/*! exports provided: AllClaimsPageRoutingModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AllClaimsPageRoutingModule", function() { return AllClaimsPageRoutingModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _all_claims_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./all-claims.page */ "./src/app/pages/all-claims/all-claims.page.ts");
+
+
+
+
+const routes = [
+    {
+        path: '',
+        component: _all_claims_page__WEBPACK_IMPORTED_MODULE_3__["AllClaimsPage"]
+    }
+];
+let AllClaimsPageRoutingModule = class AllClaimsPageRoutingModule {
+};
+AllClaimsPageRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
+        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]],
+    })
+], AllClaimsPageRoutingModule);
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/all-claims/all-claims.module.ts":
+/*!*******************************************************!*\
+  !*** ./src/app/pages/all-claims/all-claims.module.ts ***!
+  \*******************************************************/
+/*! exports provided: AllClaimsPageModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AllClaimsPageModule", function() { return AllClaimsPageModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _all_claims_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./all-claims-routing.module */ "./src/app/pages/all-claims/all-claims-routing.module.ts");
+/* harmony import */ var _all_claims_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./all-claims.page */ "./src/app/pages/all-claims/all-claims.page.ts");
+
+
+
+
+
+
+
+let AllClaimsPageModule = class AllClaimsPageModule {
+};
+AllClaimsPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        imports: [
+            _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"],
+            _all_claims_routing_module__WEBPACK_IMPORTED_MODULE_5__["AllClaimsPageRoutingModule"]
+        ],
+        declarations: [_all_claims_page__WEBPACK_IMPORTED_MODULE_6__["AllClaimsPage"]]
+    })
+], AllClaimsPageModule);
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/all-claims/all-claims.page.scss":
+/*!*******************************************************!*\
+  !*** ./src/app/pages/all-claims/all-claims.page.scss ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "ion-content {\n  padding-top: 6em;\n  --background: linear-gradient(0deg, #f8ebcf, #fac1c1);\n  --padding-bottom: 6em;\n}\n\nion-card {\n  width: 80%;\n  left: 7%;\n  margin-top: 3em;\n  height: 55%;\n  border-radius: 5%;\n  margin-top: 6em;\n  margin-bottom: -3em;\n  box-shadow: none;\n}\n\nion-searchbar {\n  position: fixed;\n  z-index: 10;\n  background: none;\n  --background: #ffffff;\n  opacity: 0.6;\n}\n\nion-card-header {\n  height: 40%;\n  padding-bottom: 2em;\n  padding-top: 2em;\n  position: absolute;\n  bottom: 0;\n  background: white;\n  width: 100%;\n  border-radius: 0em 0em 1em 1em;\n}\n\n.background {\n  position: fixed;\n  height: 100%;\n  width: 100%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvYWxsLWNsYWltcy9EOlxcd2ViUHJvamVjdFxcaW9uaWNcXE11bmljaXBhbGl0ZS9zcmNcXGFwcFxccGFnZXNcXGFsbC1jbGFpbXNcXGFsbC1jbGFpbXMucGFnZS5zY3NzIiwic3JjL2FwcC9wYWdlcy9hbGwtY2xhaW1zL2FsbC1jbGFpbXMucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUVBO0VBQ0ksZ0JBQUE7RUFDQSxxREFBQTtFQUNBLHFCQUFBO0FDREo7O0FER0E7RUFDSSxVQUFBO0VBQ0EsUUFBQTtFQUNBLGVBQUE7RUFDQSxXQUFBO0VBQ0EsaUJBQUE7RUFDQSxlQUFBO0VBQ0EsbUJBQUE7RUFDQSxnQkFBQTtBQ0FKOztBREVBO0VBRUksZUFBQTtFQUNBLFdBQUE7RUFDQSxnQkFBQTtFQUNBLHFCQUFBO0VBQ0EsWUFBQTtBQ0FKOztBREdBO0VBQ0ksV0FBQTtFQUNBLG1CQUFBO0VBQ0EsZ0JBQUE7RUFDQSxrQkFBQTtFQUNBLFNBQUE7RUFDQSxpQkFBQTtFQUNBLFdBQUE7RUFDQSw4QkFBQTtBQ0FKOztBREVBO0VBQ0ksZUFBQTtFQUNBLFlBQUE7RUFDQSxXQUFBO0FDQ0oiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9hbGwtY2xhaW1zL2FsbC1jbGFpbXMucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiXHJcblxyXG5pb24tY29udGVudHtcclxuICAgIHBhZGRpbmctdG9wOiA2ZW07XHJcbiAgICAtLWJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCgwZGVnLCAjZjhlYmNmLCAjZmFjMWMxKTtcclxuICAgIC0tcGFkZGluZy1ib3R0b206IDZlbTtcclxufVxyXG5pb24tY2FyZHtcclxuICAgIHdpZHRoOiA4MCU7XHJcbiAgICBsZWZ0OiA3JTtcclxuICAgIG1hcmdpbi10b3A6IDNlbTtcclxuICAgIGhlaWdodDogNTUlO1xyXG4gICAgYm9yZGVyLXJhZGl1czogNSU7XHJcbiAgICBtYXJnaW4tdG9wOiA2ZW07XHJcbiAgICBtYXJnaW4tYm90dG9tOiAtM2VtO1xyXG4gICAgYm94LXNoYWRvdzogbm9uZTtcclxufVxyXG5pb24tc2VhcmNoYmFye1xyXG5cclxuICAgIHBvc2l0aW9uOiBmaXhlZDtcclxuICAgIHotaW5kZXg6IDEwO1xyXG4gICAgYmFja2dyb3VuZDogbm9uZTtcclxuICAgIC0tYmFja2dyb3VuZDogI2ZmZmZmZjtcclxuICAgIG9wYWNpdHk6IC42O1xyXG4gICAgIFxyXG59XHJcbmlvbi1jYXJkLWhlYWRlcntcclxuICAgIGhlaWdodDogNDAlO1xyXG4gICAgcGFkZGluZy1ib3R0b206IDJlbTtcclxuICAgIHBhZGRpbmctdG9wOiAyZW07XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICBib3R0b206IDA7XHJcbiAgICBiYWNrZ3JvdW5kOiB3aGl0ZTtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgYm9yZGVyLXJhZGl1czogMGVtIDBlbSAxZW0gMWVtO1xyXG59XHJcbi5iYWNrZ3JvdW5ke1xyXG4gICAgcG9zaXRpb246IGZpeGVkO1xyXG4gICAgaGVpZ2h0OiAxMDAlO1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbn0iLCJpb24tY29udGVudCB7XG4gIHBhZGRpbmctdG9wOiA2ZW07XG4gIC0tYmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KDBkZWcsICNmOGViY2YsICNmYWMxYzEpO1xuICAtLXBhZGRpbmctYm90dG9tOiA2ZW07XG59XG5cbmlvbi1jYXJkIHtcbiAgd2lkdGg6IDgwJTtcbiAgbGVmdDogNyU7XG4gIG1hcmdpbi10b3A6IDNlbTtcbiAgaGVpZ2h0OiA1NSU7XG4gIGJvcmRlci1yYWRpdXM6IDUlO1xuICBtYXJnaW4tdG9wOiA2ZW07XG4gIG1hcmdpbi1ib3R0b206IC0zZW07XG4gIGJveC1zaGFkb3c6IG5vbmU7XG59XG5cbmlvbi1zZWFyY2hiYXIge1xuICBwb3NpdGlvbjogZml4ZWQ7XG4gIHotaW5kZXg6IDEwO1xuICBiYWNrZ3JvdW5kOiBub25lO1xuICAtLWJhY2tncm91bmQ6ICNmZmZmZmY7XG4gIG9wYWNpdHk6IDAuNjtcbn1cblxuaW9uLWNhcmQtaGVhZGVyIHtcbiAgaGVpZ2h0OiA0MCU7XG4gIHBhZGRpbmctYm90dG9tOiAyZW07XG4gIHBhZGRpbmctdG9wOiAyZW07XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgYm90dG9tOiAwO1xuICBiYWNrZ3JvdW5kOiB3aGl0ZTtcbiAgd2lkdGg6IDEwMCU7XG4gIGJvcmRlci1yYWRpdXM6IDBlbSAwZW0gMWVtIDFlbTtcbn1cblxuLmJhY2tncm91bmQge1xuICBwb3NpdGlvbjogZml4ZWQ7XG4gIGhlaWdodDogMTAwJTtcbiAgd2lkdGg6IDEwMCU7XG59Il19 */"
+
+/***/ }),
+
+/***/ "./src/app/pages/all-claims/all-claims.page.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/pages/all-claims/all-claims.page.ts ***!
+  \*****************************************************/
+/*! exports provided: AllClaimsPage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AllClaimsPage", function() { return AllClaimsPage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var src_app_services_http_http_claim_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/http/http-claim.service */ "./src/app/services/http/http-claim.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/network/ngx */ "./node_modules/@ionic-native/network/ngx/index.js");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
+/* harmony import */ var src_app_popover_component_popover_component_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/popover-component/popover-component.component */ "./src/app/popover-component/popover-component.component.ts");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+
+
+
+
+
+
+
+
+let AllClaimsPage = class AllClaimsPage {
+    constructor(sanitizer, network, http, router, popOver) {
+        this.sanitizer = sanitizer;
+        this.network = network;
+        this.http = http;
+        this.router = router;
+        this.popOver = popOver;
+        this.claims = [];
+        this.oxClaims = [];
+        this.searchBar = "";
+        this.showSkeleton = true;
+        this.claims = this.http.getData();
+        this.oxClaims = this.claims;
+        setTimeout(() => {
+            this.showSkeleton = false;
+            if (this.claims.length == 0) {
+                this.presentPopover({
+                    bigImage: './assets/images/nodata.png',
+                    content: 'No Claims !'
+                });
+            }
+        }, 4000);
+    }
+    getImgContent(image) {
+        if (image == './assets/images/NoImage.jpeg')
+            return './assets/images/NoImage.jpg';
+        else {
+            let x = this.sanitizer.bypassSecurityTrustResourceUrl(image);
+            return x;
+        }
+    }
+    filterList(evt) {
+        this.searchBar = evt.srcElement.value;
+        let result = [];
+        this.claims.forEach((item, index) => { if (result.indexOf(item) === -1)
+            result.push(item); });
+        this.claims = result;
+        this.claims = this.oxClaims;
+        const searchTerm = evt.srcElement.value;
+        if (!searchTerm) {
+            return;
+        }
+        this.claims = this.claims.filter(currentGoal => {
+            if (currentGoal.city && searchTerm) {
+                if (currentGoal.city.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1) {
+                    return true;
+                }
+                return false;
+            }
+        });
+    }
+    reset() {
+        this.claims = this.oxClaims;
+    }
+    setTime(date) {
+        const year = new Date().getFullYear();
+        const month = new Date().getMonth() + 1;
+        const day = new Date().getDate();
+        const hour = new Date().getHours();
+        const minutes = new Date().getMinutes();
+        const Dyear = Number(date.substring(0, 4));
+        const Dmonth = Number(date.substring(5, 7));
+        const Dday = Number(date.substring(8, 11));
+        const Dhour = Number(date.substring(11, 13)) + 1;
+        const Dminutes = Number(date.substring(14, 16));
+        let d = '';
+        if (year - Dyear > 1)
+            return year - Dyear + " Years Ago ";
+        if (year - Dyear == 1)
+            return month + (12 - Dmonth) + " Months Ago ";
+        if (month - Dmonth > 1)
+            return month - Dmonth + " Months Ago ";
+        if (month - Dmonth == 1)
+            return day + (30 - Dday) + " Days Ago ";
+        if (day - Dday > 1)
+            return day - Dday + " Days Ago ";
+        if (day - Dday == 1)
+            return hour + (24 - Dhour) + " Hours And ";
+        if (hour - Dhour > 1)
+            return hour - Dhour + " Hours And " + (minutes - Dminutes) + "Munites Ago";
+        if (hour - Dhour == 1)
+            return minutes - Dminutes + " Minutes Ago ";
+        if (minutes - Dminutes == 0)
+            return "Just Now !";
+        else
+            return minutes - Dminutes + " Minutes Ago ";
+        //return d;
+    }
+    ngOnInit() {
+    }
+    forward() {
+        this.router.navigate(["/welcome"]);
+    }
+    getTime(claim) {
+        return this.setTime(claim);
+    }
+    presentPopover(cont) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            const popover = yield this.popOver.create({
+                component: src_app_popover_component_popover_component_component__WEBPACK_IMPORTED_MODULE_6__["PopoverComponentComponent"],
+                componentProps: cont,
+                translucent: true,
+                animated: true,
+                backdropDismiss: false
+            });
+            return yield popover.present();
+        });
+    }
+};
+AllClaimsPage.ctorParameters = () => [
+    { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__["DomSanitizer"] },
+    { type: _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_4__["Network"] },
+    { type: src_app_services_http_http_claim_service__WEBPACK_IMPORTED_MODULE_2__["HttpClaimService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["PopoverController"] }
+];
+AllClaimsPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-all-claims',
+        template: __webpack_require__(/*! raw-loader!./all-claims.page.html */ "./node_modules/raw-loader/index.js!./src/app/pages/all-claims/all-claims.page.html"),
+        styles: [__webpack_require__(/*! ./all-claims.page.scss */ "./src/app/pages/all-claims/all-claims.page.scss")]
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__["DomSanitizer"],
+        _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_4__["Network"],
+        src_app_services_http_http_claim_service__WEBPACK_IMPORTED_MODULE_2__["HttpClaimService"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["PopoverController"]])
+], AllClaimsPage);
+
+
+
+/***/ })
+
+}]);
+//# sourceMappingURL=pages-all-claims-all-claims-module.js.map

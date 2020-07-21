@@ -1,0 +1,277 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["pages-type-de-reclamation-type-de-reclamation-module"],{
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/pages/type-de-reclamation/type-de-reclamation.page.html":
+/*!***************************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/pages/type-de-reclamation/type-de-reclamation.page.html ***!
+  \***************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<link href=\"https://fonts.googleapis.com/css?family=Montserrat&display=swap\" rel=\"stylesheet\">\n\n<ion-content>\n  <div class=\"head\"></div>\n  <div class=\"background\">\n  </div>\n  <!-- <img class=\"background\" src=\"./assets/images/aboutBg.png\" alt=\"\" srcset=\"\"> -->\n\n  <img id=\"back\" src=\"./assets/icon/back.png\" style=\"position: absolute;\n    position: fixed;\n    width: 7%;\n    z-index: 10;\n    top: 3%;\n    left: 8%;\n    margin: 0;\" (click)=\"backward()\">\n  <img *ngIf=\"checkDataEmpty()\" style=\"position: fixed;\n    width: 7%;\n    z-index: 10;\n    top: 3%;\n    right : 8%;\n    margin: 0;\" (click)=\"forward()\" id=\" forward\" src=\"./assets/icon/forward.png\" (click)=\"forward()\">\n  <ion-grid style=\"height: 100%;margin-top: 20%;padding: 1em;overflow: auto;\">\n    <ion-row class=\"ion-justify-content-around\" style=\"align-items: stretch;height: 100%;\">\n      <ion-col *ngFor=\" let type of types\" size=\"6\" style=\"padding:1em;height: 35%;\">\n        <ion-card (click)=\"changeType(type)\" [ngStyle]=\"{'background-color': type.color}\"\n          style=\"width: 100%;height: 100%;margin: 0;\">\n          <img src=\"{{type.image}}\" class=\"cardImg\" />\n          <ion-icon name=\"open\" class=\"cardIcon\" (click)=\"presentPopover($event,type)\">\n          </ion-icon>\n          <ion-card-header>\n            <ion-card-title class=\"cardTitle\">\n              {{type.name}}\n            </ion-card-title>\n          </ion-card-header>\n        </ion-card>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n  <!-- \n  </div> -->\n\n\n  <div style=\"position: fixed;bottom: 0;background: bisque;width: 100%;height: 10%;\">\n    <ion-button (click)=\"confirm()\"\n      style=\"font-family:'Montserrat';--border-radius:50px;width:70%;margin-left: 7%;--background: linear-gradient(90deg, #ebab6c, #f88686);--box-shadow: none;\">\n      Confirm\n    </ion-button>\n    <div class=\"customType\">\n      <ion-icon style=\"margin-top: 17%;\n      margin-left: 0.2%;font-size: 23px;\" (click)=\"customType()\" name=\"add\"></ion-icon>\n    </div>\n  </div>\n</ion-content>"
+
+/***/ }),
+
+/***/ "./src/app/pages/type-de-reclamation/type-de-reclamation-routing.module.ts":
+/*!*********************************************************************************!*\
+  !*** ./src/app/pages/type-de-reclamation/type-de-reclamation-routing.module.ts ***!
+  \*********************************************************************************/
+/*! exports provided: TypeDeReclamationPageRoutingModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TypeDeReclamationPageRoutingModule", function() { return TypeDeReclamationPageRoutingModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _type_de_reclamation_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./type-de-reclamation.page */ "./src/app/pages/type-de-reclamation/type-de-reclamation.page.ts");
+
+
+
+
+const routes = [
+    {
+        path: '',
+        component: _type_de_reclamation_page__WEBPACK_IMPORTED_MODULE_3__["TypeDeReclamationPage"]
+    }
+];
+let TypeDeReclamationPageRoutingModule = class TypeDeReclamationPageRoutingModule {
+};
+TypeDeReclamationPageRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
+        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]],
+    })
+], TypeDeReclamationPageRoutingModule);
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/type-de-reclamation/type-de-reclamation.module.ts":
+/*!*************************************************************************!*\
+  !*** ./src/app/pages/type-de-reclamation/type-de-reclamation.module.ts ***!
+  \*************************************************************************/
+/*! exports provided: TypeDeReclamationPageModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TypeDeReclamationPageModule", function() { return TypeDeReclamationPageModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _type_de_reclamation_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./type-de-reclamation-routing.module */ "./src/app/pages/type-de-reclamation/type-de-reclamation-routing.module.ts");
+/* harmony import */ var _type_de_reclamation_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./type-de-reclamation.page */ "./src/app/pages/type-de-reclamation/type-de-reclamation.page.ts");
+
+
+
+
+
+
+
+let TypeDeReclamationPageModule = class TypeDeReclamationPageModule {
+};
+TypeDeReclamationPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        imports: [
+            _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"],
+            _type_de_reclamation_routing_module__WEBPACK_IMPORTED_MODULE_5__["TypeDeReclamationPageRoutingModule"]
+        ],
+        declarations: [_type_de_reclamation_page__WEBPACK_IMPORTED_MODULE_6__["TypeDeReclamationPage"]]
+    })
+], TypeDeReclamationPageModule);
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/type-de-reclamation/type-de-reclamation.page.scss":
+/*!*************************************************************************!*\
+  !*** ./src/app/pages/type-de-reclamation/type-de-reclamation.page.scss ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "ion-button {\n  margin-top: 4%;\n}\n\nion-content {\n  top: 0;\n  width: 100%;\n  padding-top: 6em;\n  --background: bisque;\n  --padding-bottom: 6em;\n}\n\nimg {\n  width: 70%;\n  margin-left: 15%;\n  margin-left: 15%;\n}\n\nmain {\n  margin-top: 50px;\n  border-radius: 50px;\n}\n\n.cardTitle {\n  color: #0c1925;\n  font-size: 18px;\n  text-transform: uppercase;\n  padding-left: 3px;\n}\n\n.cardIcon {\n  position: absolute;\n  color: white;\n  right: 5%;\n  top: 5%;\n}\n\n.cardImg {\n  position: absolute;\n  width: 100%;\n  padding: 25%;\n  margin: 0;\n  bottom: 20%;\n  height: 100%;\n}\n\n.background {\n  z-index: 0;\n  position: fixed;\n  height: 100%;\n  width: 100%;\n  border-radius: 25px;\n  top: 10%;\n  background: #c9b6a0;\n}\n\n.customType {\n  position: absolute;\n  width: 2.4em;\n  height: 2.4em;\n  left: 0;\n  margin-top: 4%;\n  top: 0;\n  margin-left: 83%;\n  text-align: center;\n  color: white;\n  border-radius: 50%;\n  background: #1c3b4d;\n}\n\nion-card {\n  box-shadow: none;\n  border-radius: unset;\n  width: 10%;\n}\n\n.head {\n  position: fixed;\n  width: 100%;\n  height: 10%;\n  background: bisque;\n  z-index: 5;\n}\n\nion-card-header {\n  font-size: 10px;\n  text-align: center;\n  font-family: \"Montserrat\";\n  font-weight: 800;\n  position: absolute;\n  bottom: 0;\n  background: white;\n  width: 100%;\n  padding-left: 0;\n  padding-right: 0;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvdHlwZS1kZS1yZWNsYW1hdGlvbi9EOlxcd2ViUHJvamVjdFxcaW9uaWNcXE11bmljaXBhbGl0ZS9zcmNcXGFwcFxccGFnZXNcXHR5cGUtZGUtcmVjbGFtYXRpb25cXHR5cGUtZGUtcmVjbGFtYXRpb24ucGFnZS5zY3NzIiwic3JjL2FwcC9wYWdlcy90eXBlLWRlLXJlY2xhbWF0aW9uL3R5cGUtZGUtcmVjbGFtYXRpb24ucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksY0FBQTtBQ0NKOztBREVBO0VBQ0ksTUFBQTtFQUNBLFdBQUE7RUFDQSxnQkFBQTtFQUNBLG9CQUFBO0VBQ0EscUJBQUE7QUNDSjs7QURDQTtFQUNJLFVBQUE7RUFDQSxnQkFBQTtFQUNBLGdCQUFBO0FDRUo7O0FERUE7RUFDSSxnQkFBQTtFQUNBLG1CQUFBO0FDQ0o7O0FEQ0E7RUFDSSxjQUFBO0VBQ0EsZUFBQTtFQUNBLHlCQUFBO0VBQ0EsaUJBQUE7QUNFSjs7QURBQTtFQUNJLGtCQUFBO0VBQ0EsWUFBQTtFQUNBLFNBQUE7RUFDQSxPQUFBO0FDR0o7O0FEREE7RUFFSSxrQkFBQTtFQUNBLFdBQUE7RUFDQSxZQUFBO0VBQ0EsU0FBQTtFQUNBLFdBQUE7RUFDQSxZQUFBO0FDR0o7O0FEQUE7RUFDSSxVQUFBO0VBQ0EsZUFBQTtFQUNBLFlBQUE7RUFDQSxXQUFBO0VBQ0EsbUJBQUE7RUFDQSxRQUFBO0VBQ0EsbUJBQUE7QUNHSjs7QURBQTtFQUNJLGtCQUFBO0VBQ0EsWUFBQTtFQUNBLGFBQUE7RUFDQSxPQUFBO0VBQ0EsY0FBQTtFQUNBLE1BQUE7RUFDQSxnQkFBQTtFQUNBLGtCQUFBO0VBQ0EsWUFBQTtFQUNBLGtCQUFBO0VBQ0EsbUJBQUE7QUNHSjs7QUREQTtFQUNJLGdCQUFBO0VBQ0Esb0JBQUE7RUFDQSxVQUFBO0FDSUo7O0FERkE7RUFDRSxlQUFBO0VBQ0EsV0FBQTtFQUNBLFdBQUE7RUFDQSxrQkFBQTtFQUNBLFVBQUE7QUNLRjs7QURIQTtFQUNJLGVBQUE7RUFDQSxrQkFBQTtFQUNELHlCQUFBO0VBQ0EsZ0JBQUE7RUFDQyxrQkFBQTtFQUNBLFNBQUE7RUFDQSxpQkFBQTtFQUNBLFdBQUE7RUFDQSxlQUFBO0VBQ0EsZ0JBQUE7QUNNSiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3R5cGUtZGUtcmVjbGFtYXRpb24vdHlwZS1kZS1yZWNsYW1hdGlvbi5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJpb24tYnV0dG9ue1xyXG4gICAgbWFyZ2luLXRvcDogNCU7XHJcbn1cclxuXHJcbmlvbi1jb250ZW50e1xyXG4gICAgdG9wOiAwO1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBwYWRkaW5nLXRvcDogNmVtO1xyXG4gICAgLS1iYWNrZ3JvdW5kOiBiaXNxdWU7XHJcbiAgICAtLXBhZGRpbmctYm90dG9tOiA2ZW07XHJcbn1cclxuaW1ne1xyXG4gICAgd2lkdGg6IDcwJTtcclxuICAgIG1hcmdpbi1sZWZ0OiAxNSU7XHJcbiAgICBtYXJnaW4tbGVmdDogMTUlO1xyXG59XHJcblxyXG5cclxubWFpbntcclxuICAgIG1hcmdpbi10b3A6IDUwcHg7IFxyXG4gICAgYm9yZGVyLXJhZGl1czogNTBweDtcclxufVxyXG4uY2FyZFRpdGxle1xyXG4gICAgY29sb3I6ICMwYzE5MjU7XHJcbiAgICBmb250LXNpemU6MThweDtcclxuICAgIHRleHQtdHJhbnNmb3JtOnVwcGVyY2FzZTtcclxuICAgIHBhZGRpbmctbGVmdDogM3B4O1xyXG59XHJcbi5jYXJkSWNvbntcclxuICAgIHBvc2l0aW9uOmFic29sdXRlO1xyXG4gICAgY29sb3I6IHdoaXRlO1xyXG4gICAgcmlnaHQ6IDUlO1xyXG4gICAgdG9wOiA1JTtcclxufVxyXG4uY2FyZEltZ3tcclxuICAgIFxyXG4gICAgcG9zaXRpb246YWJzb2x1dGU7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIHBhZGRpbmc6IDI1JTtcclxuICAgIG1hcmdpbjogMDtcclxuICAgIGJvdHRvbTogMjAlO1xyXG4gICAgaGVpZ2h0OiAxMDAlO1xyXG59XHJcblxyXG4uYmFja2dyb3VuZHtcclxuICAgIHotaW5kZXg6IDA7XHJcbiAgICBwb3NpdGlvbjogZml4ZWQ7XHJcbiAgICBoZWlnaHQ6IDEwMCU7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIGJvcmRlci1yYWRpdXM6IDI1cHg7XHJcbiAgICB0b3A6IDEwJTtcclxuICAgIGJhY2tncm91bmQ6ICNjOWI2YTA7XHJcbn1cclxuXHJcbi5jdXN0b21UeXBle1xyXG4gICAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgd2lkdGg6IDIuNGVtO1xyXG4gICAgaGVpZ2h0OiAyLjRlbTtcclxuICAgIGxlZnQ6IDA7XHJcbiAgICBtYXJnaW4tdG9wOiA0JTtcclxuICAgIHRvcDogMDtcclxuICAgIG1hcmdpbi1sZWZ0OiA4MyU7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICBjb2xvcjogd2hpdGU7XHJcbiAgICBib3JkZXItcmFkaXVzOiA1MCU7XHJcbiAgICBiYWNrZ3JvdW5kOiAjMWMzYjRkO1xyXG59XHJcbmlvbi1jYXJke1xyXG4gICAgYm94LXNoYWRvdzogbm9uZTtcclxuICAgIGJvcmRlci1yYWRpdXM6IHVuc2V0O1xyXG4gICAgd2lkdGg6IDEwJTtcclxufVxyXG4uaGVhZHtcclxuICBwb3NpdGlvbjogZml4ZWQ7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgaGVpZ2h0OiAxMCU7XHJcbiAgYmFja2dyb3VuZDogYmlzcXVlO1xyXG4gIHotaW5kZXg6IDU7XHJcbn1cclxuaW9uLWNhcmQtaGVhZGVye1xyXG4gICAgZm9udC1zaXplOiAxMHB4O1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICBmb250LWZhbWlseTogXCJNb250c2VycmF0XCI7XHJcbiAgIGZvbnQtd2VpZ2h0OiA4MDA7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICBib3R0b206IDA7XHJcbiAgICBiYWNrZ3JvdW5kOiB3aGl0ZTtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgcGFkZGluZy1sZWZ0OiAwO1xyXG4gICAgcGFkZGluZy1yaWdodDogMDtcclxufVxyXG4iLCJpb24tYnV0dG9uIHtcbiAgbWFyZ2luLXRvcDogNCU7XG59XG5cbmlvbi1jb250ZW50IHtcbiAgdG9wOiAwO1xuICB3aWR0aDogMTAwJTtcbiAgcGFkZGluZy10b3A6IDZlbTtcbiAgLS1iYWNrZ3JvdW5kOiBiaXNxdWU7XG4gIC0tcGFkZGluZy1ib3R0b206IDZlbTtcbn1cblxuaW1nIHtcbiAgd2lkdGg6IDcwJTtcbiAgbWFyZ2luLWxlZnQ6IDE1JTtcbiAgbWFyZ2luLWxlZnQ6IDE1JTtcbn1cblxubWFpbiB7XG4gIG1hcmdpbi10b3A6IDUwcHg7XG4gIGJvcmRlci1yYWRpdXM6IDUwcHg7XG59XG5cbi5jYXJkVGl0bGUge1xuICBjb2xvcjogIzBjMTkyNTtcbiAgZm9udC1zaXplOiAxOHB4O1xuICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xuICBwYWRkaW5nLWxlZnQ6IDNweDtcbn1cblxuLmNhcmRJY29uIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBjb2xvcjogd2hpdGU7XG4gIHJpZ2h0OiA1JTtcbiAgdG9wOiA1JTtcbn1cblxuLmNhcmRJbWcge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIHdpZHRoOiAxMDAlO1xuICBwYWRkaW5nOiAyNSU7XG4gIG1hcmdpbjogMDtcbiAgYm90dG9tOiAyMCU7XG4gIGhlaWdodDogMTAwJTtcbn1cblxuLmJhY2tncm91bmQge1xuICB6LWluZGV4OiAwO1xuICBwb3NpdGlvbjogZml4ZWQ7XG4gIGhlaWdodDogMTAwJTtcbiAgd2lkdGg6IDEwMCU7XG4gIGJvcmRlci1yYWRpdXM6IDI1cHg7XG4gIHRvcDogMTAlO1xuICBiYWNrZ3JvdW5kOiAjYzliNmEwO1xufVxuXG4uY3VzdG9tVHlwZSB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgd2lkdGg6IDIuNGVtO1xuICBoZWlnaHQ6IDIuNGVtO1xuICBsZWZ0OiAwO1xuICBtYXJnaW4tdG9wOiA0JTtcbiAgdG9wOiAwO1xuICBtYXJnaW4tbGVmdDogODMlO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIGNvbG9yOiB3aGl0ZTtcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xuICBiYWNrZ3JvdW5kOiAjMWMzYjRkO1xufVxuXG5pb24tY2FyZCB7XG4gIGJveC1zaGFkb3c6IG5vbmU7XG4gIGJvcmRlci1yYWRpdXM6IHVuc2V0O1xuICB3aWR0aDogMTAlO1xufVxuXG4uaGVhZCB7XG4gIHBvc2l0aW9uOiBmaXhlZDtcbiAgd2lkdGg6IDEwMCU7XG4gIGhlaWdodDogMTAlO1xuICBiYWNrZ3JvdW5kOiBiaXNxdWU7XG4gIHotaW5kZXg6IDU7XG59XG5cbmlvbi1jYXJkLWhlYWRlciB7XG4gIGZvbnQtc2l6ZTogMTBweDtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBmb250LWZhbWlseTogXCJNb250c2VycmF0XCI7XG4gIGZvbnQtd2VpZ2h0OiA4MDA7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgYm90dG9tOiAwO1xuICBiYWNrZ3JvdW5kOiB3aGl0ZTtcbiAgd2lkdGg6IDEwMCU7XG4gIHBhZGRpbmctbGVmdDogMDtcbiAgcGFkZGluZy1yaWdodDogMDtcbn0iXX0= */"
+
+/***/ }),
+
+/***/ "./src/app/pages/type-de-reclamation/type-de-reclamation.page.ts":
+/*!***********************************************************************!*\
+  !*** ./src/app/pages/type-de-reclamation/type-de-reclamation.page.ts ***!
+  \***********************************************************************/
+/*! exports provided: TypeDeReclamationPage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TypeDeReclamationPage", function() { return TypeDeReclamationPage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var src_app_popover_component_popover_component_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/popover-component/popover-component.component */ "./src/app/popover-component/popover-component.component.ts");
+
+
+
+
+
+let TypeDeReclamationPage = class TypeDeReclamationPage {
+    constructor(popOver, alert, router, route, platform) {
+        this.popOver = popOver;
+        this.alert = alert;
+        this.router = router;
+        this.route = route;
+        this.platform = platform;
+        this.data = {
+            type: "",
+            email: "",
+            city: "",
+            municipalite: "",
+            lat: 0,
+            lng: 0,
+            image: "",
+            subject: "",
+            description: "",
+            uid: ""
+        };
+        this.types = [
+            {
+                name: "Public", image: "./assets/logos/feuille.png", color: "#eca86e", content: "Select this Option if there is any thing related to green spaces",
+                bigImage: './assets/images/green.png'
+            },
+            {
+                name: "ligth", image: "./assets/logos/ligth.png", color: "#eca86e", content: "Select this Option if there is Some thing wrong in our Lighting system",
+                bigImage: './assets/images/illigal.png'
+            },
+            {
+                name: "trash", image: "./assets/logos/trash.png", color: "#eca86e", content: "Select this Option every ench in Tunisia And obvsiouly we aint coming",
+                bigImage: './assets/images/trash.png'
+            },
+            {
+                name: "illigal", image: "./assets/logos/structure.png", color: "#eca86e", content: "Select this option when ever you see any type of street Vendors And we will be happy to ruin their lives ",
+                bigImage: './assets/images/illigal.png'
+            },
+            { name: "structure", image: "./assets/logos/struct.png", color: "#eca86e", content: "ht", bigImage: './assets/images/illigal.png' },
+            { name: "parking", image: "./assets/logos/parking.png", color: "#eca86e", content: "hth", bigImage: './assets/images/illigal.png' },
+            {
+                name: "sink", image: "./assets/logos/sink.png", color: "#eca86e", content: "aze",
+                bigImage: './assets/images/sink.png'
+            },
+            { name: "roades", image: "./assets/logos/roades.png", color: "#eca86e", content: "n", bigImage: './assets/images/illigal.png' }
+        ];
+        this.route.queryParams.subscribe((res) => {
+            this.data = JSON.parse(res.p);
+            console.log(this.data);
+        });
+        this.platform.backButton.subscribe(() => {
+            this.backward();
+        });
+    }
+    ngOnInit() {
+    }
+    changeType(obj) {
+        this.data.type = obj.name;
+        this.types.forEach((element) => { element.color = '#eca86e'; });
+        let x = this.types[this.types.indexOf(obj)];
+        this.types[this.types.indexOf(obj)] = {
+            name: x.name,
+            image: x.image,
+            content: x.content,
+            color: "#f78885",
+            bigImage: x.bigImage
+        };
+    }
+    presentPopover(ev, type) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            const popover = yield this.popOver.create({
+                component: src_app_popover_component_popover_component_component__WEBPACK_IMPORTED_MODULE_4__["PopoverComponentComponent"],
+                event: ev,
+                componentProps: type,
+                translucent: true,
+                animated: true,
+                backdropDismiss: false
+            });
+            console.log(type);
+            return yield popover.present();
+        });
+    }
+    customType(message) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            const alert = yield this.alert.create({
+                header: 'nouveau type',
+                inputs: [{
+                        name: 'customType',
+                        type: 'text',
+                        label: 'your type',
+                        value: ''
+                    },],
+                message: message || 'donner le type de la reclamation',
+                buttons: [{
+                        text: "ok",
+                        handler: (value) => {
+                            this.data.type = value.customType;
+                            if (this.data.type !== "")
+                                this.router.navigate(["/information-personnel"], {
+                                    queryParams: { p: JSON.stringify(this.data) },
+                                });
+                            else
+                                this.customType("le type de reclamation est obligatoire");
+                        }
+                    }, "Cancel"]
+            });
+            yield alert.present();
+        });
+    }
+    confirm() {
+        this.router.navigate(["/information-personnel"], {
+            queryParams: { p: JSON.stringify(this.data) },
+        });
+    }
+    backward() {
+        this.router.navigate(["/welcome"], {
+            queryParams: { p: JSON.stringify(this.data) },
+        });
+    }
+    forward() {
+        this.router.navigate(["/information-personnel"], {
+            queryParams: { p: JSON.stringify(this.data) },
+        });
+    }
+    checkDataEmpty() {
+        if (this.data.type !== "" && this.data != null)
+            return true;
+        return false;
+    }
+};
+TypeDeReclamationPage.ctorParameters = () => [
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["PopoverController"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"] }
+];
+TypeDeReclamationPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-type-de-reclamation',
+        template: __webpack_require__(/*! raw-loader!./type-de-reclamation.page.html */ "./node_modules/raw-loader/index.js!./src/app/pages/type-de-reclamation/type-de-reclamation.page.html"),
+        styles: [__webpack_require__(/*! ./type-de-reclamation.page.scss */ "./src/app/pages/type-de-reclamation/type-de-reclamation.page.scss")]
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["PopoverController"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"]])
+], TypeDeReclamationPage);
+
+
+
+/***/ })
+
+}]);
+//# sourceMappingURL=pages-type-de-reclamation-type-de-reclamation-module.js.map

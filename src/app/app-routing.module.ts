@@ -5,6 +5,34 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  },
+  {
+    path: 'welcome',
+    loadChildren: () => import('./pages/welcome/welcome.module').then(m => m.WelcomePageModule)
+  },
+  {
+    path: 'information-personnel',
+    loadChildren: () => import('./pages/information-personnel/information-personnel.module').then(m => m.InformationPersonnelPageModule)
+  },
+  {
+    path: 'type-de-reclamation',
+    loadChildren: () => import('./pages/type-de-reclamation/type-de-reclamation.module').then(m => m.TypeDeReclamationPageModule)
+  },
+  {
+    path: 'information-de-reclamation',
+    loadChildren: () => import('./pages/information-de-reclamation/information-de-reclamation.module').then(m => m.InformationDeReclamationPageModule)
+  },
+  {
+    path: 'resultat-final',
+    loadChildren: () => import('./pages/resultat-final/resultat-final.module').then(m => m.ResultatFinalPageModule)
+  },
+  {
+    path: 'all-claims',
+    loadChildren: () => import('./pages/all-claims/all-claims.module').then( m => m.AllClaimsPageModule)
+  },
+  {
+    path: 'about-us',
+    loadChildren: () => import('./pages/about-us/about-us.module').then( m => m.AboutUsPageModule)
   }
 ];
 @NgModule({
@@ -13,4 +41,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

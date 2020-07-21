@@ -1,0 +1,23 @@
+ion-card-content{
+    height: 50%;
+    position: absolute;
+    width: 100%;
+    padding: 0;
+    background : #f57979;
+}
+ion-card-header{
+    z-index: 20;
+    height: 50%;
+    top: 0;
+    padding: 0;
+    
+}
+.content{
+    height: 100%;
+    padding: 1em;
+    padding-top: 3em;
+    z-index: 100;
+    font-size: 17px;
+    color: #ffffff;
+}
+

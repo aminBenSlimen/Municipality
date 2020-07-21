@@ -1,0 +1,52 @@
+<link *ngIf="Online" href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+<ion-content>
+
+
+  <br>
+  <div *ngIf="Online" class="has-animation animation-ltr" data-delay="10" style="width: 100%;">
+    <p class="bigger" style="z-index: 10;color: #333333;">Welcome to Municipality </p>
+  </div>
+  <div *ngIf="!Online" style="width: 100%;">
+    <p class="bigger" style="z-index: 10;color: #333333;">Welcome to Municipality </p>
+  </div>
+
+  <br>
+  <img src="./assets/images/aboutBg.png" alt="" srcset="">
+  <div *ngIf="Online" class="has-animation animation-rtl" data-delay="1000" style="width: 100%;height: 50%;">
+    <p class="text" style="width: 100%;height: 90%;">
+      This mobile application is build by two studient Amin Ben Slimen
+      And Med
+      Bahloul
+      in one mounth of trainsheep experience ,
+      Municipality is made with ionic as a front end framework and Laravel
+      as a back end api ,
+      Hope you like it <ion-icon name="heart"></ion-icon>
+      yah and this just more text so it locks OK . I'dont realy
+      know what to say
+    </p>
+
+    <ion-button (click)="forward()" class="btn" style="--background: linear-gradient(90deg, #ebab6c, #f88686);">
+      getting started
+    </ion-button>
+  </div>
+  <p *ngIf="!Online" class="text" style="width: 90%;position:absolute;left: 5%;border-radius: 25px;">
+    This mobile application is build by two studient Amin Ben Slimen
+    And Med
+    Bahloul
+    in one mounth of trainsheep experience ,
+    Municipality is made with ionic as a front end framework and Laravel
+    as a back end api ,
+    Hope you like it <ion-icon name="heart"></ion-icon>
+    yah and this just more text so it locks OK . I'dont realy
+    know what to say
+  </p>
+  <br>
+  <ion-button *ngIf="!Online" (click)="forward()" style="--background: linear-gradient(90deg, #ebab6c, #f88686);
+  position: absolute;bottom: 10%;height: 8%;">
+    getting started
+  </ion-button>
+
+
+
+</ion-content>

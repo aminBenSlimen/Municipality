@@ -1,0 +1,1140 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["main"],{
+
+/***/ "./$$_lazy_route_resource lazy recursive":
+/*!******************************************************!*\
+  !*** ./$$_lazy_route_resource lazy namespace object ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function webpackEmptyAsyncContext(req) {
+	// Here Promise.resolve().then() is used instead of new Promise() to prevent
+	// uncaught exception popping up in devtools
+	return Promise.resolve().then(function() {
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
+	});
+}
+webpackEmptyAsyncContext.keys = function() { return []; };
+webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
+module.exports = webpackEmptyAsyncContext;
+webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
+
+/***/ }),
+
+/***/ "./node_modules/@ionic/core/dist/esm lazy recursive ^\\.\\/.*\\.entry\\.js$ include: \\.entry\\.js$ exclude: \\.system\\.entry\\.js$":
+/*!*****************************************************************************************************************************************!*\
+  !*** ./node_modules/@ionic/core/dist/esm lazy ^\.\/.*\.entry\.js$ include: \.entry\.js$ exclude: \.system\.entry\.js$ namespace object ***!
+  \*****************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./ion-action-sheet-controller_8.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-action-sheet-controller_8.entry.js",
+		"common",
+		0
+	],
+	"./ion-action-sheet-ios.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-action-sheet-ios.entry.js",
+		"common",
+		1
+	],
+	"./ion-action-sheet-md.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-action-sheet-md.entry.js",
+		"common",
+		2
+	],
+	"./ion-alert-ios.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-alert-ios.entry.js",
+		"common",
+		3
+	],
+	"./ion-alert-md.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-alert-md.entry.js",
+		"common",
+		4
+	],
+	"./ion-app_8-ios.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-app_8-ios.entry.js",
+		"common",
+		5
+	],
+	"./ion-app_8-md.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-app_8-md.entry.js",
+		"common",
+		6
+	],
+	"./ion-avatar_3-ios.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-avatar_3-ios.entry.js",
+		"common",
+		7
+	],
+	"./ion-avatar_3-md.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-avatar_3-md.entry.js",
+		"common",
+		8
+	],
+	"./ion-back-button-ios.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-back-button-ios.entry.js",
+		"common",
+		9
+	],
+	"./ion-back-button-md.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-back-button-md.entry.js",
+		"common",
+		10
+	],
+	"./ion-backdrop-ios.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-backdrop-ios.entry.js",
+		11
+	],
+	"./ion-backdrop-md.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-backdrop-md.entry.js",
+		12
+	],
+	"./ion-button_2-ios.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-button_2-ios.entry.js",
+		"common",
+		13
+	],
+	"./ion-button_2-md.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-button_2-md.entry.js",
+		"common",
+		14
+	],
+	"./ion-card_5-ios.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-card_5-ios.entry.js",
+		"common",
+		15
+	],
+	"./ion-card_5-md.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-card_5-md.entry.js",
+		"common",
+		16
+	],
+	"./ion-checkbox-ios.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-checkbox-ios.entry.js",
+		"common",
+		17
+	],
+	"./ion-checkbox-md.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-checkbox-md.entry.js",
+		"common",
+		18
+	],
+	"./ion-chip-ios.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-chip-ios.entry.js",
+		"common",
+		19
+	],
+	"./ion-chip-md.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-chip-md.entry.js",
+		"common",
+		20
+	],
+	"./ion-col_3.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-col_3.entry.js",
+		21
+	],
+	"./ion-datetime_3-ios.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-datetime_3-ios.entry.js",
+		"common",
+		22
+	],
+	"./ion-datetime_3-md.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-datetime_3-md.entry.js",
+		"common",
+		23
+	],
+	"./ion-fab_3-ios.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-fab_3-ios.entry.js",
+		"common",
+		24
+	],
+	"./ion-fab_3-md.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-fab_3-md.entry.js",
+		"common",
+		25
+	],
+	"./ion-img.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-img.entry.js",
+		26
+	],
+	"./ion-infinite-scroll_2-ios.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-infinite-scroll_2-ios.entry.js",
+		"common",
+		27
+	],
+	"./ion-infinite-scroll_2-md.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-infinite-scroll_2-md.entry.js",
+		"common",
+		28
+	],
+	"./ion-input-ios.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-input-ios.entry.js",
+		"common",
+		29
+	],
+	"./ion-input-md.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-input-md.entry.js",
+		"common",
+		30
+	],
+	"./ion-item-option_3-ios.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-item-option_3-ios.entry.js",
+		"common",
+		31
+	],
+	"./ion-item-option_3-md.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-item-option_3-md.entry.js",
+		"common",
+		32
+	],
+	"./ion-item_8-ios.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-item_8-ios.entry.js",
+		"common",
+		33
+	],
+	"./ion-item_8-md.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-item_8-md.entry.js",
+		"common",
+		34
+	],
+	"./ion-loading-ios.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-loading-ios.entry.js",
+		"common",
+		35
+	],
+	"./ion-loading-md.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-loading-md.entry.js",
+		"common",
+		36
+	],
+	"./ion-menu_4-ios.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-menu_4-ios.entry.js",
+		"common",
+		37
+	],
+	"./ion-menu_4-md.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-menu_4-md.entry.js",
+		"common",
+		38
+	],
+	"./ion-modal-ios.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-modal-ios.entry.js",
+		"common",
+		39
+	],
+	"./ion-modal-md.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-modal-md.entry.js",
+		"common",
+		40
+	],
+	"./ion-nav_5.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-nav_5.entry.js",
+		"common",
+		41
+	],
+	"./ion-popover-ios.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-popover-ios.entry.js",
+		"common",
+		42
+	],
+	"./ion-popover-md.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-popover-md.entry.js",
+		"common",
+		43
+	],
+	"./ion-progress-bar-ios.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-progress-bar-ios.entry.js",
+		"common",
+		44
+	],
+	"./ion-progress-bar-md.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-progress-bar-md.entry.js",
+		"common",
+		45
+	],
+	"./ion-radio_2-ios.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-radio_2-ios.entry.js",
+		"common",
+		46
+	],
+	"./ion-radio_2-md.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-radio_2-md.entry.js",
+		"common",
+		47
+	],
+	"./ion-range-ios.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-range-ios.entry.js",
+		"common",
+		48
+	],
+	"./ion-range-md.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-range-md.entry.js",
+		"common",
+		49
+	],
+	"./ion-refresher_2-ios.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-refresher_2-ios.entry.js",
+		"common",
+		50
+	],
+	"./ion-refresher_2-md.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-refresher_2-md.entry.js",
+		"common",
+		51
+	],
+	"./ion-reorder_2-ios.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-reorder_2-ios.entry.js",
+		"common",
+		52
+	],
+	"./ion-reorder_2-md.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-reorder_2-md.entry.js",
+		"common",
+		53
+	],
+	"./ion-ripple-effect.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-ripple-effect.entry.js",
+		54
+	],
+	"./ion-route_4.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-route_4.entry.js",
+		"common",
+		55
+	],
+	"./ion-searchbar-ios.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-searchbar-ios.entry.js",
+		"common",
+		56
+	],
+	"./ion-searchbar-md.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-searchbar-md.entry.js",
+		"common",
+		57
+	],
+	"./ion-segment_2-ios.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-segment_2-ios.entry.js",
+		"common",
+		58
+	],
+	"./ion-segment_2-md.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-segment_2-md.entry.js",
+		"common",
+		59
+	],
+	"./ion-select_3-ios.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-select_3-ios.entry.js",
+		"common",
+		60
+	],
+	"./ion-select_3-md.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-select_3-md.entry.js",
+		"common",
+		61
+	],
+	"./ion-slide_2-ios.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-slide_2-ios.entry.js",
+		62
+	],
+	"./ion-slide_2-md.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-slide_2-md.entry.js",
+		63
+	],
+	"./ion-spinner.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-spinner.entry.js",
+		"common",
+		64
+	],
+	"./ion-split-pane-ios.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-split-pane-ios.entry.js",
+		65
+	],
+	"./ion-split-pane-md.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-split-pane-md.entry.js",
+		66
+	],
+	"./ion-tab-bar_2-ios.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-tab-bar_2-ios.entry.js",
+		"common",
+		67
+	],
+	"./ion-tab-bar_2-md.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-tab-bar_2-md.entry.js",
+		"common",
+		68
+	],
+	"./ion-tab_2.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-tab_2.entry.js",
+		"common",
+		69
+	],
+	"./ion-text.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-text.entry.js",
+		"common",
+		70
+	],
+	"./ion-textarea-ios.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-textarea-ios.entry.js",
+		"common",
+		71
+	],
+	"./ion-textarea-md.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-textarea-md.entry.js",
+		"common",
+		72
+	],
+	"./ion-toast-ios.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-toast-ios.entry.js",
+		"common",
+		73
+	],
+	"./ion-toast-md.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-toast-md.entry.js",
+		"common",
+		74
+	],
+	"./ion-toggle-ios.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-toggle-ios.entry.js",
+		"common",
+		75
+	],
+	"./ion-toggle-md.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-toggle-md.entry.js",
+		"common",
+		76
+	],
+	"./ion-virtual-scroll.entry.js": [
+		"./node_modules/@ionic/core/dist/esm/ion-virtual-scroll.entry.js",
+		77
+	]
+};
+function webpackAsyncContext(req) {
+	if(!__webpack_require__.o(map, req)) {
+		return Promise.resolve().then(function() {
+			var e = new Error("Cannot find module '" + req + "'");
+			e.code = 'MODULE_NOT_FOUND';
+			throw e;
+		});
+	}
+
+	var ids = map[req], id = ids[0];
+	return Promise.all(ids.slice(1).map(__webpack_require__.e)).then(function() {
+		return __webpack_require__(id);
+	});
+}
+webpackAsyncContext.keys = function webpackAsyncContextKeys() {
+	return Object.keys(map);
+};
+webpackAsyncContext.id = "./node_modules/@ionic/core/dist/esm lazy recursive ^\\.\\/.*\\.entry\\.js$ include: \\.entry\\.js$ exclude: \\.system\\.entry\\.js$";
+module.exports = webpackAsyncContext;
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/app.component.html":
+/*!**************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/app.component.html ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ion-app>\n  <ion-router-outlet></ion-router-outlet>\n</ion-app>\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/popover-component/popover-component.component.html":
+/*!**********************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/popover-component/popover-component.component.html ***!
+  \**********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ion-card style=\"height: 100%;text-align: center;box-shadow : none ;\">\n  <ion-card-header>\n    <img src=\"{{type.bigImage}}\" style=\"position: absolute;left: 5%;\n    width: 90%;\">\n  </ion-card-header>\n  <ion-card-content>\n    <div *ngIf=\"type.content != 'No Claims !'\" class=\"content\">{{type.content}}</div>\n    <div *ngIf=\"type.content == 'No Claims !'\" class=\"content\" style=\"font-size: 30px;\">No Claims !</div>\n    <ion-card-title (click)=\"dismissPopover()\" style=\"color: #404040;font-weight: 700;font-size:18px;text-transform:uppercase;padding-left: 3px;position:absolute;bottom: 10%;\n      right: 10%;font-size: 15px;\">\n\n      Got It! </ion-card-title>\n  </ion-card-content>\n</ion-card>"
+
+/***/ }),
+
+/***/ "./node_modules/webpack/hot sync ^\\.\\/log$":
+/*!*************************************************!*\
+  !*** (webpack)/hot sync nonrecursive ^\.\/log$ ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./log": "./node_modules/webpack/hot/log.js"
+};
+
+
+function webpackContext(req) {
+	var id = webpackContextResolve(req);
+	return __webpack_require__(id);
+}
+function webpackContextResolve(req) {
+	if(!__webpack_require__.o(map, req)) {
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
+	}
+	return map[req];
+}
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = "./node_modules/webpack/hot sync ^\\.\\/log$";
+
+/***/ }),
+
+/***/ "./src/app/app-routing.module.ts":
+/*!***************************************!*\
+  !*** ./src/app/app-routing.module.ts ***!
+  \***************************************/
+/*! exports provided: AppRoutingModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppRoutingModule", function() { return AppRoutingModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+
+
+
+const routes = [
+    {
+        path: '',
+        loadChildren: () => __webpack_require__.e(/*! import() | tabs-tabs-module */ "tabs-tabs-module").then(__webpack_require__.bind(null, /*! ./tabs/tabs.module */ "./src/app/tabs/tabs.module.ts")).then(m => m.TabsPageModule)
+    },
+    {
+        path: 'welcome',
+        loadChildren: () => __webpack_require__.e(/*! import() | pages-welcome-welcome-module */ "pages-welcome-welcome-module").then(__webpack_require__.bind(null, /*! ./pages/welcome/welcome.module */ "./src/app/pages/welcome/welcome.module.ts")).then(m => m.WelcomePageModule)
+    },
+    {
+        path: 'information-personnel',
+        loadChildren: () => __webpack_require__.e(/*! import() | pages-information-personnel-information-personnel-module */ "pages-information-personnel-information-personnel-module").then(__webpack_require__.bind(null, /*! ./pages/information-personnel/information-personnel.module */ "./src/app/pages/information-personnel/information-personnel.module.ts")).then(m => m.InformationPersonnelPageModule)
+    },
+    {
+        path: 'type-de-reclamation',
+        loadChildren: () => __webpack_require__.e(/*! import() | pages-type-de-reclamation-type-de-reclamation-module */ "pages-type-de-reclamation-type-de-reclamation-module").then(__webpack_require__.bind(null, /*! ./pages/type-de-reclamation/type-de-reclamation.module */ "./src/app/pages/type-de-reclamation/type-de-reclamation.module.ts")).then(m => m.TypeDeReclamationPageModule)
+    },
+    {
+        path: 'information-de-reclamation',
+        loadChildren: () => __webpack_require__.e(/*! import() | pages-information-de-reclamation-information-de-reclamation-module */ "pages-information-de-reclamation-information-de-reclamation-module").then(__webpack_require__.bind(null, /*! ./pages/information-de-reclamation/information-de-reclamation.module */ "./src/app/pages/information-de-reclamation/information-de-reclamation.module.ts")).then(m => m.InformationDeReclamationPageModule)
+    },
+    {
+        path: 'resultat-final',
+        loadChildren: () => __webpack_require__.e(/*! import() | pages-resultat-final-resultat-final-module */ "pages-resultat-final-resultat-final-module").then(__webpack_require__.bind(null, /*! ./pages/resultat-final/resultat-final.module */ "./src/app/pages/resultat-final/resultat-final.module.ts")).then(m => m.ResultatFinalPageModule)
+    },
+    {
+        path: 'all-claims',
+        loadChildren: () => __webpack_require__.e(/*! import() | pages-all-claims-all-claims-module */ "pages-all-claims-all-claims-module").then(__webpack_require__.bind(null, /*! ./pages/all-claims/all-claims.module */ "./src/app/pages/all-claims/all-claims.module.ts")).then(m => m.AllClaimsPageModule)
+    },
+    {
+        path: 'about-us',
+        loadChildren: () => __webpack_require__.e(/*! import() | pages-about-us-about-us-module */ "pages-about-us-about-us-module").then(__webpack_require__.bind(null, /*! ./pages/about-us/about-us.module */ "./src/app/pages/about-us/about-us.module.ts")).then(m => m.AboutUsPageModule)
+    }
+];
+let AppRoutingModule = class AppRoutingModule {
+};
+AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        imports: [
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot(routes, { preloadingStrategy: _angular_router__WEBPACK_IMPORTED_MODULE_2__["PreloadAllModules"] })
+        ],
+        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
+    })
+], AppRoutingModule);
+
+
+
+/***/ }),
+
+/***/ "./src/app/app.component.scss":
+/*!************************************!*\
+  !*** ./src/app/app.component.scss ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/app.component.ts":
+/*!**********************************!*\
+  !*** ./src/app/app.component.ts ***!
+  \**********************************/
+/*! exports provided: AppComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic-native/splash-screen/ngx */ "./node_modules/@ionic-native/splash-screen/ngx/index.js");
+/* harmony import */ var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/status-bar/ngx */ "./node_modules/@ionic-native/status-bar/ngx/index.js");
+/* harmony import */ var _services_network_network_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./services/network/network.service */ "./src/app/services/network/network.service.ts");
+/* harmony import */ var _services_offlineManager_offline_manager_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./services/offlineManager/offline-manager.service */ "./src/app/services/offlineManager/offline-manager.service.ts");
+
+
+
+
+
+
+
+let AppComponent = class AppComponent {
+    constructor(networkService, platform, offlineManager, splashScreen, statusBar) {
+        this.networkService = networkService;
+        this.platform = platform;
+        this.offlineManager = offlineManager;
+        this.splashScreen = splashScreen;
+        this.statusBar = statusBar;
+        this.initializeApp();
+    }
+    initializeApp() {
+        this.platform.ready().then(() => {
+            this.statusBar.styleDefault();
+            this.splashScreen.hide();
+        });
+        this.networkService.onNetworkChange().subscribe((status) => {
+            if (status == _services_network_network_service__WEBPACK_IMPORTED_MODULE_5__["ConnectionStatus"].Online) {
+                this.offlineManager.checkForEvents().subscribe();
+            }
+        });
+    }
+};
+AppComponent.ctorParameters = () => [
+    { type: _services_network_network_service__WEBPACK_IMPORTED_MODULE_5__["NetworkService"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"] },
+    { type: _services_offlineManager_offline_manager_service__WEBPACK_IMPORTED_MODULE_6__["OfflineManagerService"] },
+    { type: _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_3__["SplashScreen"] },
+    { type: _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__["StatusBar"] }
+];
+AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-root',
+        template: __webpack_require__(/*! raw-loader!./app.component.html */ "./node_modules/raw-loader/index.js!./src/app/app.component.html"),
+        styles: [__webpack_require__(/*! ./app.component.scss */ "./src/app/app.component.scss")]
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_network_network_service__WEBPACK_IMPORTED_MODULE_5__["NetworkService"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"],
+        _services_offlineManager_offline_manager_service__WEBPACK_IMPORTED_MODULE_6__["OfflineManagerService"],
+        _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_3__["SplashScreen"],
+        _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__["StatusBar"]])
+], AppComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/app.module.ts":
+/*!*******************************!*\
+  !*** ./src/app/app.module.ts ***!
+  \*******************************/
+/*! exports provided: AppModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppModule", function() { return AppModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic-native/splash-screen/ngx */ "./node_modules/@ionic-native/splash-screen/ngx/index.js");
+/* harmony import */ var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic-native/status-bar/ngx */ "./node_modules/@ionic-native/status-bar/ngx/index.js");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ionic-native/camera/ngx */ "./node_modules/@ionic-native/camera/ngx/index.js");
+/* harmony import */ var _ionic_native_file_chooser_ngx__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ionic-native/file-chooser/ngx */ "./node_modules/@ionic-native/file-chooser/ngx/index.js");
+/* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @ionic/storage */ "./node_modules/@ionic/storage/fesm2015/ionic-storage.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var src_app_services_http_http_claim_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! src/app/services/http/http-claim.service */ "./src/app/services/http/http-claim.service.ts");
+/* harmony import */ var _ionic_native_unique_device_id_ngx__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @ionic-native/unique-device-id/ngx */ "./node_modules/@ionic-native/unique-device-id/ngx/index.js");
+/* harmony import */ var _popover_component_popover_component_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./popover-component/popover-component.component */ "./src/app/popover-component/popover-component.component.ts");
+/* harmony import */ var _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @ionic-native/network/ngx */ "./node_modules/@ionic-native/network/ngx/index.js");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import { Geolocation } from '@ionic-enterprise/geolocation/ngx';
+let AppModule = class AppModule {
+};
+AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        declarations: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"], _popover_component_popover_component_component__WEBPACK_IMPORTED_MODULE_16__["PopoverComponentComponent"]],
+        entryComponents: [_popover_component_popover_component_component__WEBPACK_IMPORTED_MODULE_16__["PopoverComponentComponent"]],
+        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"],
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_13__["HttpClientModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_12__["FormsModule"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(),
+            _angular_forms__WEBPACK_IMPORTED_MODULE_12__["FormsModule"],
+            _app_routing_module__WEBPACK_IMPORTED_MODULE_7__["AppRoutingModule"],
+            _ionic_storage__WEBPACK_IMPORTED_MODULE_11__["IonicStorageModule"].forRoot()],
+        providers: [
+            _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_17__["Network"],
+            _ionic_native_unique_device_id_ngx__WEBPACK_IMPORTED_MODULE_15__["UniqueDeviceID"],
+            src_app_services_http_http_claim_service__WEBPACK_IMPORTED_MODULE_14__["HttpClaimService"],
+            _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_9__["Camera"],
+            _ionic_native_file_chooser_ngx__WEBPACK_IMPORTED_MODULE_10__["FileChooser"],
+            _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"],
+            _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"],
+            { provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"], useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicRouteStrategy"] }
+        ],
+        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]]
+    })
+], AppModule);
+
+
+
+/***/ }),
+
+/***/ "./src/app/popover-component/popover-component.component.scss":
+/*!********************************************************************!*\
+  !*** ./src/app/popover-component/popover-component.component.scss ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "ion-card-content {\n  height: 50%;\n  position: absolute;\n  width: 100%;\n  padding: 0;\n  background: #f57979;\n}\n\nion-card-header {\n  z-index: 20;\n  height: 50%;\n  top: 0;\n  padding: 0;\n}\n\n.content {\n  height: 100%;\n  padding: 1em;\n  padding-top: 3em;\n  z-index: 100;\n  font-size: 17px;\n  color: #ffffff;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcG9wb3Zlci1jb21wb25lbnQvRDpcXHdlYlByb2plY3RcXGlvbmljXFxNdW5pY2lwYWxpdGUvc3JjXFxhcHBcXHBvcG92ZXItY29tcG9uZW50XFxwb3BvdmVyLWNvbXBvbmVudC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvcG9wb3Zlci1jb21wb25lbnQvcG9wb3Zlci1jb21wb25lbnQuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxXQUFBO0VBQ0Esa0JBQUE7RUFDQSxXQUFBO0VBQ0EsVUFBQTtFQUNBLG1CQUFBO0FDQ0o7O0FEQ0E7RUFDSSxXQUFBO0VBQ0EsV0FBQTtFQUNBLE1BQUE7RUFDQSxVQUFBO0FDRUo7O0FEQ0E7RUFDSSxZQUFBO0VBQ0EsWUFBQTtFQUNBLGdCQUFBO0VBQ0EsWUFBQTtFQUNBLGVBQUE7RUFDQSxjQUFBO0FDRUoiLCJmaWxlIjoic3JjL2FwcC9wb3BvdmVyLWNvbXBvbmVudC9wb3BvdmVyLWNvbXBvbmVudC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImlvbi1jYXJkLWNvbnRlbnR7XHJcbiAgICBoZWlnaHQ6IDUwJTtcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgcGFkZGluZzogMDtcclxuICAgIGJhY2tncm91bmQgOiAjZjU3OTc5O1xyXG59XHJcbmlvbi1jYXJkLWhlYWRlcntcclxuICAgIHotaW5kZXg6IDIwO1xyXG4gICAgaGVpZ2h0OiA1MCU7XHJcbiAgICB0b3A6IDA7XHJcbiAgICBwYWRkaW5nOiAwO1xyXG4gICAgXHJcbn1cclxuLmNvbnRlbnR7XHJcbiAgICBoZWlnaHQ6IDEwMCU7XHJcbiAgICBwYWRkaW5nOiAxZW07XHJcbiAgICBwYWRkaW5nLXRvcDogM2VtO1xyXG4gICAgei1pbmRleDogMTAwO1xyXG4gICAgZm9udC1zaXplOiAxN3B4O1xyXG4gICAgY29sb3I6ICNmZmZmZmY7XHJcbn1cclxuXHJcbiIsImlvbi1jYXJkLWNvbnRlbnQge1xuICBoZWlnaHQ6IDUwJTtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB3aWR0aDogMTAwJTtcbiAgcGFkZGluZzogMDtcbiAgYmFja2dyb3VuZDogI2Y1Nzk3OTtcbn1cblxuaW9uLWNhcmQtaGVhZGVyIHtcbiAgei1pbmRleDogMjA7XG4gIGhlaWdodDogNTAlO1xuICB0b3A6IDA7XG4gIHBhZGRpbmc6IDA7XG59XG5cbi5jb250ZW50IHtcbiAgaGVpZ2h0OiAxMDAlO1xuICBwYWRkaW5nOiAxZW07XG4gIHBhZGRpbmctdG9wOiAzZW07XG4gIHotaW5kZXg6IDEwMDtcbiAgZm9udC1zaXplOiAxN3B4O1xuICBjb2xvcjogI2ZmZmZmZjtcbn0iXX0= */"
+
+/***/ }),
+
+/***/ "./src/app/popover-component/popover-component.component.ts":
+/*!******************************************************************!*\
+  !*** ./src/app/popover-component/popover-component.component.ts ***!
+  \******************************************************************/
+/*! exports provided: PopoverComponentComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PopoverComponentComponent", function() { return PopoverComponentComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+
+
+
+let PopoverComponentComponent = class PopoverComponentComponent {
+    constructor(navParams) {
+        this.navParams = navParams;
+        this.type = {};
+        this.popover = this;
+        this.type = JSON.parse(JSON.stringify(this.navParams.data));
+    }
+    ngOnInit() { }
+    dismissPopover() {
+        if (this.popover) {
+            this.popover.dismiss().then(() => { this.popover = null; });
+        }
+    }
+};
+PopoverComponentComponent.ctorParameters = () => [
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavParams"] }
+];
+PopoverComponentComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-popover-component',
+        template: __webpack_require__(/*! raw-loader!./popover-component.component.html */ "./node_modules/raw-loader/index.js!./src/app/popover-component/popover-component.component.html"),
+        styles: [__webpack_require__(/*! ./popover-component.component.scss */ "./src/app/popover-component/popover-component.component.scss")]
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavParams"]])
+], PopoverComponentComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/http/http-claim.service.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/services/http/http-claim.service.ts ***!
+  \*****************************************************/
+/*! exports provided: HttpClaimService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HttpClaimService", function() { return HttpClaimService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _offlineManager_offline_manager_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../offlineManager/offline-manager.service */ "./src/app/services/offlineManager/offline-manager.service.ts");
+/* harmony import */ var _network_network_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../network/network.service */ "./src/app/services/network/network.service.ts");
+/* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/storage */ "./node_modules/@ionic/storage/fesm2015/ionic-storage.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+
+
+
+
+
+
+
+const API_STORAGE_KEY = 'specialkey';
+// const url = 'http://192.168.137.122/my-app-v2/public/api/Claims';
+// const url = 'http://192.168.137.122/my-app-v2/public/api/Claims';
+const url = 'http://192.168.1.109/Municipalite/public/api/Claims';
+let HttpClaimService = class HttpClaimService {
+    constructor(http, networkService, offlineManager, storage) {
+        this.http = http;
+        this.networkService = networkService;
+        this.offlineManager = offlineManager;
+        this.storage = storage;
+        this.data = [];
+    }
+    getData() {
+        let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]();
+        headers.append("Access-Control-Allow-Origin", '*');
+        headers.append("Access-Control-Allow-Methods", 'POST, GET, OPTIONS, DELETE');
+        headers.append("Access-Control-Allow-Headers", '*');
+        headers.append('Content-Type', 'application/json');
+        headers.append('Accept', 'application/json,text/plain');
+        let requestOptions = { headers: headers };
+        this.http.get(url, requestOptions).subscribe(Rdata => {
+            JSON.parse(JSON.stringify(Rdata)).forEach(element => {
+                let flag = true;
+                this.data.forEach(e => {
+                    if (e.id == element.id)
+                        flag = false;
+                });
+                if (flag)
+                    this.data.push(element);
+            });
+        }, error => {
+            console.log("error" + error);
+        });
+        return this.data;
+    }
+    postData(data) {
+        if (this.networkService.getCurrentNetworkStatus() == _network_network_service__WEBPACK_IMPORTED_MODULE_4__["ConnectionStatus"].Offline) {
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_6__["from"])(this.offlineManager.storeRequest(url, 'POST', data));
+        }
+        else {
+            console.log(url);
+            let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]();
+            headers.append("Access-Control-Allow-Origin", '*');
+            headers.append("Access-Control-Allow-Methods", 'POST, GET, OPTIONS, DELETE');
+            headers.append("Access-Control-Allow-Headers", '*');
+            headers.append('Content-Type', 'application/json');
+            headers.append('Accept', 'application/json,text/plain');
+            let requestOptions = { headers: headers };
+            this.http.post(url, data, requestOptions).subscribe(data => {
+                console.log(data);
+            }, error => {
+                console.log("error" + error);
+            });
+            return this.data;
+        }
+    }
+    // call this function and use it
+    getLocalData() {
+        return this.storage.get(`${API_STORAGE_KEY}`);
+    }
+};
+HttpClaimService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },
+    { type: _network_network_service__WEBPACK_IMPORTED_MODULE_4__["NetworkService"] },
+    { type: _offlineManager_offline_manager_service__WEBPACK_IMPORTED_MODULE_3__["OfflineManagerService"] },
+    { type: _ionic_storage__WEBPACK_IMPORTED_MODULE_5__["Storage"] }
+];
+HttpClaimService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], _network_network_service__WEBPACK_IMPORTED_MODULE_4__["NetworkService"],
+        _offlineManager_offline_manager_service__WEBPACK_IMPORTED_MODULE_3__["OfflineManagerService"], _ionic_storage__WEBPACK_IMPORTED_MODULE_5__["Storage"]])
+], HttpClaimService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/network/network.service.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/services/network/network.service.ts ***!
+  \*****************************************************/
+/*! exports provided: ConnectionStatus, NetworkService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConnectionStatus", function() { return ConnectionStatus; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NetworkService", function() { return NetworkService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic-native/network/ngx */ "./node_modules/@ionic-native/network/ngx/index.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+
+
+
+
+
+var ConnectionStatus;
+(function (ConnectionStatus) {
+    ConnectionStatus[ConnectionStatus["Online"] = 0] = "Online";
+    ConnectionStatus[ConnectionStatus["Offline"] = 1] = "Offline";
+})(ConnectionStatus || (ConnectionStatus = {}));
+let NetworkService = class NetworkService {
+    constructor(network, toastController, plt) {
+        this.network = network;
+        this.toastController = toastController;
+        this.plt = plt;
+        this.status = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](ConnectionStatus.Offline);
+        this.plt.ready().then(() => {
+            this.initializeNetworkEvents();
+            let status = this.network.type !== 'none' ? ConnectionStatus.Online : ConnectionStatus.Offline;
+            this.status.next(status);
+        });
+    }
+    initializeNetworkEvents() {
+        this.network.onDisconnect().subscribe(() => {
+            if (this.status.getValue() === ConnectionStatus.Online) {
+                console.log('WE ARE OFFLINE');
+                this.updateNetworkStatus(ConnectionStatus.Offline);
+            }
+        });
+        this.network.onConnect().subscribe(() => {
+            if (this.status.getValue() === ConnectionStatus.Offline) {
+                console.log('WE ARE ONLINE');
+                this.updateNetworkStatus(ConnectionStatus.Online);
+            }
+        });
+    }
+    updateNetworkStatus(status) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            this.status.next(status);
+            let connection = status == ConnectionStatus.Offline ? 'Offline' : 'Online';
+            let toast = this.toastController.create({
+                message: `You are now ${connection}`,
+                duration: 3000,
+                position: 'bottom'
+            });
+            toast.then(toast => toast.present());
+        });
+    }
+    onNetworkChange() {
+        return this.status.asObservable();
+    }
+    getCurrentNetworkStatus() {
+        return this.status.getValue();
+    }
+};
+NetworkService.ctorParameters = () => [
+    { type: _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_2__["Network"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ToastController"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["Platform"] }
+];
+NetworkService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_2__["Network"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ToastController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["Platform"]])
+], NetworkService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/offlineManager/offline-manager.service.ts":
+/*!********************************************************************!*\
+  !*** ./src/app/services/offlineManager/offline-manager.service.ts ***!
+  \********************************************************************/
+/*! exports provided: OfflineManagerService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OfflineManagerService", function() { return OfflineManagerService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/storage */ "./node_modules/@ionic/storage/fesm2015/ionic-storage.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+
+
+
+
+
+
+
+const STORAGE_REQ_KEY = 'storedreq';
+let OfflineManagerService = class OfflineManagerService {
+    constructor(storage, http, toastController) {
+        this.storage = storage;
+        this.http = http;
+        this.toastController = toastController;
+    }
+    checkForEvents() {
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["from"])(this.storage.get(STORAGE_REQ_KEY)).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(storedOperations => {
+            let storedObj = JSON.parse(storedOperations);
+            if (storedObj && storedObj.length > 0) {
+                return this.sendRequests(storedObj).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["finalize"])(() => {
+                    let toast = this.toastController.create({
+                        message: `Local data succesfully synced to API!`,
+                        duration: 3000,
+                        position: 'bottom'
+                    });
+                    toast.then(toast => toast.present());
+                    this.storage.remove(STORAGE_REQ_KEY);
+                }));
+            }
+            else {
+                console.log('no local events to sync');
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(false);
+            }
+        }));
+    }
+    storeRequest(url, type, data) {
+        let toast = this.toastController.create({
+            message: `Your data is stored locally because you seem to be offline.`,
+            duration: 3000,
+            position: 'bottom'
+        });
+        toast.then(toast => toast.present());
+        let action = {
+            url: url,
+            type: type,
+            data: data,
+            time: new Date().getTime(),
+            id: Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5)
+        };
+        return this.storage.get(STORAGE_REQ_KEY).then(storedOperations => {
+            let storedObj = JSON.parse(storedOperations);
+            if (storedObj) {
+                storedObj.push(action);
+            }
+            else {
+                storedObj = [action];
+            }
+            // Save old & new local transactions back to Storage
+            return this.storage.set(STORAGE_REQ_KEY, JSON.stringify(storedObj));
+        });
+    }
+    sendRequests(operations) {
+        let obs = [];
+        for (let op of operations) {
+            console.log('Make one request: ', op);
+            let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpHeaders"]();
+            headers.append("Access-Control-Allow-Origin", '*');
+            headers.append("Access-Control-Allow-Methods", 'POST, GET, OPTIONS, DELETE');
+            headers.append("Access-Control-Allow-Headers", '*');
+            headers.append('Content-Type', 'application/json');
+            headers.append('Accept', 'application/json,text/plain');
+            let requestOptions = { headers: headers };
+            let oneObs = this.http.post(op.url, op.data, requestOptions);
+            obs.push(oneObs);
+        }
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["forkJoin"])(obs);
+    }
+};
+OfflineManagerService.ctorParameters = () => [
+    { type: _ionic_storage__WEBPACK_IMPORTED_MODULE_2__["Storage"] },
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["ToastController"] }
+];
+OfflineManagerService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_storage__WEBPACK_IMPORTED_MODULE_2__["Storage"], _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"], _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["ToastController"]])
+], OfflineManagerService);
+
+
+
+/***/ }),
+
+/***/ "./src/environments/environment.ts":
+/*!*****************************************!*\
+  !*** ./src/environments/environment.ts ***!
+  \*****************************************/
+/*! exports provided: environment */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "environment", function() { return environment; });
+// This file can be replaced during build by using the `fileReplacements` array.
+// `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
+// The list of file replacements can be found in `angular.json`.
+const environment = {
+    production: false
+};
+/*
+ * For easier debugging in development mode, you can import the following file
+ * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
+ *
+ * This import should be commented out in production mode because it will have a negative impact
+ * on performance if an error is thrown.
+ */
+// import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+
+
+/***/ }),
+
+/***/ "./src/main.ts":
+/*!*********************!*\
+  !*** ./src/main.ts ***!
+  \*********************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser-dynamic */ "./node_modules/@angular/platform-browser-dynamic/fesm2015/platform-browser-dynamic.js");
+/* harmony import */ var _app_app_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app/app.module */ "./src/app/app.module.ts");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./environments/environment */ "./src/environments/environment.ts");
+
+
+
+
+if (_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].production) {
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["enableProdMode"])();
+}
+Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformBrowserDynamic"])().bootstrapModule(_app_app_module__WEBPACK_IMPORTED_MODULE_2__["AppModule"])
+    .catch(err => console.log(err));
+
+
+/***/ }),
+
+/***/ 0:
+/*!**********************************************************************************************************!*\
+  !*** multi (webpack)-dev-server/client?http://0.0.0.0:0/sockjs-node&sockPath=/sockjs-node ./src/main.ts ***!
+  \**********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(/*! D:\webProject\ionic\Municipalite\node_modules\webpack-dev-server\client\index.js?http://0.0.0.0:0/sockjs-node&sockPath=/sockjs-node */"./node_modules/webpack-dev-server/client/index.js?http://0.0.0.0:0/sockjs-node&sockPath=/sockjs-node");
+module.exports = __webpack_require__(/*! D:\webProject\ionic\Municipalite\src\main.ts */"./src/main.ts");
+
+
+/***/ })
+
+},[[0,"runtime","vendor"]]]);
+//# sourceMappingURL=main.js.map
