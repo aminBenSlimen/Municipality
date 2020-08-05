@@ -63,7 +63,7 @@
   <div [ngStyle]="{'background' : 'rgba(255, 215, 196,' + (1-cssProp.textOpacity) + ')' }" style="position: fixed;
   width: 100%;
   height: 10%;
-  z-index: 99;">
+  z-index: 150;">
     <ion-text style="position: absolute;
     top: 90%;
     color: #63164e;
@@ -96,7 +96,8 @@ left: 5%;
 width: 90%;
 --background: #ffffff;
 border-radius: 30px;
-border: 1px solid #dadada;">
+border: 1px solid #dadada;
+z-index: 100;">
       <ion-input placeholder="Subject Title" [(ngModel)]="data.subject" name="subject" style="margin-left: 5%;
     font-size: 19px;
     text-transform: uppercase;
@@ -115,7 +116,8 @@ border: 1px solid #dadada;">
     display: flex;
     --background: #ffffff;
     border-radius: 30px;
-    border: 1px solid #dadada;">
+    border: 1px solid #dadada;
+    z-index: 100;">
       <ion-textarea placeholder="Enter more information here..." [(ngModel)]="data.description" name="description">
       </ion-textarea>
     </ion-item>
@@ -141,7 +143,7 @@ border: 1px solid #dadada;">
     width: 22vw;
     height: 22vw;
     margin: 0;
-    background: #4c3943;" (click)=" loadCamera()">
+    background: #4c3943;" (click)="loadFileChooser()">
       <img src="assets/logos/File.png" class="cardImg" />
 
     </ion-card>
@@ -169,4 +171,6 @@ border: 1px solid #dadada;">
     </ion-button>
 
   </div>
+  <ion-input hidden id="test" [(ngModel)]="nsfw"></ion-input>
+
 </ion-content>

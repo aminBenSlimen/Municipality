@@ -27,6 +27,9 @@ export class AppComponent {
       //this.statusBar.styleDefault();
       this.statusBar.hide();
       this.splashScreen.hide();
+      // setTimeout(() => {
+      //   this.lottie.hide();
+      // }, 3000)
     });
 
     this.networkService.onNetworkChange().subscribe((status: ConnectionStatus) => {

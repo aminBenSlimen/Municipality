@@ -6,13 +6,11 @@ import { HttpClaimService } from 'src/app/services/http/http-claim.service';
 import { SpamControllerService } from 'src/app/services/spamController/spam-controller.service';
 import { PopoverComponentComponent } from 'src/app/components/popover-component/popover-component.component';
 import { NetworkService } from 'src/app/services/network/network.service';
-
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.page.html',
   styleUrls: ['./welcome.page.scss'],
 })
-
 export class WelcomePage implements OnInit {
   Online = false;
   subscription: any;
@@ -53,6 +51,7 @@ export class WelcomePage implements OnInit {
         this.data = JSON.parse(res.p);
       }
     });
+
     this.Online = networkService.isConnected() ? true : false
     //this.Online = true;
     if (this.Online)
@@ -83,7 +82,9 @@ export class WelcomePage implements OnInit {
       this.uid.get()
         .then((uuid: any) => this.data.uid = uuid)
         .catch((error: any) => this.data.uid = error);
+
   }
+
   seeClaims() {
     this.router.navigate(["/all-claims"]);
   }
@@ -95,6 +96,7 @@ export class WelcomePage implements OnInit {
   changed(slides) {
     slides.startAutoplay();
   }
+
   forward() {
     let Time = this.spamController.checkForSpam(this.data.uid, JSON.parse(JSON.stringify(this.claims)));
     if (Time != -1) {
@@ -140,4 +142,5 @@ export class WelcomePage implements OnInit {
     });
     return await popover.present();
   }
+
 }

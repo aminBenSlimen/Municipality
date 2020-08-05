@@ -396,7 +396,7 @@ export class InformationPersonnelPage implements OnInit {
     setup() // look up for more informations
     fetch("../../assets/js/tn.json").then(res => res.json()).then(json => {
       this.citiesLat = json;// look up for more informations
-      this.splash = false; //deactivating the loading screen after loading the heavey data 
+      //deactivating the loading screen after loading the heavey data 
     });
     this.clickByMouse = false;
     this.cities.forEach((elm) => {
@@ -487,7 +487,9 @@ export class InformationPersonnelPage implements OnInit {
           elem.setAttribute('style', 'display: none;');
         });
     });
+    this.splash = false;
   }
+
   GetLatLng() { // when selecting a location on map 
     this.clickByMouse = true;
     let pos = getLatLng();

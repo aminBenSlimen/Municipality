@@ -1,9 +1,12 @@
 
 
 ion-content{
+    top: 0;
+    width: 100%;
     padding-top: 6em;
-    --background: linear-gradient(0deg, #f8ebcf, #fac1c1);
+    --background:  #ffffff;
     --padding-bottom: 6em;
+    scroll-behavior: smooth;
 }
 ion-card{
    
@@ -13,15 +16,28 @@ ion-card{
     margin-top: 6em;
     margin-bottom: -3em;
     box-shadow: none;
+    box-shadow: #0000000a 2px -2px 9px 6px;
+}
+.background{
+    z-index: 0;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    border-radius: 25px;
+    top: 10%;
+    background: #ffffff ;
 }
 ion-searchbar{
 
-    position: fixed;
+    position: absolute;
     z-index: 10;
     background: none;
-    --background: #ffffff;
-    opacity: .6;
-     
+    --background: #f7f7f7;
+    opacity: 0.6;
+    top: 25%;
+    width: 90%;
+    left: 5%;
+    --border-radius : 50px;
 }
 ion-card-header{
     height: 40%;
@@ -33,13 +49,8 @@ ion-card-header{
     width: 100%;
     border-radius: 0em 0em 1em 1em;
 }
-.background{
-    position: fixed;
-    height: 100%;
-    width: 100%;
-}
 app-animated-like{
     position: absolute;
-    right: 10%;
-    bottom: 5%;
+    right: 16%;
+    bottom: 16%;
 }

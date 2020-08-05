@@ -1,40 +1,76 @@
-<ion-content>
-  <div *ngIf="searchBar == ''" style="padding-left: 15%;
-  margin-left: 2.1%;
-  padding-top: 3.5%;
-    position: fixed;
-    width: 96%;
-    height: 6.7%;
-    margin-top: 2%;
-    z-index: 10;">Your City</div>
-  <ion-searchbar [showCancelButton]="never" (keyup)=" filterList($event)" placeholder="">
-  </ion-searchbar>
-  <img class="background" src="./assets/images/aboutBg.png" alt="" srcset="">
-  <div style="display: unset;" *ngIf="showSkeleton == false">
+<ion-content [scrollEvents]="true" (ionScroll)="logScrollStart($event)">
 
-    <ion-card *ngFor="let claim of claims" style="background:  linear-gradient(0deg, #fbdab8, #ffa3a3);">
-      <img *ngIf="claim.noImage" [src]="getImgContent(claim.image)" style="width: 50%;margin-left: 25%;" />
-      <img *ngIf="!claim.noImage" [src]="getImgContent(claim.image)" />
-      <div></div>
 
-      <ion-card-header>
-        <ion-card-subtitle>
-          <ion-icon name="pin" size="50" style="margin-bottom: -1px;color: rgb(236, 127, 127)"></ion-icon>
-          {{claim.city}}
-          |
-          {{claim.municipalite}}
-        </ion-card-subtitle>
-        <ion-card-title style="color: #0c1925;font-size:30px;text-transform:uppercase;padding-left: 3px;">
-          {{claim.subject}}</ion-card-title>
-        <ion-card-subtitle style="margin: 0;">
-          <ion-icon name="time" style="margin-bottom: -1px;"></ion-icon>
-          <ion-text style="padding-left: 3px;">{{getTime(claim.created_at)}}</ion-text>
-        </ion-card-subtitle>
-        <app-animated-like></app-animated-like>
-      </ion-card-header>
-    </ion-card>
-
+  <img id="back" src="./assets/icon/Bback.png" style="position: absolute;
+      position: fixed;
+      width: 7%;
+      z-index: 100;
+      top: 3%;
+      left: 8%;
+      margin: 0;" (click)="forward()">
+  <div style="position: fixed;
+      width: 100%;
+      height: 10%;
+      z-index: 99;background: transparent;"
+    [ngStyle]="{'background' : 'rgba(255, 255, 255,' + (1-cssProp.textOpacity) + ')' }">
+    <ion-text [ngStyle]="{'font-size': cssProp.titleSize,'top':cssProp.titleTop,'left': cssProp.titleLeft}" style="position: absolute;
+        top: 90%;
+        color: #63164e;
+        text-transform: uppercase;
+        font-weight: 500;">
+      Claims
+    </ion-text>
   </div>
+  <ion-text style="position: fixed;
+  left: 10%;
+  right: 10%;
+  color: #653658;
+  font-size: 15px;
+  z-index: 100;" [ngStyle]="{'opacity': cssProp.textOpacity,'top': cssProp.textTop}">
+    You can upvote a claim to increase its priority
+  </ion-text>
+  <ion-searchbar showCancelButton="focus" animated (keyup)=" filterList($event)" (ionCancel)='reset()'
+    (ionClear)='reset()' placeholder="Your city" [ngStyle]="{'opacity': cssProp.textOpacity}">
+  </ion-searchbar>
+
+  <!-- <img src="assets/images/typeBg.png" style="position: absolute;margin: 0;right: -10%;"> -->
+  <div class="background"></div>
+  <div style="position: relative;height: 30%;width: 100%;"></div>
+  <ion-card *ngFor="let claim of claims" style="background: #adadad;">
+    <img *ngIf="claim.noImage" [src]="getImgContent(claim.image)" style="width: 50%;margin-left: 25%;" />
+    <img *ngIf="!claim.noImage" [src]="getImgContent(claim.image)" width="100%" />
+    <!-- <div style="position: absolute;
+      top: -14%;
+      right: -16%;
+      background: #faf6fe;
+      height: 30%;
+      width: 40%;
+      border-radius: 201px;">
+    </div> -->
+
+    <ion-card-header>
+      <ion-card-subtitle>
+        <ion-icon name="pin" size="50" style="margin-bottom: -1px;color: rgb(236, 127, 127)"></ion-icon>
+        {{claim.city}}
+        |
+        {{claim.municipalite}}
+      </ion-card-subtitle>
+      <ion-card-title style="color: #0c1925;font-size:30px;text-transform:uppercase;padding-left: 3px;">
+        {{claim.subject}}</ion-card-title>
+      <ion-card-subtitle style="margin: 0;">
+        <ion-icon name="time" style="margin-bottom: -1px;"></ion-icon>
+        <ion-text style="padding-left: 3px;">{{getTime(claim.created_at)}}</ion-text>
+      </ion-card-subtitle>
+      <app-animated-like (click)="upvote(claim)" [state]='claim.state'></app-animated-like>
+      <div style="position: absolute;
+        right: 7%;
+        font-size: 30px;
+        bottom: 16%;
+        color: #ffa3a3;">{{claim.upvote}}
+      </div>
+    </ion-card-header>
+  </ion-card>
+
   <h3 style="padding: 1em;padding-top: 2em;" *ngIf="showSkeleton">
     <ion-skeleton-text animated style="width: 100%;padding: 3em;"></ion-skeleton-text>
   </h3>

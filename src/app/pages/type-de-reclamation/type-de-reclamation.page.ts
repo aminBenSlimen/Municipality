@@ -1,19 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { AlertController, PopoverController, Platform } from '@ionic/angular';
+import { Component, OnInit, ViewChildren, ElementRef, Query, QueryList, AfterViewInit } from '@angular/core';
+import { AlertController, PopoverController, Platform, IonCard } from '@ionic/angular';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PopoverComponentComponent } from 'src/app/components/popover-component/popover-component.component';
 import { element } from 'protractor';
 import { ConnectionStatus } from 'src/app/services/network/network.service';
-import { EMLINK } from 'constants';
+import { Storage } from '@ionic/storage';
 
+const firstTimeTR = 'firstTimeTR'
 @Component({
   selector: 'app-type-de-reclamation',
   templateUrl: './type-de-reclamation.page.html',
   styleUrls: ['./type-de-reclamation.page.scss'],
 })
-export class TypeDeReclamationPage implements OnInit {
-  ngOnInit(): void {
-  }
+export class TypeDeReclamationPage implements AfterViewInit {
+
   cssProp = {
     backGroundTop: "30%",
     textOpacity: 1,
@@ -36,13 +36,15 @@ export class TypeDeReclamationPage implements OnInit {
     uid: ""
   }
   Online;
+  longPressActive = false;
+  elmntOntouch = false;
   types: Array<Object> = [
     {
       name: "Public", image: "./assets/logos/green.png", color: "white", content: "Select this Option if there is any thing related to green spaces",
       bigImage: './assets/images/green.png', titleColor: "#8c8c8c"
     },
     {
-      name: "ligth", image: "./assets/logos/ligth.png", color: "white", content: "Select this Option if there is Some thing wrong in our Lighting system",
+      name: "light", image: "./assets/logos/ligth.png", color: "white", content: "Select this Option if there is Some thing wrong in our Lighting system",
       bigImage: './assets/images/light.png', titleColor: "#8c8c8c"
     },
     {
@@ -74,7 +76,8 @@ export class TypeDeReclamationPage implements OnInit {
     public alert: AlertController,
     public router: Router,
     private route: ActivatedRoute,
-    private platform: Platform) {
+    private platform: Platform,
+    private storage: Storage) {
     this.route.queryParams.subscribe((res) => {
       this.data = JSON.parse(res.p);
       console.log(this.data);
@@ -92,11 +95,7 @@ export class TypeDeReclamationPage implements OnInit {
         element.image = element.image.substring(0, element.image.length - 5) + ".png"
         element.color = 'white';
         element.titleColor = "#8c8c8c";
-        console.log();
-
       }
-
-
     })
     let x: any = this.types[this.types.indexOf(obj)];
     this.types[this.types.indexOf(obj)] = {
@@ -119,10 +118,34 @@ export class TypeDeReclamationPage implements OnInit {
       animated: true,
       backdropDismiss: false
     });
-    console.log(type);
     return await popover.present();
   }
 
+  ngAfterViewInit() {
+    this.storage.get(firstTimeTR).then(res => {
+      if (!res) {
+        this.storage.set(firstTimeTR, true)
+        this.presentPopover(null, {
+          bigImage: "assets/images/holdTip.png",
+          content: "please hold down on the categorie's picture to get more information about it ! "
+        })
+      }
+    })
+  }
+  touchstart(event, el) {
+    this.elmntOntouch = true;
+    this.showMoreInfo(el)
+  }
+  touchend(event, el) {
+    this.elmntOntouch = false;
+  }
+
+  showMoreInfo(el) {
+    setTimeout(() => {
+      if (this.elmntOntouch == true)
+        this.presentPopover(null, el)
+    }, 700);
+  }
   async customType(message) {
     const alert = await this.alert.create({
       header: 'nouveau type',
@@ -188,8 +211,5 @@ export class TypeDeReclamationPage implements OnInit {
     else if (x > in_max)
       x = in_max
     return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
-  }
-  pressEvent(e) {
-    console.log("e");
   }
 }

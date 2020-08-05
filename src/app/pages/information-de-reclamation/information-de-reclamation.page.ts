@@ -9,12 +9,14 @@ import { Base64 } from '@ionic-native/base64';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { PopoverComponentComponent } from 'src/app/components/popover-component/popover-component.component';
 import { ConnectionStatus, NetworkService } from 'src/app/services/network/network.service';
+declare var nsfwCheck: Function;
 
 @Component({
   selector: 'app-information-de-reclamation',
   templateUrl: './information-de-reclamation.page.html',
   styleUrls: ['./information-de-reclamation.page.scss'],
 })
+
 export class InformationDeReclamationPage implements OnInit {
   spinner = false;
   data = {
@@ -27,8 +29,10 @@ export class InformationDeReclamationPage implements OnInit {
     image: "",
     subject: "",
     description: "",
-    uid: ""
+    uid: "",
+    upvote: 0
   }
+  nsfw;
   cssProp = { // data for css animations
     backGroundTop: "30%",
     textOpacity: 1,
@@ -44,7 +48,7 @@ export class InformationDeReclamationPage implements OnInit {
       name: "Public", bigImage: './assets/images/green.png'
     },
     {
-      name: "ligth", bigImage: './assets/images/illigal.png'
+      name: "light", bigImage: './assets/images/light.png'
     },
     {
       name: "trash", bigImage: './assets/images/trash.png'
@@ -53,16 +57,16 @@ export class InformationDeReclamationPage implements OnInit {
       name: "illigal", bigImage: './assets/images/illigal.png'
     },
     {
-      name: "structure", bigImage: './assets/images/illigal.png'
+      name: "structure", bigImage: './assets/images/structure.png'
     },
     {
-      name: "parking", bigImage: './assets/images/illigal.png'
+      name: "parking", bigImage: './assets/images/parking.png'
     },
     {
       name: "sink", bigImage: './assets/images/sink.png'
     },
     {
-      name: "roades", bigImage: './assets/images/illigal.png'
+      name: "Patholes", bigImage: './assets/images/illigal.png'
     }
   ];
   constructor(public router: Router,
@@ -78,8 +82,6 @@ export class InformationDeReclamationPage implements OnInit {
     this.route.queryParams.subscribe((res) => {
       this.data = JSON.parse(res.p);
       let ty: any = this.types.filter(elm => {
-        //        console.log(this.data.type == elm.name);
-
         if (elm.name == this.data.type) {
           return true;
         }
@@ -87,15 +89,12 @@ export class InformationDeReclamationPage implements OnInit {
       console.log(ty);
 
       this.data.image = ty[0].bigImage;
-      ty[0].bigImage
     });
-
 
     this.Online = networkService.isConnected() ? true : false
     this.platform.backButton.subscribe(() => {
       this.backward();
     });
-
 
   }
 
@@ -124,8 +123,18 @@ export class InformationDeReclamationPage implements OnInit {
 
   loadCamera() {
     let cameraOptions = this.cameraOptions(this.camera.PictureSourceType.CAMERA);
+
     this.camera.getPicture(cameraOptions).then(async (imageData) => {
-      this.data.image = 'data:image/jpeg;base64,' + imageData;
+      nsfwCheck(imageData)
+      setTimeout(() => {
+        if (this.nsfw == 'nsfw') {
+          this.presentPopover(null, {
+            bigImage: "assets/images/nsfw.png", content: "استغفر الله ... احشم يا خرا"
+          })
+        } else {
+          this.data.image = 'data:image/jpeg;base64,' + imageData;
+        }
+      }, 2000);
     }, (err) => {
       let ty: any = this.types.filter(elm => {
         if (elm.name == this.data.type) return true;
@@ -147,7 +156,16 @@ export class InformationDeReclamationPage implements OnInit {
     let cameraOptions = this.cameraOptions(this.camera.PictureSourceType.PHOTOLIBRARY);
 
     this.camera.getPicture(cameraOptions).then(async (imageData) => {
-      this.data.image = 'data:image/jpeg;base64,' + imageData;
+      nsfwCheck(imageData);
+      setTimeout(() => {
+        if (this.nsfw == 'nsfw') {
+          this.presentPopover(null, {
+            bigImage: "assets/images/spam.png", content: "NSFW"
+          })
+        } else {
+          this.data.image = 'data:image/jpeg;base64,' + imageData;
+        }
+      }, 2000);
     }, (err) => {
 
       let ty: any = this.types.filter(elm => {
@@ -155,13 +173,7 @@ export class InformationDeReclamationPage implements OnInit {
       })
       this.data.image = ty[0].bigImage;
     });
-    if (this.data.image = '') {
 
-      let ty: any = this.types.filter(elm => {
-        if (elm.name == this.data.type) return true;
-      })
-      this.data.image = ty[0].bigImage;
-    }
   }
 
 
@@ -177,24 +189,9 @@ export class InformationDeReclamationPage implements OnInit {
     return false;
   }
   submit() {
-
-    let Data = {
-      type: this.data.type,
-      email: this.data.email,
-      city: this.data.city,
-      municipality: this.data.municipalite,
-      lat: this.data.lat,
-      lng: this.data.lng,
-      photo: this.data.image,
-      description: this.data.description,
-      topic: this.data.subject,
-      uid: this.data.uid,
-      state: 'waiting'
-    }
     if (this.checkDataEmpty()) {
       this.spinner = true;
-      console.log(this.data);
-
+      this.data.upvote = 0;
       this.http.postData(this.data).subscribe(inf => {
         if (this.Online)
           this.presentPopover(null, {
@@ -208,7 +205,11 @@ export class InformationDeReclamationPage implements OnInit {
             content: "Your Claim has been Successfully stored in your device It will be send when you are reconnect to network !",
             role: "GoToWelcomePage"
           });
+        this.spinner = false;
+      }, err => {
+        console.log(err)
       })
+
 
     }
     else {

@@ -6,6 +6,7 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { PopoverComponentComponent } from 'src/app/components/popover-component/popover-component.component';
 import { PopoverController } from '@ionic/angular';
 import { NetworkService } from 'src/app/services/network/network.service';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-all-claims',
@@ -14,24 +15,53 @@ import { NetworkService } from 'src/app/services/network/network.service';
 })
 export class AllClaimsPage implements OnInit {
 
+  likedClaimsKey = 'likedClaimsKey'
+  likedClaims: any = [];
   claims: any = [];
   oxClaims: any = [];
   searchBar = "";
   Online;
   showSkeleton = true;
+  cssProp = { // data for css animations
+    backGroundTop: "30%",
+    textOpacity: 1,
+    titleLeft: "10%",
+    titleTop: "90%",
+    titleSize: "30px",
+    textTop: "16%"
+  }
   constructor(private sanitizer: DomSanitizer,
     private network: Network,
     public http: HttpClaimService,
     private router: Router,
     private popOver: PopoverController,
-    private networkService: NetworkService) {
+    private networkService: NetworkService,
+    private storage: Storage) {
+    this.likedClaims = []
     this.Online = networkService.isConnected() ? true : false
     if (this.Online)
       this.http.getData().subscribe(d => {
         this.claims = d;
+        this.storage.get(this.likedClaimsKey).then(e => {
+          this.likedClaims = e;
+          this.claims.forEach(claim => {
+            let exist = false;
+            if (this.likedClaims)
+              this.likedClaims.forEach(element => {
+                if (claim.id == element) {
+                  exist = true;
+                }
+              });
+            if (exist)
+              claim.state = 'heart'
+            else
+              claim.state = 'heart-outline'
+          })
+
+        });
+
         this.showSkeleton = false;
         this.claims.forEach(elm => {
-          elm.upvote = 0
           if ((String)(elm.image[0]).indexOf("./assets") > 0)
             elm.noImage = true;
           else
@@ -75,7 +105,7 @@ export class AllClaimsPage implements OnInit {
   }
 
   filterList(evt) {
-
+    this.searchBar = evt.srcElement.value;
     const searchTerm = evt.srcElement.value;
     if (!searchTerm || searchTerm == "") {
       this.claims = this.oxClaims;
@@ -141,7 +171,6 @@ export class AllClaimsPage implements OnInit {
 
   getTime(claim) {
     return this.setTime(claim);
-
   }
 
   async presentPopover(cont: any) {
@@ -157,17 +186,57 @@ export class AllClaimsPage implements OnInit {
   upvote(claim) {
     this.claims.forEach(elm => {
       if (elm.id == claim.id) {
-        elm.upvote++;
-        return;
+        if (claim.state == 'heart-outline') {
+          elm.upvote++;
+          this.http.updateUpvote(elm).subscribe(res => {
+            console.log('succ');
+
+          }, err => {
+            console.log(err);
+
+          })
+          if (!this.likedClaims)
+            this.likedClaims = []
+          this.likedClaims.push(elm.id)
+          this.storage.set(this.likedClaimsKey, this.likedClaims)
+          elm.state = 'heart'
+        } else {
+          elm.state = 'heart-outline'
+          elm.upvote--;
+          this.http.updateUpvote(elm).subscribe(res => {
+            console.log('succ');
+
+          }, err => {
+            console.log(err);
+
+          })
+          const index = this.likedClaims.indexOf(claim.id)
+          if (index > -1) {
+            this.likedClaims.splice(index, 1);
+            console.log(this.likedClaims);
+            this.storage.set(this.likedClaimsKey, this.likedClaims)
+          }
+        }
       }
     });
   }
-  downvote(claim) {
-    this.claims.forEach(elm => {
-      if (elm.id == claim.id) {
-        elm.upvote--;
-        return;
-      }
-    });
+  logScrollStart(ev) { // animations
+    let top = ev.detail.scrollTop;
+    this.cssProp.backGroundTop = this.map(top, 0, 150, 0, 20)
+    this.cssProp.backGroundTop = 30 - Number(this.cssProp.backGroundTop) + "%"
+    this.cssProp.textOpacity = this.map(top, 0, 110, 0, 1);
+    this.cssProp.textOpacity = 1 - this.cssProp.textOpacity;
+    this.cssProp.titleSize = this.map(top, 0, 150, 30, 25) + "px";
+    this.cssProp.titleTop = this.map(top, 0, 150, 90, 25) + "%";
+    this.cssProp.titleLeft = this.map(top, 0, 150, 10, 17) + "% ";
+    this.cssProp.textTop = this.map(top, 0, 150, 16, 12) + "%";
   }
+  map(x, in_min, in_max, out_min, out_max) {
+    if (x < in_min)
+      x = in_min
+    else if (x > in_max)
+      x = in_max
+    return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+  }
+
 }

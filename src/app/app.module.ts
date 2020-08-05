@@ -18,12 +18,11 @@ import { HttpClaimService } from 'src/app/services/http/http-claim.service';
 import { UniqueDeviceID } from '@ionic-native/unique-device-id/ngx';
 import { PopoverComponentComponent } from './components/popover-component/popover-component.component';
 import { Network } from '@ionic-native/network/ngx';
-import { LongPressDirective } from './components/long-press/long-press.directive';
 
 
-// import { Geolocation } from '@ionic-enterprise/geolocation/ngx';
+// import { Geolocation } from '@ionic-enterprise/geolocation/ngx'; 
 @NgModule({
-  declarations: [AppComponent, PopoverComponentComponent, LongPressDirective],
+  declarations: [AppComponent, PopoverComponentComponent],
   entryComponents: [PopoverComponentComponent],
   imports: [BrowserModule,
     HttpClientModule,
