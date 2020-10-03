@@ -15,6 +15,7 @@ import { TypeDeReclamationPage } from './type-de-reclamation.page';
     IonicModule,
     TypeDeReclamationPageRoutingModule
   ],
-  declarations: [TypeDeReclamationPage]
+  declarations: [TypeDeReclamationPage],
+
 })
-export class TypeDeReclamationPageModule {}
+export class TypeDeReclamationPageModule { }

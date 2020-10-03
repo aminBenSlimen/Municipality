@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChildren, ElementRef, Query, QueryList, AfterViewInit } from '@angular/core';
-import { AlertController, PopoverController, Platform, IonCard } from '@ionic/angular';
+import { Component, OnInit, ViewChildren, ElementRef, Query, QueryList, AfterViewInit, ViewChild } from '@angular/core';
+import { AlertController, PopoverController, Platform, IonCard, IonContent } from '@ionic/angular';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PopoverComponentComponent } from 'src/app/components/popover-component/popover-component.component';
 import { element } from 'protractor';
@@ -13,6 +13,7 @@ const firstTimeTR = 'firstTimeTR'
   styleUrls: ['./type-de-reclamation.page.scss'],
 })
 export class TypeDeReclamationPage implements AfterViewInit {
+  @ViewChild('IonContent', { static: false }) IonContent: IonContent;
 
   cssProp = {
     backGroundTop: "30%",
@@ -33,11 +34,15 @@ export class TypeDeReclamationPage implements AfterViewInit {
     image: "",
     subject: "",
     description: "",
-    uid: ""
+    uid: "",
+    report: 0
   }
   Online;
-  longPressActive = false;
+  ScrollY;
   elmntOntouch = false;
+  scrolling: boolean;
+  handledInTouchEnd: boolean = true;
+  isTouched: boolean;
   types: Array<Object> = [
     {
       name: "Public", image: "./assets/logos/green.png", color: "white", content: "Select this Option if there is any thing related to green spaces",
@@ -52,23 +57,23 @@ export class TypeDeReclamationPage implements AfterViewInit {
       bigImage: './assets/images/trash.png', titleColor: "#8c8c8c"
     },
     {
-      name: "illigal", image: "./assets/logos/structure.png", color: "white", content: "Select this option when ever you see any type of street Vendors And we will be happy to ruin their lives ",
+      name: "illigal", image: "./assets/logos/structure.png", color: "white", content: "Select this option when ever you see any type of street Vendors And we will be more than happy to ruin their lives ",
       bigImage: './assets/images/illigal.png', titleColor: "#8c8c8c"
     },
     {
-      name: "structure", image: "./assets/logos/struct.png", color: "white", content: "ht",
+      name: "structure", image: "./assets/logos/struct.png", color: "white", content: "Select this option when you find any unconstitutional building",
       bigImage: './assets/images/structure.png', titleColor: "#8c8c8c"
     },
     {
-      name: "parking", image: "./assets/logos/parking.png", color: "white", content: "hth",
+      name: "parking", image: "./assets/logos/parking.png", color: "white", content: "Our life and time matter , be safe , Select this option when you find any illicit vehicles parking ",
       bigImage: './assets/images/parking.png', titleColor: "#8c8c8c"
     },
     {
-      name: "sink", image: "./assets/logos/sink.png", color: "white", content: "aze",
+      name: "sink", image: "./assets/logos/sink.png", color: "white", content: "Select this option when you find a water leak ",
       bigImage: './assets/images/sink.png', titleColor: "#8c8c8c"
     },
     {
-      name: "Patholes", image: "./assets/logos/roades.png", color: "white", content: "n",
+      name: "Patholes", image: "./assets/logos/roades.png", color: "white", content: "Don't waste your time dude",
       bigImage: './assets/images/road.png', titleColor: "#8c8c8c"
     }
   ];
@@ -130,32 +135,62 @@ export class TypeDeReclamationPage implements AfterViewInit {
           content: "please hold down on the categorie's picture to get more information about it ! "
         })
       }
+
     })
   }
-  touchstart(event, el) {
+  cardTouchstart(event, el) {
     this.elmntOntouch = true;
     this.showMoreInfo(el)
   }
-  touchend(event, el) {
+  cardTouchend() {
     this.elmntOntouch = false;
   }
-
+  touchstart() {
+    this.isTouched = true;
+  }
+  touchend() {
+    this.isTouched = false;
+    if (!this.scrolling) {
+      this.handledInTouchEnd = true;
+      if (this.ScrollY > 60 && this.ScrollY < 150)
+        this.IonContent.scrollToPoint(0, 150, 400);
+      else if (this.ScrollY < 60)
+        this.IonContent.scrollToTop(200)
+    } else {
+      this.handledInTouchEnd = false
+    }
+  }
+  endScroll() {
+    this.scrolling = false
+    if (!this.handledInTouchEnd) {
+      if (this.ScrollY > 60 && this.ScrollY < 150)
+        this.IonContent.scrollToPoint(0, 150, 400);
+      else if (this.ScrollY < 60)
+        this.IonContent.scrollToTop(200)
+    }
+  }
+  startScroll() {
+    if (this.isTouched)
+      this.scrolling = true
+  }
   showMoreInfo(el) {
     setTimeout(() => {
       if (this.elmntOntouch == true)
         this.presentPopover(null, el)
     }, 700);
   }
-  async customType(message) {
+
+  async customType(message = null) {
+
     const alert = await this.alert.create({
-      header: 'nouveau type',
+      header: 'Add your custom type',
       inputs: [{
         name: 'customType',
         type: 'text',
         label: 'your type',
         value: ''
       },],
-      message: message || 'donner le type de la reclamation',
+      message: '',
       buttons: [{
         text: "ok",
         handler: (value) => {
@@ -176,7 +211,7 @@ export class TypeDeReclamationPage implements AfterViewInit {
 
 
   backward() {
-    this.router.navigate(["/welcome"], {
+    this.router.navigate([""], {
       queryParams: { p: JSON.stringify(this.data) },
     })
   }
@@ -195,7 +230,8 @@ export class TypeDeReclamationPage implements AfterViewInit {
     return false;
   }
   logScrollStart(ev) {
-    let top = ev.detail.scrollTop;
+    this.elmntOntouch = false;
+    let top = this.ScrollY = ev.detail.scrollTop;
     this.cssProp.backGroundTop = this.map(top, 0, 150, 0, 20)
     this.cssProp.backGroundTop = 30 - Number(this.cssProp.backGroundTop) + "%"
     this.cssProp.textOpacity = this.map(top, 0, 110, 0, 1);

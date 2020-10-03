@@ -8,15 +8,18 @@ ion-content{
     --padding-bottom: 6em;
     scroll-behavior: smooth;
 }
+
 ion-card{
    
     margin-top: 3em;
-    height: 55%;
-    border-radius: 5%;
+    height: 60%;
     margin-top: 6em;
     margin-bottom: -3em;
     box-shadow: none;
-    box-shadow: #0000000a 2px -2px 9px 6px;
+    width: 85%;
+    left: 7.5%;
+    margin-left: 0;
+    box-shadow: 3px 3px 15px 3px rgba(0, 0, 0, 0.06), 0 0px 0px 0 rgba(0, 0, 0, 0.14), 0 0px 0px 0 rgba(0, 0, 0, 0.12);
 }
 .background{
     z-index: 0;
@@ -27,7 +30,7 @@ ion-card{
     top: 10%;
     background: #ffffff ;
 }
-ion-searchbar{
+.searchbar{
 
     position: absolute;
     z-index: 10;
@@ -40,17 +43,36 @@ ion-searchbar{
     --border-radius : 50px;
 }
 ion-card-header{
+    bottom: 0;
     height: 40%;
     padding-bottom: 2em;
     padding-top: 2em;
     position: absolute;
-    bottom: 0;
+    display: block;
     background: white;
     width: 100%;
-    border-radius: 0em 0em 1em 1em;
 }
 app-animated-like{
     position: absolute;
-    right: 16%;
-    bottom: 16%;
+    right: 25%;
+    bottom: 9%;
+    color: #fbcfcd;
+}
+
+.shareItem{
+    width: 100%;
+    font-size: 21px;
+    color: #f9bbbb;
+    height: 100%;
+}
+.shareItemContainer{
+    position: absolute;
+    right: 6%;
+    background: #ffffff;
+    text-align: center;
+    width: 9vw;
+    height: 9vw;
+    padding: 6px;
+    border-radius: 20px;
+    box-shadow:7px 8px 20px 0px #c0c0c0bd, -7px -8px 20px 0px #ffffffa3;
 }

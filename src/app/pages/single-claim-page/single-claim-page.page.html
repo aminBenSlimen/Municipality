@@ -1,0 +1,128 @@
+<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+<div *ngIf='splash' style="    position: fixed;
+width: 100%;
+background: rgba(255, 151, 151, 0.301);
+height: 100%;
+top: 0;
+display: flex;
+justify-content: center;
+z-index: 1000;">
+  <img style="width: 50%;margin:0;" src="data:image/svg+xml;base64,PCEtLSBCeSBTYW0gSGVyYmVydCAoQHNoZXJiKSwgZm9yIGV2ZXJ5b25lLiBNb3JlIEAgaHR0cDov
+  L2dvby5nbC83QUp6YkwgLS0+Cjxzdmcgd2lkdGg9IjU4IiBoZWlnaHQ9IjU4IiB2aWV3Qm94PSIw
+  IDAgNTggNTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgICA8ZyBmaWxs
+  PSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNs
+  YXRlKDIgMSkiIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxLjUiPgogICAgICAgICAgICA8
+  Y2lyY2xlIGN4PSI0Mi42MDEiIGN5PSIxMS40NjIiIHI9IjUiIGZpbGwtb3BhY2l0eT0iMSIgZmls
+  bD0iI2ZmZiI+CiAgICAgICAgICAgICAgICA8YW5pbWF0ZSBhdHRyaWJ1dGVOYW1lPSJmaWxsLW9w
+  YWNpdHkiCiAgICAgICAgICAgICAgICAgICAgIGJlZ2luPSIwcyIgZHVyPSIxLjNzIgogICAgICAg
+  ICAgICAgICAgICAgICB2YWx1ZXM9IjE7MDswOzA7MDswOzA7MCIgY2FsY01vZGU9ImxpbmVhciIK
+  ICAgICAgICAgICAgICAgICAgICAgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiIC8+CiAgICAgICAg
+  ICAgIDwvY2lyY2xlPgogICAgICAgICAgICA8Y2lyY2xlIGN4PSI0OS4wNjMiIGN5PSIyNy4wNjMi
+  IHI9IjUiIGZpbGwtb3BhY2l0eT0iMCIgZmlsbD0iI2ZmZiI+CiAgICAgICAgICAgICAgICA8YW5p
+  bWF0ZSBhdHRyaWJ1dGVOYW1lPSJmaWxsLW9wYWNpdHkiCiAgICAgICAgICAgICAgICAgICAgIGJl
+  Z2luPSIwcyIgZHVyPSIxLjNzIgogICAgICAgICAgICAgICAgICAgICB2YWx1ZXM9IjA7MTswOzA7
+  MDswOzA7MCIgY2FsY01vZGU9ImxpbmVhciIKICAgICAgICAgICAgICAgICAgICAgcmVwZWF0Q291
+  bnQ9ImluZGVmaW5pdGUiIC8+CiAgICAgICAgICAgIDwvY2lyY2xlPgogICAgICAgICAgICA8Y2ly
+  Y2xlIGN4PSI0Mi42MDEiIGN5PSI0Mi42NjMiIHI9IjUiIGZpbGwtb3BhY2l0eT0iMCIgZmlsbD0i
+  I2ZmZiI+CiAgICAgICAgICAgICAgICA8YW5pbWF0ZSBhdHRyaWJ1dGVOYW1lPSJmaWxsLW9wYWNp
+  dHkiCiAgICAgICAgICAgICAgICAgICAgIGJlZ2luPSIwcyIgZHVyPSIxLjNzIgogICAgICAgICAg
+  ICAgICAgICAgICB2YWx1ZXM9IjA7MDsxOzA7MDswOzA7MCIgY2FsY01vZGU9ImxpbmVhciIKICAg
+  ICAgICAgICAgICAgICAgICAgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiIC8+CiAgICAgICAgICAg
+  IDwvY2lyY2xlPgogICAgICAgICAgICA8Y2lyY2xlIGN4PSIyNyIgY3k9IjQ5LjEyNSIgcj0iNSIg
+  ZmlsbC1vcGFjaXR5PSIwIiBmaWxsPSIjZmZmIj4KICAgICAgICAgICAgICAgIDxhbmltYXRlIGF0
+  dHJpYnV0ZU5hbWU9ImZpbGwtb3BhY2l0eSIKICAgICAgICAgICAgICAgICAgICAgYmVnaW49IjBz
+  IiBkdXI9IjEuM3MiCiAgICAgICAgICAgICAgICAgICAgIHZhbHVlcz0iMDswOzA7MTswOzA7MDsw
+  IiBjYWxjTW9kZT0ibGluZWFyIgogICAgICAgICAgICAgICAgICAgICByZXBlYXRDb3VudD0iaW5k
+  ZWZpbml0ZSIgLz4KICAgICAgICAgICAgPC9jaXJjbGU+CiAgICAgICAgICAgIDxjaXJjbGUgY3g9
+  IjExLjM5OSIgY3k9IjQyLjY2MyIgcj0iNSIgZmlsbC1vcGFjaXR5PSIwIiBmaWxsPSIjZmZmIj4K
+  ICAgICAgICAgICAgICAgIDxhbmltYXRlIGF0dHJpYnV0ZU5hbWU9ImZpbGwtb3BhY2l0eSIKICAg
+  ICAgICAgICAgICAgICAgICAgYmVnaW49IjBzIiBkdXI9IjEuM3MiCiAgICAgICAgICAgICAgICAg
+  ICAgIHZhbHVlcz0iMDswOzA7MDsxOzA7MDswIiBjYWxjTW9kZT0ibGluZWFyIgogICAgICAgICAg
+  ICAgICAgICAgICByZXBlYXRDb3VudD0iaW5kZWZpbml0ZSIgLz4KICAgICAgICAgICAgPC9jaXJj
+  bGU+CiAgICAgICAgICAgIDxjaXJjbGUgY3g9IjQuOTM4IiBjeT0iMjcuMDYzIiByPSI1IiBmaWxs
+  LW9wYWNpdHk9IjAiIGZpbGw9IiNmZmYiPgogICAgICAgICAgICAgICAgPGFuaW1hdGUgYXR0cmli
+  dXRlTmFtZT0iZmlsbC1vcGFjaXR5IgogICAgICAgICAgICAgICAgICAgICBiZWdpbj0iMHMiIGR1
+  cj0iMS4zcyIKICAgICAgICAgICAgICAgICAgICAgdmFsdWVzPSIwOzA7MDswOzA7MTswOzAiIGNh
+  bGNNb2RlPSJsaW5lYXIiCiAgICAgICAgICAgICAgICAgICAgIHJlcGVhdENvdW50PSJpbmRlZmlu
+  aXRlIiAvPgogICAgICAgICAgICA8L2NpcmNsZT4KICAgICAgICAgICAgPGNpcmNsZSBjeD0iMTEu
+  Mzk5IiBjeT0iMTEuNDYyIiByPSI1IiBmaWxsLW9wYWNpdHk9IjAiIGZpbGw9IiNmZmYiPgogICAg
+  ICAgICAgICAgICAgPGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iZmlsbC1vcGFjaXR5IgogICAgICAg
+  ICAgICAgICAgICAgICBiZWdpbj0iMHMiIGR1cj0iMS4zcyIKICAgICAgICAgICAgICAgICAgICAg
+  dmFsdWVzPSIwOzA7MDswOzA7MDsxOzAiIGNhbGNNb2RlPSJsaW5lYXIiCiAgICAgICAgICAgICAg
+  ICAgICAgIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAvPgogICAgICAgICAgICA8L2NpcmNsZT4K
+  ICAgICAgICAgICAgPGNpcmNsZSBjeD0iMjciIGN5PSI1IiByPSI1IiBmaWxsLW9wYWNpdHk9IjAi
+  IGZpbGw9IiNmZmYiPgogICAgICAgICAgICAgICAgPGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iZmls
+  bC1vcGFjaXR5IgogICAgICAgICAgICAgICAgICAgICBiZWdpbj0iMHMiIGR1cj0iMS4zcyIKICAg
+  ICAgICAgICAgICAgICAgICAgdmFsdWVzPSIwOzA7MDswOzA7MDswOzEiIGNhbGNNb2RlPSJsaW5l
+  YXIiCiAgICAgICAgICAgICAgICAgICAgIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAvPgogICAg
+  ICAgICAgICA8L2NpcmNsZT4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg==" alt="">
+</div>
+<ion-content id="content">
+
+  <ion-icon name="chevron-back-outline" (click)="backward()" style="position: fixed;
+  color: white;
+  font-size: 32px;
+  left: 2%;
+  top: 2%;
+  z-index: 110000;"></ion-icon>
+  <img id="userImage" [src]="claim.image" style="position: absolute;
+  width: 100%;
+    background: linear-gradient(45deg, #282431, #554c6a);
+    border-radius: 0px 0px 30px 30px;box-shadow: 4px 4px 20px 0px rgb(0 ,0, 0 , .51)">
+  <div style="position: relative;
+top: 0;
+height: 11%;
+background: linear-gradient(180deg, rgba(0,0,0,0.8), transparent);
+z-index: 50;
+width: 100%;"></div>
+  <div style="position: absolute;
+  width: 20vw;
+  height: 20vw;
+  text-align: center;
+  padding: 19px;
+  background: linear-gradient(0deg, #f8887a, #ffb8c8);
+  z-index: 100000;
+  border-radius: 50%;
+  right: 40%;" [ngStyle]="{'top': calculateHeartTop(1)}">
+    <ion-icon [name]="claim.state" style="color: white;
+      width: 100%;
+      height: 100%;" (click)="upvote()"></ion-icon>
+  </div>
+  <div [ngStyle]="{'top': calculateHeartTop(2)}" style="position: absolute;
+  display: inline;
+  text-align: center;
+  top: 69%;">
+    <img src="./assets/icon/facebook.png" alt="" class="shareIcons" (click)="shareVia('facebook')">
+    <img src="./assets/icon/gmail.png" class="shareIcons" (click)="shareVia('mail')">
+    <img src="./assets/icon/sms.png" class="shareIcons" (click)="shareVia('sms')">
+    <img src="./assets/icon/twitter.png" class="shareIcons" (click)="shareVia('twitter')">
+    <img src="./assets/icon/whatsapp.png" class="shareIcons" (click)="shareVia('whatsapp')"></div>
+  <ion-card id="cardContent" [ngStyle]="{'top': calculateHeartTop(3)}">
+    <ion-card-header>
+      <ion-card-subtitle style="display: flex;">{{claim.created_at}} <div style="position: absolute;
+        right: 7%;
+        top: -11%;
+        font-size: 20px;
+        margin: 0;">{{claim.upvote}}
+        </div>
+        <ion-icon [name]="claim.state" style="position: absolute;
+        color: #7b718f;
+        right: -1%;
+        font-size: 19px;
+        top:0%" (click)="upvote()"></ion-icon>
+      </ion-card-subtitle>
+      <ion-card-title>{{claim.subject}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{claim.description}}
+    </ion-card-content>
+  </ion-card>
+
+  <div id="map" [ngStyle]="{'top': calculateHeartTop(4)}"></div>
+  <div
+    style="position: sticky;z-index: 1000000000;width: 100%;height: 20%;background:linear-gradient(0,#1f1a29,rgba(0,0,0,0));top: 100%;">
+  </div>
+
+
+</ion-content>

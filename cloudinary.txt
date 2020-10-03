@@ -1,0 +1,5 @@
+password : Clashamin00/
+cloudname : dzumwbgd3
+API key : 562238767289954
+API secret : OxE5PsLyWkFxHnt8BojPMm1U4Gg
+env variable : cloudinary://562238767289954:OxE5PsLyWkFxHnt8BojPMm1U4Gg@dzumwbgd3

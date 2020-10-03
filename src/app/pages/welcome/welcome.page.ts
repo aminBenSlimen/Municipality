@@ -5,7 +5,11 @@ import { Platform, PopoverController } from '@ionic/angular';
 import { HttpClaimService } from 'src/app/services/http/http-claim.service';
 import { SpamControllerService } from 'src/app/services/spamController/spam-controller.service';
 import { PopoverComponentComponent } from 'src/app/components/popover-component/popover-component.component';
-import { NetworkService } from 'src/app/services/network/network.service';
+import { NetworkService, ConnectionStatus } from 'src/app/services/network/network.service';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { Storage } from '@ionic/storage';
+import { TranslateService } from '@ngx-translate/core';
+
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.page.html',
@@ -42,9 +46,13 @@ export class WelcomePage implements OnInit {
     public router: Router,
     private route: ActivatedRoute,
     private http: HttpClaimService,
+    private platform: Platform,
     private popOver: PopoverController,
     private spamController: SpamControllerService,
-    private networkService: NetworkService) {
+    private networkService: NetworkService,
+    private splashScreen: SplashScreen,
+    private translate: TranslateService,
+    private storage: Storage) {
     this.route.queryParams.subscribe((res) => {
       if (res.p) {
         this.splash = false;
@@ -52,8 +60,8 @@ export class WelcomePage implements OnInit {
       }
     });
 
-    this.Online = networkService.isConnected() ? true : false
-    //this.Online = true;
+
+    this.Online = networkService.getCurrentNetworkStatus() == ConnectionStatus.Online ? true : false
     if (this.Online)
       this.http.getData().subscribe(data => {
         this.claims = data;
@@ -74,15 +82,23 @@ export class WelcomePage implements OnInit {
         button: 'Yes'
       })
     }
-
+    this.platform.ready().then(() => {
+      this.uid.get().then(value => {
+        this.storage.get("uuid").then(e => {
+          if (!e)
+            this.storage.set("uuid", value)
+        }).catch(() => {
+          this.storage.set("uuid", value)
+        })
+        this.data.uid = value
+      }).catch(error => {
+        this.data.uid = error
+      })
+    });
   }
 
   ngOnInit() {
-    if (!this.data.uid || this.data.uid == '')
-      this.uid.get()
-        .then((uuid: any) => this.data.uid = uuid)
-        .catch((error: any) => this.data.uid = error);
-
+    this.splashScreen.hide();
   }
 
   seeClaims() {
@@ -98,29 +114,36 @@ export class WelcomePage implements OnInit {
   }
 
   forward() {
-    let Time = this.spamController.checkForSpam(this.data.uid, JSON.parse(JSON.stringify(this.claims)));
-    if (Time != -1) {
-      let cont;
-      if (Time == 0) {
-        cont = {
-          content: "Oops ! Sorry For that. We are unable to process any more request at this moment, Please try again after one hour",
-          bigImage: 'assets/images/spam.png'
+    this.Online = this.networkService.getCurrentNetworkStatus() == ConnectionStatus.Online ? true : false
+
+    if (this.Online && this.claims != []) {
+      let Time = this.spamController.checkForSpam(this.data.uid, JSON.parse(JSON.stringify(this.claims)));
+      if (Time != -1) {
+        let cont;
+        if (Time == 0) {
+          cont = {
+            content: "Oops ! Sorry For that. We are unable to process any more request at this moment, Please try again after one hour",
+            bigImage: 'assets/images/spam.png'
+          }
+        } else {
+          cont = {
+            content: "Oops ! Sorry For that. We are unable to process any more request at this moment, Please try again after " + Time + " Hours ",
+            bigImage: 'assets/images/spam.png'
+          }
         }
+        this.presentPopover(cont);
       } else {
-        cont = {
-          content: "Oops ! Sorry For that. We are unable to process any more request at this moment, Please try again after " + Time + " Hours ",
-          bigImage: 'assets/images/spam.png'
-        }
+        this.router.navigate(["/type-de-reclamation"], {
+          queryParams: { p: JSON.stringify(this.data) },
+        })
       }
 
-      this.presentPopover(cont);
     }
     else {
       this.router.navigate(["/type-de-reclamation"], {
         queryParams: { p: JSON.stringify(this.data) },
       })
     }
-
   }
   AboutUs() {
     this.router.navigate(["/about-us"], {

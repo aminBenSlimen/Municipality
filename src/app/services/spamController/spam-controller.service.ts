@@ -43,13 +43,15 @@ export class SpamControllerService {
       })
       top5.push(min);
     }
-    if (Math.abs(d1 - (top5[0] + 1)) == 0)
+    if (top5.length < 3)
+      return -1
+    else if (Math.abs(d1 - (top5[0] + 1)) == 0)
       return 0;
     // the 5th Claim and the first Claim must be offceted by at least 24 Hours
-    if ((top5.length < 5) || (Math.abs(top5[0] - top5[top5.length - 1]) > 24))
+    if (Math.abs(top5[0] - top5[top5.length - 1]) > 24)
       return -1
-    else if (Math.abs(d1 - top5[0]) < 24)
-      return Math.abs(d1 - top5[0]);
+    else if (Math.abs(d1 - top5[0] - 1) < 24)
+      return Math.abs(d1 - top5[0] - 1);
     else
       return -1
   }

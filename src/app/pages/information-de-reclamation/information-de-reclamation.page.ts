@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActionSheetController, Platform, PopoverController } from '@ionic/angular'
+import { Component, OnInit, HostListener, ViewChild } from '@angular/core';
+import { ActionSheetController, Platform, PopoverController, IonContent } from '@ionic/angular'
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx'
 import { FileChooser } from '@ionic-native/file-chooser/ngx'
 import { ActivatedRoute, Router } from '@angular/router';
@@ -9,6 +9,7 @@ import { Base64 } from '@ionic-native/base64';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { PopoverComponentComponent } from 'src/app/components/popover-component/popover-component.component';
 import { ConnectionStatus, NetworkService } from 'src/app/services/network/network.service';
+import { Keyboard } from '@ionic-native/keyboard/ngx';
 declare var nsfwCheck: Function;
 
 @Component({
@@ -18,6 +19,8 @@ declare var nsfwCheck: Function;
 })
 
 export class InformationDeReclamationPage implements OnInit {
+  @ViewChild('IonContent', { static: false }) IonContent: IonContent;
+
   spinner = false;
   data = {
     type: "",
@@ -30,8 +33,10 @@ export class InformationDeReclamationPage implements OnInit {
     subject: "",
     description: "",
     uid: "",
-    upvote: 0
+    upvote: 0,
+    report: 0
   }
+  imageType = "png";
   nsfw;
   cssProp = { // data for css animations
     backGroundTop: "30%",
@@ -69,6 +74,24 @@ export class InformationDeReclamationPage implements OnInit {
       name: "Patholes", bigImage: './assets/images/illigal.png'
     }
   ];
+  ScrollY: number;
+  scrolling: boolean;
+  handledInTouchEnd: boolean = true;
+  isTouched: boolean;
+  @HostListener('keydown', ['$event'])
+  keyEvent(e) {
+    var code = e.keyCode || e.which;
+    //log.d( "HostListener.keyEvent() - code=" + code );
+    if (code === 13) {
+      // log.d( "e.srcElement.tagName=" + e.srcElement.tagName );
+      if (e.srcElement.tagName === "INPUT") {
+        //log.d( "HostListener.keyEvent() - here" );
+        e.preventDefault();
+
+        this.keyboard.hide();
+      }
+    }
+  };
   constructor(public router: Router,
     public http: HttpClaimService,
     private route: ActivatedRoute,
@@ -77,6 +100,7 @@ export class InformationDeReclamationPage implements OnInit {
     private fileChooser: FileChooser,
     private popOver: PopoverController,
     private platform: Platform,
+    private keyboard: Keyboard,
     private networkService: NetworkService) {
 
     this.route.queryParams.subscribe((res) => {
@@ -91,11 +115,12 @@ export class InformationDeReclamationPage implements OnInit {
       this.data.image = ty[0].bigImage;
     });
 
-    this.Online = networkService.isConnected() ? true : false
+    // detecting the network state
+    this.Online = networkService.getCurrentNetworkStatus() == ConnectionStatus.Online ? true : false
+
     this.platform.backButton.subscribe(() => {
       this.backward();
     });
-
   }
 
   ngOnInit() {
@@ -123,18 +148,22 @@ export class InformationDeReclamationPage implements OnInit {
 
   loadCamera() {
     let cameraOptions = this.cameraOptions(this.camera.PictureSourceType.CAMERA);
-
     this.camera.getPicture(cameraOptions).then(async (imageData) => {
-      nsfwCheck(imageData)
-      setTimeout(() => {
-        if (this.nsfw == 'nsfw') {
-          this.presentPopover(null, {
-            bigImage: "assets/images/nsfw.png", content: "استغفر الله ... احشم يا خرا"
-          })
-        } else {
-          this.data.image = 'data:image/jpeg;base64,' + imageData;
-        }
-      }, 2000);
+      this.imageType = 'base64'
+      if (this.Online) {
+        nsfwCheck(imageData)
+        setTimeout(() => {
+          if (this.nsfw == 'nsfw') {
+            this.presentPopover(null, {
+              bigImage: "assets/images/nsfw.png", content: "استغفر الله ... احشم يا خرا"
+            })
+          } else {
+            this.data.image = 'data:image/jpeg;base64,' + imageData;
+          }
+        }, 2000);
+      } else
+        this.data.image = 'data:image/jpeg;base64,' + imageData;
+
     }, (err) => {
       let ty: any = this.types.filter(elm => {
         if (elm.name == this.data.type) return true;
@@ -143,6 +172,7 @@ export class InformationDeReclamationPage implements OnInit {
     });
   }
   getImgContent(image: string): any {
+    // return 'https://citynews.com.au/wp-content/uploads/2020/03/Manuka-tree-500x482.jpg'
     if (image == './assets/images/NoImage.jpeg' || image == '')
       return './assets/images/NoImage.jpg'
     else {
@@ -154,20 +184,24 @@ export class InformationDeReclamationPage implements OnInit {
   loadFileChooser() {
 
     let cameraOptions = this.cameraOptions(this.camera.PictureSourceType.PHOTOLIBRARY);
-
     this.camera.getPicture(cameraOptions).then(async (imageData) => {
-      nsfwCheck(imageData);
-      setTimeout(() => {
-        if (this.nsfw == 'nsfw') {
-          this.presentPopover(null, {
-            bigImage: "assets/images/spam.png", content: "NSFW"
-          })
-        } else {
-          this.data.image = 'data:image/jpeg;base64,' + imageData;
-        }
-      }, 2000);
-    }, (err) => {
+      this.imageType = 'base64'
+      if (this.Online) {
+        nsfwCheck(imageData)
+        setTimeout(() => {
+          if (this.nsfw == 'nsfw') {
+            this.presentPopover(null, {
+              bigImage: "assets/images/nsfw.png", content: "NSFW"
+            })
+          } else {
+            this.data.image = 'data:image/jpeg;base64,' + imageData;
+          }
+        }, 2000);
+      }
+      else
+        this.data.image = 'data:image/jpeg;base64,' + imageData
 
+    }, (err) => {
       let ty: any = this.types.filter(elm => {
         if (elm.name == this.data.type) return true;
       })
@@ -192,6 +226,35 @@ export class InformationDeReclamationPage implements OnInit {
     if (this.checkDataEmpty()) {
       this.spinner = true;
       this.data.upvote = 0;
+      this.data.report = 0;
+      if (this.imageType != 'base64') {
+        this.postClaim()
+      } else {
+
+        this.http.uploadImage(this.data).subscribe(inf => {
+          let image: any = inf;
+          this.data.image = image.data.link;
+          this.postClaim()
+        }, err => {
+          console.log(err);
+        })
+      }
+    }
+    else {
+      this.presentPopover(null, { bigImage: "assets/images/spam.png", content: "sorry Description and Subjet are required" })
+    }
+  }
+  postClaim() {
+    if (!this.Online) {
+      this.http.postData(this.data)
+      this.spinner = false
+      this.presentPopover(null, {
+        bigImage: "assets/images/success.png",
+        content: "Your Claim has been Completed Successfully , it will be sent to us as soon as you get online",
+        role: "GoToWelcomePage"
+      });
+    }
+    else
       this.http.postData(this.data).subscribe(inf => {
         if (this.Online)
           this.presentPopover(null, {
@@ -207,15 +270,15 @@ export class InformationDeReclamationPage implements OnInit {
           });
         this.spinner = false;
       }, err => {
-        console.log(err)
+        this.spinner = false;
+        this.presentPopover(null, {
+          bigImage: "assets/images/spam.png",
+          content: "oops! some thing went wrong , for the time being i'm using a free host that dont accept image uploading",
+          role: "ok"
+        });
       })
-
-
-    }
-    else {
-      this.presentPopover(null, { bigImage: "assets/images/spam.png", content: "sorry Description and Subjet are required" })
-    }
   }
+
   async presentPopover(ev: any, type: any) {
     const popover = await this.popOver.create({
       component: PopoverComponentComponent,
@@ -227,8 +290,37 @@ export class InformationDeReclamationPage implements OnInit {
     });
     return await popover.present();
   }
+  touchstart() {
+    this.isTouched = true;
+  }
+  touchend() {
+    this.isTouched = false;
+    if (!this.scrolling) {
+      this.handledInTouchEnd = true;
+      if (this.ScrollY > 60 && this.ScrollY < 150)
+        this.IonContent.scrollToPoint(0, 150, 400);
+      else if (this.ScrollY < 60)
+        this.IonContent.scrollToTop(200)
+    } else {
+      this.handledInTouchEnd = false
+    }
+  }
+  endScroll() {
+    this.scrolling = false
+    if (!this.handledInTouchEnd) {
+      if (this.ScrollY > 60 && this.ScrollY < 150)
+        this.IonContent.scrollToPoint(0, 150, 400);
+      else if (this.ScrollY < 60)
+        this.IonContent.scrollToTop(200)
+    }
+  }
+  startScroll() {
+    if (this.isTouched)
+      this.scrolling = true
+  }
+
   logScrollStart(ev) { // animations
-    let top = ev.detail.scrollTop;
+    let top = this.ScrollY = ev.detail.scrollTop;
     this.cssProp.backGroundTop = this.map(top, 0, 150, 0, 20)
     this.cssProp.backGroundTop = 30 - Number(this.cssProp.backGroundTop) + "%"
     this.cssProp.textOpacity = this.map(top, 0, 110, 0, 1);
@@ -244,5 +336,9 @@ export class InformationDeReclamationPage implements OnInit {
     else if (x > in_max)
       x = in_max
     return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+  }
+  maxLetters(n) {
+    if (this.data.subject.length > n)
+      this.data.subject = this.data.subject.slice(0, n)
   }
 }

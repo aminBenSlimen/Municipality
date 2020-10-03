@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { Observable, from, of, forkJoin } from 'rxjs';
 import { switchMap, finalize } from 'rxjs/operators';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { ToastController } from '@ionic/angular';
 
 const STORAGE_REQ_KEY = 'storedreq';
@@ -20,7 +20,9 @@ interface StoredRequest {
 })
 export class OfflineManagerService {
 
-  constructor(private storage: Storage, private http: HttpClient, private toastController: ToastController) { }
+  constructor(private storage: Storage,
+    private http: HttpClient,
+    private toastController: ToastController) { }
 
   checkForEvents(): Observable<any> {
     return from(this.storage.get(STORAGE_REQ_KEY)).pipe(
@@ -84,9 +86,49 @@ export class OfflineManagerService {
       headers.append("Access-Control-Allow-Headers", '*');
       headers.append('Content-Type', 'application/json');
       headers.append('Accept', 'application/json,text/plain');
-      let requestOptions = { headers: headers }
-      let oneObs = this.http.post(op.url, op.data, requestOptions);
-      obs.push(oneObs);
+      let oneObs;
+      if (op.url == 'https://api.imgur.com/3/image') {
+        this.http.post(op.url, op.data.image, { headers: headers }).subscribe(inf => {
+          op.data.upvote = 0;
+          const params = new HttpParams()
+            .set('type', op.data.type)
+            .set('email', op.data.email)
+            .set('uid', op.data.uid)
+            .set('lat', op.data.lat)
+            .set('lng', op.data.lng)
+            .set('city', op.data.city)
+            .set('municipalite', op.data.municipalite)
+            .set('subject', op.data.subject)
+            .set('description', op.data.description)
+            .set('image', op.data.image)
+            .set('upvote', op.data.upvote)
+          let requestOptions = { headers: headers, params: params }
+          oneObs = this.http.post('https://municipality00.000webhostapp.com/public/api/op.datas', null, requestOptions)
+          obs.push(oneObs);
+        }, err => {
+          console.log('error in the complicated offline request');
+        })
+      } else {
+        const params = new HttpParams()
+          .set('type', op.data.type)
+          .set('email', op.data.email)
+          .set('uid', op.data.uid)
+          .set('lat', op.data.lat)
+          .set('lng', op.data.lng)
+          .set('city', op.data.city)
+          .set('municipalite', op.data.municipalite)
+          .set('subject', op.data.subject)
+          .set('description', op.data.description)
+          .set('image', op.data.image)
+          .set('upvote', op.data.upvote)
+        let requestOptions = { headers: headers, params: params }
+        if (op.data.id)
+          oneObs = this.http.post(op.url + '/' + op.data.id, null, requestOptions)
+        else {
+          return this.http.post(op.url, null, requestOptions)
+        }
+        obs.push(oneObs);
+      }
     }
     return forkJoin(obs);
   }

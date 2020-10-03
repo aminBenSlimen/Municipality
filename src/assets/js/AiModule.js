@@ -2,30 +2,17 @@
 let model;
 let targetLabel = 'C';
 let trainingData = [];
-let FinalResult = '';
+let FinalResult = 'init';
 let state = 'prediction';
 
-
-function setup() {
-    let options = {
-        inputs: ['x', 'y'],
-        outputs: ['label'],
-        task: 'classification',
-        debug: 'true'
-    };
-    model = ml5.neuralNetwork(options);
-    modelInfo = {
-        model: '../assets/module/model.json',
-        metadata: '../assets/module/model_meta.json',
-        weights: '../assets/module/model.weights.bin'
-    }
-    model.load(modelInfo, modelLoaded)
-}
 function modelLoaded() {
     state = 'prediction';
 }
-function train() {
-    setup();
+function getModel() {
+    return model
+}
+function train(t) {
+    trainingData = t;
     trainingData.forEach((elm) => {
         model.addData(elm.inputs, elm.target);
     })
@@ -33,13 +20,13 @@ function train() {
     console.log('starting training');
     model.normalizeData();
     let options = {
-        epochs: 200
+        epochs: 1000
     };
     model.train(options, whileTraining, finishedTraining);
 }
 function changeLabel(label) {
     targetLabel = label;
-    console.log(model)
+    console.log(label)
 }
 function whileTraining(epoch, loss) {
     console.log(epoch);
@@ -63,22 +50,14 @@ function collectData(x, y) {
             label: targetLabel
         };
         trainingData.push({ inputs, target })
-        //console.log(trainingData);
+
     }
     else if (state == 'prediction') {
-        model.classify(inputs, gotResults);
+        return model.predict(inputs)
+
     }
 
 }
 function returnToTs() {
     return FinalResult;
-}
-function gotResults(error, results) {
-    if (error) {
-        console.error(error);
-        return;
-    }
-    let label = results[0].label;
-    FinalResult = label
-
 }

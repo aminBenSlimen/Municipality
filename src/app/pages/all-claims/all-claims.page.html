@@ -1,13 +1,39 @@
-<ion-content [scrollEvents]="true" (ionScroll)="logScrollStart($event)">
+<ion-content id="ioncontent" #IonContent [scrollEvents]="true" (ionScrollStart)="startScroll()"
+  (ionScroll)="logScrollStart($event)" (touchend)="touchend($event)" (touchstart)="touchstart($event)"
+  (ionScrollEnd)="endScroll()">
+  <ion-refresher (ionRefresh)="doRefresh($event)" slot="fixed" pullFactor="0.5" pullMin="100" pullMax="200">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
 
-
-  <img id="back" src="./assets/icon/Bback.png" style="position: absolute;
+  <img id="back" src="./assets/icon/Bback.png" style="
       position: fixed;
       width: 7%;
       z-index: 100;
       top: 3%;
       left: 8%;
       margin: 0;" (click)="forward()">
+  <ion-icon name="list-circle-outline" size='large' style=" position: fixed;
+z-index: 100;
+top: 2%;
+right: 7%;
+margin: 0;
+color: #63164e;" (click)="showDisplayFactor()"></ion-icon>
+  <ion-icon name="search-circle-outline" size='large' style="
+  position: fixed;
+  z-index: 100;
+  top: 2%;
+  right: 16%;
+  margin: 0;
+  color: #63164e;" [ngStyle]="{'opacity' : 1-cssProp.textOpacity }" (click)='popTheSearchBar()'></ion-icon>
+
+  <ion-select value="Newest" #selectCat style="display:none;" (ionChange)="changeDisplayFactor()">
+    <ion-select-option value="Hotest"> Hotest
+    </ion-select-option>
+    <ion-select-option value="Newest">Newest
+    </ion-select-option>
+    <ion-select-option value="Mine">Mine
+    </ion-select-option>
+  </ion-select>
   <div style="position: fixed;
       width: 100%;
       height: 10%;
@@ -27,50 +53,137 @@
   color: #653658;
   font-size: 15px;
   z-index: 100;" [ngStyle]="{'opacity': cssProp.textOpacity,'top': cssProp.textTop}">
-    You can upvote a claim to increase its priority
+    You can upvote a claim to increase its priority,
+    Please dont hesitate reporting it if there is something wrong in it
   </ion-text>
-  <ion-searchbar showCancelButton="focus" animated (keyup)=" filterList($event)" (ionCancel)='reset()'
-    (ionClear)='reset()' placeholder="Your city" [ngStyle]="{'opacity': cssProp.textOpacity}">
+  <ion-searchbar #FirstSearchBar class="searchbar" showCancelButton="focus" animated (keyup)="filterList($event)"
+    (ionCancel)='reset()' (ionClear)='reset()' placeholder="Your city" [ngStyle]="{'opacity': cssProp.textOpacity}">
   </ion-searchbar>
 
   <!-- <img src="assets/images/typeBg.png" style="position: absolute;margin: 0;right: -10%;"> -->
-  <div class="background"></div>
+  <div class="background" (click)="clickOnBg()"></div>
+  <ion-searchbar #secondSearchBar animated (keyup)="setRealSearchBar($event)" (ionCancel)='reset()' (ionClear)='reset()'
+    placeholder="Your city" style="position: fixed;
+    z-index: 10;
+    --background: linear-gradient(0deg,#ffd5d5,white);
+    opacity: 1;
+    top: 10%;
+    width: 90%;
+    padding: 0;
+    left: 5%;
+    --border-radius: 0 0 50px 50px;"
+    [ngStyle]="{'top': cssProp.searchBarTop , 'display' : cssProp.srachBarDisplay,'opacity': 1-cssProp.textOpacity}">
+  </ion-searchbar>
+
+
   <div style="position: relative;height: 30%;width: 100%;"></div>
-  <ion-card *ngFor="let claim of claims" style="background: #adadad;">
-    <img *ngIf="claim.noImage" [src]="getImgContent(claim.image)" style="width: 50%;margin-left: 25%;" />
-    <img *ngIf="!claim.noImage" [src]="getImgContent(claim.image)" width="100%" />
-    <!-- <div style="position: absolute;
-      top: -14%;
-      right: -16%;
-      background: #faf6fe;
-      height: 30%;
-      width: 40%;
-      border-radius: 201px;">
-    </div> -->
+  <div *ngIf="this.claims.length == 0" style="position:absolute;width: 100%;height: 80%;top: 20%;">
+    <div style="    position: absolute;
+    top: 50%;
+    width: 50%;left:25%;text-align:center;color:#63164e ;"> NO Claims</div>
+  </div>
+  <ng-container *ngIf="!showSkeleton">
+    <ion-card *ngFor="let claim of claims" style="background: #adadad;">
 
-    <ion-card-header>
-      <ion-card-subtitle>
-        <ion-icon name="pin" size="50" style="margin-bottom: -1px;color: rgb(236, 127, 127)"></ion-icon>
-        {{claim.city}}
-        |
-        {{claim.municipalite}}
-      </ion-card-subtitle>
-      <ion-card-title style="color: #0c1925;font-size:30px;text-transform:uppercase;padding-left: 3px;">
-        {{claim.subject}}</ion-card-title>
-      <ion-card-subtitle style="margin: 0;">
-        <ion-icon name="time" style="margin-bottom: -1px;"></ion-icon>
-        <ion-text style="padding-left: 3px;">{{getTime(claim.created_at)}}</ion-text>
-      </ion-card-subtitle>
-      <app-animated-like (click)="upvote(claim)" [state]='claim.state'></app-animated-like>
-      <div style="position: absolute;
-        right: 7%;
-        font-size: 30px;
-        bottom: 16%;
-        color: #ffa3a3;">{{claim.upvote}}
+      <ion-icon name="ellipsis-horizontal-outline" (click)="ReportUIClaim(claim)" style="position: absolute;
+      z-index: 10;
+      color: white;
+      font-size: 33px;
+      right: 5%;
+      top: 2%;"></ion-icon>
+      <div *ngIf="claimWithReportOn == claim.id" style="position: absolute;
+      z-index: 100;
+      background: white;
+      right: 5%;
+      top: 5%;
+      height: 33%;
+      width: 85%;
+      border-radius: 8px;
+      font-size: 20px;">
+        <ion-icon name="alert-circle-outline" style="position: absolute;
+        font-size: 24px;
+        padding: 5px;
+        top: 10%;
+        left: 3%;
+        color: #ff7373;"></ion-icon>
+        <div style="position: relative;
+        height: 50%;
+        width: 83%;
+        left: 17%;
+        top: 15%;" (click)="reportClaim(claim)">Report Claim</div>
+        <hr style="margin: 0;background: #737373;">
+        <ion-icon name="eye-off-outline" style="position: absolute;
+        font-size: 24px;
+        padding: 5px;
+        left: 3%;
+        top: 60%;
+        color: #ff7373;"></ion-icon>
+        <div style="position: relative;
+        height: 50%;
+        width: 83%;
+        left: 17%;
+        top: 15%;" (click)="addToNotWantedClaims(claim)">Stop seeing this claim
+        </div>
       </div>
-    </ion-card-header>
-  </ion-card>
+      <img [src]="claim.image" [id]="'image' + claim.id" (click)='ShowSingleClaim(claim)' width="100%"
+        style="display: block" [ngStyle]="{'bottom': secialStyleForImages(claim.image)}" />
 
+
+      <ion-card-header>
+        <ion-icon name="location" size="50" style="position: absolute; bottom: 70%;font-size: 21px;color: #fac5c2">
+        </ion-icon>
+        <ion-card-subtitle style="position: absolute;
+      bottom: 70%;
+      left: 14%;">
+          {{claim.city}}
+          |
+          {{claim.municipalite}}
+        </ion-card-subtitle>
+        <ion-card-title
+          style="position:absolute;bottom:32%;left:6%;color: #0c1925;font-size:30px;text-transform:uppercase;padding-left: 3px;">
+          {{reformSubject(claim.subject)}}</ion-card-title>
+        <ion-icon name="time" style="position: absolute;
+      font-size: 18px;
+      color: rgb(250, 197, 194);
+      bottom: 12%;
+      left: 6%;"></ion-icon>
+        <ion-card-subtitle style="position: absolute;
+      bottom: 13%;
+      left: 12%;">
+          <ion-text style="padding-left: 3px;">{{getTime(claim.created_at)}}</ion-text>
+        </ion-card-subtitle>
+        <ion-icon (click)="shareClaim(claim)" name="share-social-outline" style="position: absolute;
+      color: #fac5c2;
+      font-size: 21px;
+      right: 8%;
+      bottom: 12%;"></ion-icon>
+        <div *ngIf="claimWithShareOn == claim.id">
+          <div class="shareItemContainer" style="bottom: 182%;" (click)="shareVia('facebook',claim)">
+            <ion-icon name="logo-facebook" class="shareItem"></ion-icon>
+          </div>
+          <div class="shareItemContainer" style="bottom: 148%;" (click)="shareVia('whatsapp',claim)">
+            <ion-icon name="logo-whatsapp" class="shareItem"></ion-icon>
+          </div>
+          <div class="shareItemContainer" style="bottom: 114%;" (click)="shareVia('mail',claim)">
+            <ion-icon name="at-outline" class="shareItem"></ion-icon>
+          </div>
+          <div class="shareItemContainer" style="bottom: 80%;" (click)="shareVia('twitter',claim)">
+            <ion-icon name="logo-twitter" class="shareItem"></ion-icon>
+          </div>
+          <div class="shareItemContainer" style="bottom: 46%;" (click)="shareVia('sms',claim)">
+            <ion-icon name="mail-outline" class="shareItem"></ion-icon>
+          </div>
+        </div>
+        <app-animated-like (click)="upvote(claim)" [state]='claim.state'></app-animated-like>
+        <div style="position: absolute;
+      right: 19%;
+      font-size: 25px;
+      bottom: 9%;
+      color: #fbcfcd;;">{{claim.upvote}}
+        </div>
+      </ion-card-header>
+    </ion-card>
+  </ng-container>
   <h3 style="padding: 1em;padding-top: 2em;" *ngIf="showSkeleton">
     <ion-skeleton-text animated style="width: 100%;padding: 3em;"></ion-skeleton-text>
   </h3>

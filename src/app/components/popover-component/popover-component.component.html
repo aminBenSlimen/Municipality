@@ -1,9 +1,11 @@
-<ion-card style="height: 100%;text-align: center;box-shadow : none ;background: transparent;">
+<ion-card style="height: 100%;text-align: center;box-shadow : none ;background: transparent;margin:0">
   <ion-card-header>
     <img src="{{type.bigImage}}" style="position: absolute;left: 5%;
     width: 90%;">
   </ion-card-header>
   <ion-card-content>
+
+
     <div *ngIf="type.content != 'No Claims !'" class="content">{{type.content}}</div>
     <div *ngIf="type.content == 'No Claims !'" class="content" style="font-size: 30px;">No Claims !</div>
     <ion-card-title *ngIf="type.role != 'GoToWelcomePage'" (click)="dismissPopover()" style="color: #404040;font-weight: 700;font-size:18px;text-transform:uppercase;padding-left: 3px;position:absolute;bottom: 10%;

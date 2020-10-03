@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 
-import { Platform } from '@ionic/angular';
+import { Platform, PopoverController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { NetworkService, ConnectionStatus } from './services/network/network.service';
 import { OfflineManagerService } from './services/offlineManager/offline-manager.service';
-
+import { UniqueDeviceID } from '@ionic-native/unique-device-id/ngx';
+import { PopoverComponentComponent } from './components/popover-component/popover-component.component';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -15,21 +16,23 @@ export class AppComponent {
   constructor(
     private networkService: NetworkService,
     private platform: Platform,
+    private popOver: PopoverController,
     private offlineManager: OfflineManagerService,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private uid: UniqueDeviceID
   ) {
     this.initializeApp();
   }
 
+  componentDidLoad() {
+    this.splashScreen.hide();
+  }
   initializeApp() {
     this.platform.ready().then(() => {
       //this.statusBar.styleDefault();
       this.statusBar.hide();
       this.splashScreen.hide();
-      // setTimeout(() => {
-      //   this.lottie.hide();
-      // }, 3000)
     });
 
     this.networkService.onNetworkChange().subscribe((status: ConnectionStatus) => {
@@ -37,5 +40,16 @@ export class AppComponent {
         this.offlineManager.checkForEvents().subscribe();
       }
     });
+  }
+  async presentPopover(ev: any, type: any) {
+    const popover = await this.popOver.create({
+      component: PopoverComponentComponent,
+      event: ev,
+      componentProps: type,
+      translucent: true,
+      animated: true,
+      backdropDismiss: false
+    });
+    return await popover.present();
   }
 }

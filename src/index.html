@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>Ionic App</title>
+  <title>Municipality</title>
 
   <base href="/" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -18,19 +18,41 @@
   <link rel='stylesheet'
     href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.css'
     type='text/css' />
+
   <script src="./assets/js/map.js"></script>
   <script src="./assets/js/AiModule.js"></script>
   <script src="./assets/js/animation.js"></script>
   <script src="./assets/js/nsfwAI.js"></script>
+  <script src="https://unpkg.com/ml5@0.4.2/dist/ml5.min.js"></script>
   <script type="text/javascript" src="https://sdk.clarifai.com/js/clarifai-latest.js"></script>
   <!-- <script type="text/javascript" src="../node_modules/clarifai/dist/index.js"></script> -->
+  <script>
+    try {
+
+      let options = {
+        inputs: ['x', 'y'],
+        outputs: ['label'],
+        task: 'classification',
+        debug: 'true'
+      };
+      model = ml5.neuralNetwork(options);
+      modelInfo = {
+        model: '../assets/module/model2.json',
+        metadata: '../assets/module/model_meta2.json',
+        weights: '../assets/module/model.weights2.bin'
+      }
+      model.load(modelInfo, modelLoaded);
+
+    } catch (error) {
+
+    }
+  </script>
   <meta name="viewport"
     content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="format-detection" content="telephone=no" />
   <meta name="msapplication-tap-highlight" content="no" />
 
   <link rel="icon" type="image/png" href="assets/icon/favicon.png" />
-  <script src="https://unpkg.com/ml5@0.4.2/dist/ml5.min.js"></script>
   <!-- add to homescreen for ios -->
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />

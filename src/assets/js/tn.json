@@ -1,6 +1,6 @@
 [
     {
-        "city": "tunis",
+        "city": "Tunis",
         "lat": "36.806112",
         "lng": "10.171078"
     },
@@ -10,12 +10,12 @@
         "lng": "10.760278"
     },
     {
-        "city": "Hammam Sousse",
+        "city": "Sousse",
         "lat": "35.860904",
         "lng": "10.603131"
     },
     {
-        "city": "Gabes",
+        "city": "Gabès",
         "lat": "33.881457",
         "lng": "10.098196"
     },
@@ -40,12 +40,12 @@
         "lng": "8.784167"
     },
     {
-        "city": "Nabel",
+        "city": "Nabeul",
         "lat": "36.456058",
         "lng": "10.73763"
     },
     {
-        "city": "ariana",
+        "city": "Ariana",
         "lat": "36.860117",
         "lng": "10.193371"
     },
@@ -65,7 +65,7 @@
         "lng": "10.451767"
     },
     {
-        "city": "Beja",
+        "city": "Béja",
         "lat": "36.725638",
         "lng": "9.181692"
     },
@@ -75,7 +75,7 @@
         "lng": "8.780239"
     },
     {
-        "city": "Kef",
+        "city": "Al Kaf",
         "lat": "36.174239",
         "lng": "8.704863"
     },
@@ -100,7 +100,7 @@
         "lng": "9.370818"
     },
     {
-        "city": "Kebili",
+        "city": "Kébili",
         "lat": "33.704387",
         "lng": "8.969034"
     },
@@ -110,7 +110,7 @@
         "lng": "11.219649"
     },
     {
-        "city": "Zaghouan",
+        "city": "Zaghouan Governorate",
         "lat": "36.402907",
         "lng": "10.142925"
     },
@@ -125,12 +125,12 @@
         "lng": "10.636991"
     },
     {
-        "city": "benarous",
+        "city": "Ben Arous",
         "lat": "36.753056",
         "lng": "10.218889"
     },
     {
-        "city": "Medenine",
+        "city": "Médenine",
         "lat": "33.354947",
         "lng": "10.505478"
     },

@@ -20,7 +20,7 @@ export class PopoverComponentComponent implements OnInit {
   dismissPopover() {
     if (this.type.role == 'GoToWelcomePage') {
       this.popover.dismiss().then(() => { this.popover = null; });
-      this.router.navigate(["/welcome"])
+      this.router.navigate([""])
     } else if (this.popover) {
       this.popover.dismiss().then(() => { this.popover = null; });
     }

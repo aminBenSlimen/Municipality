@@ -1,0 +1,56 @@
+.background{
+    z-index: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 25px;
+    background: #ffffff;
+}
+
+#map{
+    position: absolute;
+    width:94%;
+    margin-left: 3%;
+    height:95vw;
+    border-radius: 30px;
+    top: 110%;
+    margin-bottom: 50%;
+  }
+  .shareIcons{
+    width: 17%;
+    padding: 5px;
+    z-index: 10000;
+  }
+
+  ion-content{
+    top: 0;
+    width: 100%;
+    padding-top: 6em;
+    --background: #1f1a29;
+    --padding-bottom: 6em;
+    scroll-behavior: smooth;
+}
+
+*{
+    font-family: 'Montserrat';
+}
+.swiper-slide{
+    width: 36% !important;
+}
+ion-card{
+    position: absolute;
+    width: 94%;
+    background: #282233;
+    --box-shadow: unset;
+    box-shadow: unset;
+    border: none;
+    border-radius: 10px;
+}
+ion-card-subtitle{
+   color: #9b8fb2
+}
+ion-card-title{
+    color: white;
+    font-size: xx-large;
+}
+

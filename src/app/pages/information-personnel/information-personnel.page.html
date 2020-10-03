@@ -1,6 +1,13 @@
 <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 
-<div *ngIf='splash' style="background: #f88686;height: 100%;display: flex;justify-content: center;z-index: 100000;">
+<div *ngIf='splash' style="    position: fixed;
+width: 100%;
+background: rgba(255, 151, 151, 0.301);
+height: 100%;
+top: 0;
+display: flex;
+justify-content: center;
+z-index: 1000;">
   <img style="width: 50%;margin:0;" src="data:image/svg+xml;base64,PCEtLSBCeSBTYW0gSGVyYmVydCAoQHNoZXJiKSwgZm9yIGV2ZXJ5b25lLiBNb3JlIEAgaHR0cDov
   L2dvby5nbC83QUp6YkwgLS0+Cjxzdmcgd2lkdGg9IjU4IiBoZWlnaHQ9IjU4IiB2aWV3Qm94PSIw
   IDAgNTggNTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgICA8ZyBmaWxs
@@ -51,7 +58,8 @@
   YXIiCiAgICAgICAgICAgICAgICAgICAgIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAvPgogICAg
   ICAgICAgICA8L2NpcmNsZT4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg==" alt="">
 </div>
-<ion-content [scrollEvents]="true" (ionScroll)="logScrollStart($event)">
+<ion-content #IonContent [scrollEvents]="true" (ionScrollStart)="startScroll()" (ionScroll)="logScrollStart($event)"
+  (touchend)="touchend()" (touchstart)="touchstart()" (ionScrollEnd)="endScroll()">
 
   <!-- <img class="background" src="./assets/images/aboutBg.png" alt="" srcset=""> -->
   <img id="back" src="./assets/icon/Bback.png" style="position: absolute;
@@ -60,7 +68,8 @@
   z-index: 100;
   top: 3%;
   left: 8%;
-  margin: 0;" (click)="backward()">
+  margin: 0;
+  z-index: 1000;" (click)="backward()">
   <div [ngStyle]="{'background' : 'rgba(255, 215, 196,' + (1-cssProp.textOpacity) + ')' }" style="position: fixed;
   width: 100%;
   height: 10%;
@@ -131,8 +140,8 @@
     border: 1px solid #dadada;
     z-index: 100;">
       <ion-input placeholder="e-mail" [(ngModel)]="data.email" name="title" style="    margin-left: 5%;
-        font-size: 19px;
-        text-transform: uppercase;"></ion-input>
+        font-size: 15px;
+        color: #6b6b6b;"></ion-input>
     </ion-item>
 
     <!-- <ion-button ion-button type="submit" (click)="forward()">Add Todo</ion-button> -->
@@ -151,7 +160,28 @@
     <div class="geocoder">
       <div id="geocoder"></div>
     </div>
-    <div id="map" (click)='GetLatLng()'></div>
+    <div style="position: absolute;
+    width: 15vw;
+    height: 15vw;
+    text-align: center; 
+    padding: 13px;
+    background: #642f4b;
+    z-index: 100000;
+    border-radius: 50%;
+    right: 3%;
+    top: 28%;">
+      <ion-icon name="locate-outline" style="color: white;
+      width: 100%;
+      height: 100%;" (click)="autoLocate()"></ion-icon>
+    </div>
+    <div *ngIf="Online" id="map" (click)='GetLatLng()'></div>
+    <div *ngIf="!Online" id="map" style="background: rgb(216, 216, 216);text-align: center;">
+      <div style="position: absolute;
+      top: 50%;
+      width: 70%;
+      color: #868686;
+      left: 15%;">Offline mode doesn't support Map</div>
+    </div>
   </div>
   <div style="    position: fixed;
   bottom: 0;

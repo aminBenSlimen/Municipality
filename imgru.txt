@@ -1,0 +1,2 @@
+client id : 3b4997d04fffe7c
+client secret : 66f3f6c0ac98aa133e256703731933f846e4c8bb

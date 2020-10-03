@@ -19,6 +19,7 @@ export class NetworkService {
     this.plt.ready().then(() => {
       this.initializeNetworkEvents();
       let status = this.network.type !== 'none' ? ConnectionStatus.Online : ConnectionStatus.Offline;
+      // let status = ConnectionStatus.Offline
       this.status.next(status);
     });
   }
@@ -27,6 +28,7 @@ export class NetworkService {
     let conntype = this.network.type;
     if (!this.plt.is("cordova"))
       return true;
+
     return conntype && conntype !== 'unknown' && conntype !== 'none';
   }
   public initializeNetworkEvents() {
@@ -63,6 +65,7 @@ export class NetworkService {
   }
 
   public getCurrentNetworkStatus(): ConnectionStatus {
-    return this.status.getValue();
+    return this.isConnected() ? ConnectionStatus.Online : ConnectionStatus.Offline
+    // return ConnectionStatus.Offline
   }
 }

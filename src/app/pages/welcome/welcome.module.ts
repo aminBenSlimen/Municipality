@@ -17,4 +17,4 @@ import { WelcomePage } from './welcome.page';
   ],
   declarations: [WelcomePage]
 })
-export class WelcomePageModule {}
+export class WelcomePageModule { }

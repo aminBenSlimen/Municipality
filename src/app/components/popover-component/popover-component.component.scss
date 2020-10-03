@@ -3,7 +3,7 @@ ion-card-content{
     position: absolute;
     width: 100%;
     padding: 0;
-    background : #f57979;
+    background: linear-gradient(129deg, #ce9175, #d26f6f);
 }
 ion-card-header{
     z-index: 20;
@@ -15,7 +15,7 @@ ion-card-header{
 .content{
     height: 100%;
     padding: 1em;
-    padding-top: 3em;
+    padding-top: 4em;
     z-index: 100;
     font-size: 17px;
     color: #ffffff;

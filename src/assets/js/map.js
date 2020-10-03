@@ -1,6 +1,5 @@
-function map(user_location) {
-    if (!user_location)
-        user_location = [10.75, 34.74];
+function map(user_location = null, noClick = false) {
+
     mapboxgl.accessToken = 'pk.eyJ1IjoiZmFraHJhd3kiLCJhIjoiY2pscWs4OTNrMmd5ZTNra21iZmRvdTFkOCJ9.15TZ2NtGk_AtUvLd27-8xA';
     var map = new mapboxgl.Map({
         container: 'map',
@@ -20,13 +19,14 @@ function map(user_location) {
             console.log(ev.result.center);
         });
     });
-    map.on('click', function (e) {
-        marker.remove();
-        addMarker(e.lngLat, 'click');
-        //console.log(e.lngLat.lat);
-        document.getElementById("lat").value = e.lngLat.lat;
-        document.getElementById("lng").value = e.lngLat.lng;
-    });
+    if (!noClick)
+        map.on('click', function (e) {
+            marker.remove();
+            addMarker(e.lngLat, 'click');
+            //console.log(e.lngLat.lat);
+            document.getElementById("lat").value = e.lngLat.lat;
+            document.getElementById("lng").value = e.lngLat.lng;
+        });
 
     function addMarker(ltlng, event) {
 
@@ -83,5 +83,7 @@ function map(user_location) {
 function getLatLng() {
     lat = document.getElementById("lat").value;
     lng = document.getElementById("lng").value;
+    if (!lat || isNaN(lat) || !lng || isNaN(lng))
+        lat = lng = 10;
     return { lat: lat, lng: lng }
 }

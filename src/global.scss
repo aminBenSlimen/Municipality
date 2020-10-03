@@ -49,3 +49,18 @@ app-popover-component{
  .input-wrapper{
     background: transparent;
 }
+
+ion-spinner{
+    color : #ffb2ce !important
+}
+
+.native .refresher-refreshing-icon{
+    border: 1px solid #eca7a7;
+    background: #ffffff;
+}
+[aria-label="caret back sharp"]{
+    color : #ffb2ce !important
+}
+.native-textarea.sc-ion-textarea-md,.textarea-wrapper.sc-ion-textarea-md{
+    height: 100%;
+}

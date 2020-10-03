@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ConnectionStatus } from 'src/app/services/network/network.service';
+import { ConnectionStatus, NetworkService } from 'src/app/services/network/network.service';
 declare var animate: Function;
 
 @Component({
@@ -10,19 +10,16 @@ declare var animate: Function;
 })
 export class AboutUsPage implements OnInit {
   Online;
-  constructor(private router: Router) {
-    this.Online = ConnectionStatus.Online ? true : false
+  constructor(private router: Router, private networkService: NetworkService) {
+    this.Online = this.networkService.getCurrentNetworkStatus() == ConnectionStatus.Online ? true : false;
     if (this.Online)
       animate()
-
-    console.log(this.Online);
-
   }
 
   ngOnInit() {
 
   }
   forward() {
-    this.router.navigate(["/welcome"]);
+    this.router.navigate([""]);
   }
 }

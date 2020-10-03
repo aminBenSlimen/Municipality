@@ -52,14 +52,16 @@
   YXIiCiAgICAgICAgICAgICAgICAgICAgIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAvPgogICAg
   ICAgICAgICA8L2NpcmNsZT4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg==" alt="">
 </div>
-<ion-content [scrollEvents]="true" (ionScroll)="logScrollStart($event)">
+<ion-content id="content" #IonContent [scrollEvents]="true" (ionScrollStart)="startScroll()"
+  (ionScroll)="logScrollStart($event)" (touchend)="touchend()" (touchstart)="touchstart()" (ionScrollEnd)="endScroll()">
   <img id="back" src="./assets/icon/Bback.png" style="position: absolute;
   position: fixed;
   width: 7%;
   z-index: 100;
   top: 3%;
   left: 8%;
-  margin: 0;" (click)="backward()">
+  margin: 0;
+  z-index: 1000;" (click)="backward()">
   <div [ngStyle]="{'background' : 'rgba(255, 215, 196,' + (1-cssProp.textOpacity) + ')' }" style="position: fixed;
   width: 100%;
   height: 10%;
@@ -98,7 +100,7 @@ width: 90%;
 border-radius: 30px;
 border: 1px solid #dadada;
 z-index: 100;">
-      <ion-input placeholder="Subject Title" [(ngModel)]="data.subject" name="subject" style="margin-left: 5%;
+      <ion-input placeholder="Subject Title" [(ngModel)]="data.subject" (keyup)="maxLetters(25)" name="subject" style="margin-left: 5%;
     font-size: 19px;
     text-transform: uppercase;
     color: #636363;">
@@ -118,7 +120,8 @@ z-index: 100;">
     border-radius: 30px;
     border: 1px solid #dadada;
     z-index: 100;">
-      <ion-textarea placeholder="Enter more information here..." [(ngModel)]="data.description" name="description">
+      <ion-textarea style="height: 100%;" placeholder="Enter more information here..." [(ngModel)]="data.description"
+        name="description">
       </ion-textarea>
     </ion-item>
     <div style="position: absolute;
@@ -148,16 +151,19 @@ z-index: 100;">
 
     </ion-card>
 
-    <img [src]="getImgContent(data.image)" style="position: absolute;
+    <img [src]="getImgContent(data.image)" id="image" style="position: absolute;
   bottom: 0%;
   margin: 0;
+  margin-bottom: 20%;
   left: 25%;
   width: 50%;
-  border-radius: 25px;" alt="" srcset="">
+  border-radius: 25px;
+  background: linear-gradient(45deg, #ffd7c4, rgba(0,0,0,0));
+  top : 66%">
 
   </div>
 
-  <div style="    position: fixed;
+  <div style="position: fixed;
   bottom: 0;
   background: #ffd7c4;
   width: 100%;
