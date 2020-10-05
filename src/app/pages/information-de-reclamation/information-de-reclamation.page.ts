@@ -82,7 +82,6 @@ export class InformationDeReclamationPage implements OnInit {
 
     this.route.queryParams.subscribe((res) => {
       this.data = JSON.parse(res.p);
-      console.log(this.data);
       this.types = this.translate.instant("TYPEDERECLAMATION.types")
       let ty: any = this.types.filter(elm => {
         if (elm.name == this.data.type) {
@@ -110,7 +109,7 @@ export class InformationDeReclamationPage implements OnInit {
 
   cameraOptions(sourceType) {
     let options: CameraOptions = {
-      quality: 50,
+      quality: 500,
       sourceType: sourceType,
       saveToPhotoAlbum: false,
       correctOrientation: true,
@@ -135,7 +134,7 @@ export class InformationDeReclamationPage implements OnInit {
           if (this.nsfw == 'nsfw') {
             this.presentPopover(null, {
               bigImage: "assets/images/nsfw.png",
-              content: this.translate.instant("INFREC.NSFW")
+              content: this.translate.instant("INFREC.ALERTS.NSFW")
             })
           } else {
             this.data.image = 'data:image/jpeg;base64,' + imageData;
@@ -233,24 +232,19 @@ export class InformationDeReclamationPage implements OnInit {
       this.spinner = false
       this.presentPopover(null, {
         bigImage: "assets/images/success.png",
-        content: this.translate.instant("INFREC.offlineSucc"),
-        role: this.translate.instant("INFREC.buttons.route")
+        content: this.translate.instant("INFREC.ALERTS.offlineSucc"),
+        role: this.translate.instant("INFREC.ALERTS.buttons.route"),
+        button: this.translate.instant("INFREC.ALERTS.buttons.route"),
       });
     }
     else
       this.http.postData(this.data).subscribe(inf => {
-        if (this.Online)
-          this.presentPopover(null, {
-            bigImage: "assets/images/success.png",
-            content: this.translate.instant("INFREC.ALERTS.onlineSucc"),
-            role: this.translate.instant("INFREC.ALERTS.buttons.route")
-          });
-        else
-          this.presentPopover(null, {
-            bigImage: "assets/images/success.png",
-            content: this.translate.instant("INFREC.ALERTS.offlineSucc"),
-            role: this.translate.instant("INFREC.ALERTS.buttons.route")
-          });
+        this.presentPopover(null, {
+          bigImage: "assets/images/success.png",
+          content: this.translate.instant("INFREC.ALERTS.onlineSucc"),
+          role: this.translate.instant("INFREC.ALERTS.buttons.route"),
+          button: this.translate.instant("INFREC.ALERTS.buttons.route"),
+        });
         this.spinner = false;
       }, err => {
         this.spinner = false;

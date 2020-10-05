@@ -126,7 +126,7 @@
             "generalError": "Your Claim has been Completed Successfully",
             "buttons": {
                 "ok": "ok",
-                "route": "go to welcome page"
+                "route": "aller à l'accueil page"
             }
         },
         "placeholder": {
