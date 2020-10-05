@@ -3,22 +3,61 @@
 <!-- <ion-header>
   </ion-header> -->
 <ion-content>
+  <div *ngIf="firstTimeApp"
+    style="position: fixed;width: 100%;height: 100%;z-index: 1000000;background: rgb(255, 255, 255);">
+    <ion-slides>
+      <ion-slide>
+        <img src="./assets/images/lang.jpg" style="position: absolute;
+        width: 100%;
+        padding: 3em;
+        top: 5%;">
+        <div style="    position: absolute;
+        width: 100%;
+        font-size: 32px;
+        color: #4f6c8a;
+        top: 52%;">
+          Select a Language
+        </div>
+        <div style="    position: absolute;
+        width: 100%;
+        font-size: 14px;
+        color: #838383;
+        top: 59%;">
+          you can always change this later
+        </div>
+        <div (click)="setLanguage('fr')" style="position: absolute;
+        right: 20%;
+        bottom: 14%;">
+          <img src="./assets/icon/france.svg">
+          <div style="font-size: 20px;">French</div>
+        </div>
+        <div (click)="setLanguage('en')" style="position: absolute;
+        left: 20%;
+        bottom: 14%;">
+          <img src="./assets/icon/united-kingdom.svg">
+          <div style="font-size: 20px;">English</div>
+        </div>
+      </ion-slide>
 
+    </ion-slides>
+  </div>
   <div id="header">
-    <ion-slides loop="true" [options]="slideOptsOne" #slides (ionSlidesDidLoad)="slideChanged(slides)"
-      (ionSlideTouchEnd)="changed(slides)">
+    <ion-slides loop="true" [options]="slideOptsOne" #slides *ngIf="translate">
       <ion-slide>
         <img src="./assets/images/pplHoldingTunisia2.png" style="position: absolute;bottom: -2px;">
-        <ion-text><span style="color: #f99191;">Together !</span> &nbsp; Tunisia better</ion-text>
+        <ion-text><span style="color: #f99191;">{{welcome.a}}</span> &nbsp;
+          {{welcome.b}}</ion-text>
       </ion-slide>
       <ion-slide>
         <img src="./assets/images/tuto2.png" style="position: absolute;bottom: -2px;">
-        <ion-text><span style="color: #1c3b4d;">Together !</span> &nbsp; Tunisia better</ion-text>
+        <ion-text><span style="color: #1c3b4d;">{{welcome.a}}</span> &nbsp;
+          {{welcome.b}}</ion-text>
 
       </ion-slide>
       <ion-slide>
         <img src="./assets/images/post.png" style="position: absolute;bottom: -2px;">
-        <ion-text><span style="color: #1c3b4d;">Together !</span> &nbsp; Tunisia better</ion-text>
+        <ion-text><span style="color: #1c3b4d;">{{welcome.a}}</span> &nbsp;
+          {{welcome.b}}</ion-text>
 
       </ion-slide>
 
@@ -40,11 +79,11 @@
 
   <div class="buttons">
     <ion-button (click)="forward()" style="bottom:19%; --background: linear-gradient(90deg, #e6ba8e, #f99191);">
-      Getting Started
+      {{"WELCOME.button1" | translate}}
     </ion-button>
     <br>
     <ion-button (click)="seeClaims()" style="bottom:8%;--background : #1c3b4d ; color: rgb(255, 255, 255);">
-      See Other Claims
+      {{"WELCOME.button2" | translate}}
     </ion-button>
   </div>
 </ion-content>

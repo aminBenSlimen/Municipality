@@ -71,7 +71,7 @@
     color: #63164e;
     text-transform: uppercase;
     font-weight: 500;" [ngStyle]="{'font-size': cssProp.titleSize,'top':cssProp.titleTop,'left': cssProp.titleLeft}">
-      Claim Info
+      {{"INFREC.head" | translate}}
     </ion-text>
   </div>
 
@@ -80,9 +80,9 @@
   left: 10%;
   right: 10%;
   color: #653658;
-  font-size: 15px;" [ngStyle]="{'opacity': cssProp.textOpacity,'top': cssProp.textTop}">
-    With providing clear data<br> of your position , email... We can
-    Work faster and more effectiently to upgrate our country to the best .
+  font-size: 15px;" [ngStyle]="{'opacity': cssProp.textOpacity,'top': cssProp.textTop}"
+    [innerHTML]='"INFREC.description" | translate'>
+
   </ion-text>
   <img src="assets/images/typeBg.png" style="position: absolute;margin: 0;right: -10%;">
   <div class="background" [ngStyle]="{'top': cssProp.backGroundTop}"></div>
@@ -100,7 +100,8 @@ width: 90%;
 border-radius: 30px;
 border: 1px solid #dadada;
 z-index: 100;">
-      <ion-input placeholder="Subject Title" [(ngModel)]="data.subject" (keyup)="maxLetters(25)" name="subject" style="margin-left: 5%;
+      <ion-input [placeholder]='"INFREC.placeholder.subject" | translate' [(ngModel)]="data.subject"
+        (keyup)="maxLetters(25)" name="subject" style="margin-left: 5%;
     font-size: 19px;
     text-transform: uppercase;
     color: #636363;">
@@ -120,8 +121,8 @@ z-index: 100;">
     border-radius: 30px;
     border: 1px solid #dadada;
     z-index: 100;">
-      <ion-textarea style="height: 100%;" placeholder="Enter more information here..." [(ngModel)]="data.description"
-        name="description">
+      <ion-textarea style="height: 100%;" [placeholder]='"INFREC.placeholder.description" | translate'
+        [(ngModel)]="data.description" name="description">
       </ion-textarea>
     </ion-item>
     <div style="position: absolute;
@@ -173,7 +174,7 @@ z-index: 100;">
     <ion-button (click)="submit()" style="font-family:'Montserrat';--border-radius:50px;    width: 70%;
       margin-left: 15%;
       height: 60%;--background: #3e0d27;--box-shadow: none;">
-      Confirm
+      {{"INFREC.confirm" | translate}}
     </ion-button>
 
   </div>

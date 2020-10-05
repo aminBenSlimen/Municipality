@@ -9,6 +9,8 @@ import { NetworkService, ConnectionStatus } from 'src/app/services/network/netwo
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { Storage } from '@ionic/storage';
 import { TranslateService } from '@ngx-translate/core';
+import { LanguageServiceService } from 'src/app/services/languageService/language-service.service';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-welcome',
@@ -20,12 +22,13 @@ export class WelcomePage implements OnInit {
   subscription: any;
   splash = true;
   claims: any = [];
+  welcome: any = { a: "together!", b: "tunisia better" };
+  firstTimeApp = false;
   slideOptsOne = {
     slidesPerView: 1,
     autoplay: true,
     initialSlide: 0,
-    loop: true,
-    autoplayDisableOnInteraction: false
+    loop: true
   }
 
   data = {
@@ -52,7 +55,8 @@ export class WelcomePage implements OnInit {
     private networkService: NetworkService,
     private splashScreen: SplashScreen,
     private translate: TranslateService,
-    private storage: Storage) {
+    private storage: Storage,
+    private languageService: LanguageServiceService) {
     this.route.queryParams.subscribe((res) => {
       if (res.p) {
         this.splash = false;
@@ -61,6 +65,9 @@ export class WelcomePage implements OnInit {
     });
 
 
+    this.storage.get("firstTimeApp").then(res => {
+      this.firstTimeApp = (res != "false")
+    });
     this.Online = networkService.getCurrentNetworkStatus() == ConnectionStatus.Online ? true : false
     if (this.Online)
       this.http.getData().subscribe(data => {
@@ -69,17 +76,17 @@ export class WelcomePage implements OnInit {
       }, error => {
         this.splash = false;
         this.presentPopover({
-          content: "Server is down would you like to continue ?",
+          content: this.translate.instant("WELCOME.ALERTS.serverProb"),
           bigImage: 'assets/images/offline.png',
-          button: 'Yes'
+          button: this.translate.instant("WELCOME.ALERTS.buttons")
         })
       });
     else {
       this.splash = false;
       this.presentPopover({
-        content: "You are in Offline Mode would you like to continue ?",
+        content: this.translate.instant("WELCOME.ALERTS.offline"),
         bigImage: 'assets/images/offline.png',
-        button: 'Yes'
+        button: this.translate.instant("WELCOME.ALERTS.buttons")
       })
     }
     this.platform.ready().then(() => {
@@ -122,12 +129,12 @@ export class WelcomePage implements OnInit {
         let cont;
         if (Time == 0) {
           cont = {
-            content: "Oops ! Sorry For that. We are unable to process any more request at this moment, Please try again after one hour",
+            content: this.translate.instant("WELCOME.ALERTS.spam0"),
             bigImage: 'assets/images/spam.png'
           }
         } else {
           cont = {
-            content: "Oops ! Sorry For that. We are unable to process any more request at this moment, Please try again after " + Time + " Hours ",
+            content: this.translate.instant("WELCOME.ALERTS.spam1", { Time }),
             bigImage: 'assets/images/spam.png'
           }
         }
@@ -165,5 +172,22 @@ export class WelcomePage implements OnInit {
     });
     return await popover.present();
   }
+  setLanguage(lang) {
+    this.firstTimeApp = false;
+    this.storage.set('firstTimeApp', "false");
+    this.languageService.setLanguage(lang);
+    if (lang == "en")
+      this.welcome = { a: "Together !", b: "Tunisia better" };
+    else
+      this.welcome = { a: "Ensemble !", b: "Tunisie mieux" }
+  }
+  ionViewWillEnter() {
+    let lag = this.translate.currentLang;
+    console.log(lag);
 
+    if (lag == "en")
+      this.welcome = { a: "Together !", b: "Tunisia better" };
+    else
+      this.welcome = { a: "Ensemble !", b: "Tunisie mieux" }
+  }
 }

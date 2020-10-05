@@ -78,8 +78,9 @@ z-index: 1000;">
     top: 90%;
     color: #63164e;
     text-transform: uppercase;
-    font-weight: 500;" [ngStyle]="{'font-size': cssProp.titleSize,'top':cssProp.titleTop,'left': cssProp.titleLeft}">
-      Your Info
+    font-weight: 500;" [ngStyle]="{'font-size': cssProp.titleSize,'top':cssProp.titleTop,'left': cssProp.titleLeft}"
+      [innerHTML]="">
+      {{"INFOPERSONNEL.head" | translate}}
     </ion-text>
   </div>
 
@@ -88,9 +89,8 @@ z-index: 1000;">
   left: 10%;
   right: 10%;
   color: #653658;
-  font-size: 15px;" [ngStyle]="{'opacity': cssProp.textOpacity,'top': cssProp.textTop}">
-    With providing clear data<br> of your position , email... We can
-    Work faster and more effectiently to upgrate our country to the best .
+  font-size: 15px;" [ngStyle]="{'opacity': cssProp.textOpacity,'top': cssProp.textTop}"
+    [innerHTML]='"INFOPERSONNEL.description" | translate'>
   </ion-text>
   <img src="assets/images/infPerBg.png" style="position: absolute;margin: 0;right: -10%;">
   <div class="background" [ngStyle]="{'top': cssProp.backGroundTop}"></div>
@@ -109,15 +109,16 @@ z-index: 1000;">
     text-align: center;
     border-left: 1px solid #dadada;
     border-top: 1px solid #dadada;
-    border-bottom: 1px solid #dadada;" placeholder="Your City" (click)="clickByMouse = true" interface="popover"
-      [selectedText]="data.city" (click)="chosenByButton()" (ionChange)=" changed($event)" [(ngModel)]="data.city"
-      name="city">
+    border-bottom: 1px solid #dadada;" [placeholder]='"INFOPERSONNEL.placeholder.city" | translate'
+      (click)="clickByMouse = true" interface="popover" [selectedText]="data.city" (click)="chosenByButton()"
+      (ionChange)=" changed($event)" [(ngModel)]="data.city" name="city">
       <ion-select-option *ngFor="let city of cities">{{city.c}}
       </ion-select-option>
     </ion-select>
 
 
-    <ion-select (click)="chosenByButton()" (ionChange)="changedMuni($event)" placeholder="Municipality" style="
+    <ion-select (click)="chosenByButton()" (ionChange)="changedMuni($event)"
+      [placeholder]='"INFOPERSONNEL.placeholder.municipality" | translate' style="
    position: absolute;
       top: 3%;
       right: 5%;
@@ -139,7 +140,8 @@ z-index: 1000;">
     border-radius: 30px;
     border: 1px solid #dadada;
     z-index: 100;">
-      <ion-input placeholder="e-mail" [(ngModel)]="data.email" name="title" style="    margin-left: 5%;
+      <ion-input [placeholder]='"INFOPERSONNEL.placeholder.email" | translate' [(ngModel)]="data.email" name="title"
+        style="    margin-left: 5%;
         font-size: 15px;
         color: #6b6b6b;"></ion-input>
     </ion-item>
@@ -180,7 +182,7 @@ z-index: 1000;">
       top: 50%;
       width: 70%;
       color: #868686;
-      left: 15%;">Offline mode doesn't support Map</div>
+      left: 15%;"> {{"INFOPERSONNEL.mapOffline" | translate}}</div>
     </div>
   </div>
   <div style="    position: fixed;
@@ -193,7 +195,7 @@ z-index: 1000;">
     <ion-button (click)="forward()" style="font-family:'Montserrat';--border-radius:50px;    width: 70%;
       margin-left: 15%;
       height: 60%;--background: #3e0d27;--box-shadow: none;">
-      Confirm
+      {{"INFOPERSONNEL.confirm" | translate}}
     </ion-button>
 
   </div>

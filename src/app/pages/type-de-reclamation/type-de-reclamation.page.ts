@@ -5,6 +5,7 @@ import { PopoverComponentComponent } from 'src/app/components/popover-component/
 import { element } from 'protractor';
 import { ConnectionStatus } from 'src/app/services/network/network.service';
 import { Storage } from '@ionic/storage';
+import { TranslateService } from '@ngx-translate/core';
 
 const firstTimeTR = 'firstTimeTR'
 @Component({
@@ -43,50 +44,19 @@ export class TypeDeReclamationPage implements AfterViewInit {
   scrolling: boolean;
   handledInTouchEnd: boolean = true;
   isTouched: boolean;
-  types: Array<Object> = [
-    {
-      name: "Public", image: "./assets/logos/green.png", color: "white", content: "Select this Option if there is any thing related to green spaces",
-      bigImage: './assets/images/green.png', titleColor: "#8c8c8c"
-    },
-    {
-      name: "light", image: "./assets/logos/ligth.png", color: "white", content: "Select this Option if there is Some thing wrong in our Lighting system",
-      bigImage: './assets/images/light.png', titleColor: "#8c8c8c"
-    },
-    {
-      name: "trash", image: "./assets/logos/trash.png", color: "white", content: "Select this Option every ench in Tunisia And obvsiouly we aint coming",
-      bigImage: './assets/images/trash.png', titleColor: "#8c8c8c"
-    },
-    {
-      name: "illigal", image: "./assets/logos/structure.png", color: "white", content: "Select this option when ever you see any type of street Vendors And we will be more than happy to ruin their lives ",
-      bigImage: './assets/images/illigal.png', titleColor: "#8c8c8c"
-    },
-    {
-      name: "structure", image: "./assets/logos/struct.png", color: "white", content: "Select this option when you find any unconstitutional building",
-      bigImage: './assets/images/structure.png', titleColor: "#8c8c8c"
-    },
-    {
-      name: "parking", image: "./assets/logos/parking.png", color: "white", content: "Our life and time matter , be safe , Select this option when you find any illicit vehicles parking ",
-      bigImage: './assets/images/parking.png', titleColor: "#8c8c8c"
-    },
-    {
-      name: "sink", image: "./assets/logos/sink.png", color: "white", content: "Select this option when you find a water leak ",
-      bigImage: './assets/images/sink.png', titleColor: "#8c8c8c"
-    },
-    {
-      name: "Patholes", image: "./assets/logos/roades.png", color: "white", content: "Don't waste your time dude",
-      bigImage: './assets/images/road.png', titleColor: "#8c8c8c"
-    }
-  ];
+  types: Array<Object>;
   constructor(private popOver: PopoverController,
     public alert: AlertController,
     public router: Router,
     private route: ActivatedRoute,
     private platform: Platform,
-    private storage: Storage) {
+    private storage: Storage,
+    private translate: TranslateService) {
     this.route.queryParams.subscribe((res) => {
       this.data = JSON.parse(res.p);
       console.log(this.data);
     });
+    this.types = this.translate.instant("TYPEDERECLAMATION.types")
     this.Online = ConnectionStatus.Online ? true : false
     this.cssProp.backGroundTop = "30%";
     this.platform.backButton.subscribe(() => {
@@ -111,6 +81,7 @@ export class TypeDeReclamationPage implements AfterViewInit {
       titleColor: "white",
       bigImage: x.bigImage
     }
+
   }
 
 
@@ -132,7 +103,7 @@ export class TypeDeReclamationPage implements AfterViewInit {
         this.storage.set(firstTimeTR, true)
         this.presentPopover(null, {
           bigImage: "assets/images/holdTip.png",
-          content: "please hold down on the categorie's picture to get more information about it ! "
+          content: this.translate.instant("TYPEDERECLAMATION.ALERTS.0")
         })
       }
 
@@ -183,7 +154,7 @@ export class TypeDeReclamationPage implements AfterViewInit {
   async customType(message = null) {
 
     const alert = await this.alert.create({
-      header: 'Add your custom type',
+      header: this.translate.instant("TYPEDERECLAMATION.custom.head"),
       inputs: [{
         name: 'customType',
         type: 'text',
@@ -200,7 +171,7 @@ export class TypeDeReclamationPage implements AfterViewInit {
               queryParams: { p: JSON.stringify(this.data) },
             })
           else
-            this.customType("le type de reclamation est obligatoire");
+            this.customType(this.translate.instant("TYPEDERECLAMATION.custom.errorMsg"));
         }
       }, "Cancel"]
 
@@ -221,7 +192,10 @@ export class TypeDeReclamationPage implements AfterViewInit {
         queryParams: { p: JSON.stringify(this.data) },
       })
     else {
-      this.presentPopover(null, { bigImage: "assets/images/spam.png", content: "sorry You Have To chose one Option From abouve" })
+      this.presentPopover(null, {
+        bigImage: "assets/images/spam.png",
+        content: this.translate.instant("TYPEDERECLAMATION.ALERTS.1")
+      })
     }
   }
   checkDataEmpty() {

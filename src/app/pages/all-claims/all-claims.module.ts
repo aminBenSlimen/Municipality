@@ -8,12 +8,14 @@ import { AnimatedLikeComponent } from 'src/app/components/animated-like/animated
 import { AllClaimsPageRoutingModule } from './all-claims-routing.module';
 
 import { AllClaimsPage } from './all-claims.page';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    TranslateModule,
     AllClaimsPageRoutingModule
   ],
   declarations: [AllClaimsPage, AnimatedLikeComponent]

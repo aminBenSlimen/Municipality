@@ -27,7 +27,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 // import { Geolocation } from '@ionic-enterprise/geolocation/ngx'; 
 
 export function createTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assest/i18n/', '.json')
+  return new TranslateHttpLoader(http, 'assets/i18n/', '.json')
 }
 @NgModule({
   declarations: [AppComponent, PopoverComponentComponent],

@@ -1,5 +1,159 @@
 {
-    "test": {
-        "welcome": "Bien venu"
+    "WELCOME": {
+        "sliders": {
+            "0": "Ensemble !",
+            "1": "Tunisie mieux"
+        },
+        "button1": " Commencer",
+        "button2": "Autres Réclamations",
+        "ALERTS": {
+            "serverProb": "Le serveur est en panne, souhaitez-vous continuer ?",
+            "offline": "Vous êtes en mode hors ligne, souhaitez-vous continuer ?",
+            "spam0": "Oups! Pardon. Nous ne pouvons plus traiter une demande pour le moment. Veuillez réessayer après une heure",
+            "spam1": "Oups! Pardon. Nous ne pouvons plus traiter une demande pour le moment, Veuillez réessayer après {{Time}} heures ",
+            "buttons": "oui"
+        }
+    },
+    "TYPEDERECLAMATION": {
+        "head": "Catégories",
+        "description": "choisir la bonne catégorie pour votre reclamation peut nous aider à décider quelle équipe envoyer et perdre le moins de temps et d'argent possible ",
+        "confirm": "Confirmer",
+        "types": [
+            {
+                "name": "public",
+                "image": "./assets/logos/green.png",
+                "color": "white",
+                "content": "Sélectionnez cette option s'il y a quelque chose lié aux espaces verts",
+                "bigImage": "./assets/images/green.png",
+                "titleColor": "#8c8c8c"
+            },
+            {
+                "name": "éclairages",
+                "image": "./assets/logos/ligth.png",
+                "color": "white",
+                "content": "Sélectionnez cette option s'il y a quelque chose qui ne va pas dans notre système d'éclairage",
+                "bigImage": "./assets/images/light.png",
+                "titleColor": "#8c8c8c"
+            },
+            {
+                "name": "ordures",
+                "image": "./assets/logos/trash.png",
+                "color": "white",
+                "content": "Sélectionnez cette option si vous trouvez une pollution",
+                "bigImage": "./assets/images/trash.png",
+                "titleColor": "#8c8c8c"
+            },
+            {
+                "name": "vendeurs",
+                "image": "./assets/logos/structure.png",
+                "color": "white",
+                "content": "Sélectionnez cette option chaque fois que vous voyez un type de vendeurs de rue",
+                "bigImage": "./assets/images/illigal.png",
+                "titleColor": "#8c8c8c"
+            },
+            {
+                "name": "structures",
+                "image": "./assets/logos/struct.png",
+                "color": "white",
+                "content": "Sélectionnez cette option lorsque vous trouvez un bâtiment inconstitutionnel",
+                "bigImage": "./assets/images/structure.png",
+                "titleColor": "#8c8c8c"
+            },
+            {
+                "name": "garage",
+                "image": "./assets/logos/parking.png",
+                "color": "white",
+                "content": "Notre vie et notre temps comptent, soyez prudent, sélectionnez cette option lorsque vous trouvez un parking de véhicules illicites ",
+                "bigImage": "./assets/images/parking.png",
+                "titleColor": "#8c8c8c"
+            },
+            {
+                "name": "drainage",
+                "image": "./assets/logos/sink.png",
+                "color": "white",
+                "content": "Sélectionnez cette option lorsque vous trouvez une fuite d'eau",
+                "bigImage": "./assets/images/sink.png",
+                "titleColor": "#8c8c8c"
+            },
+            {
+                "name": "Nid de poule",
+                "image": "./assets/logos/roades.png",
+                "color": "white",
+                "content": "Sélectionnez cette option lorsque vous trouvez des nids-de-poule ou des obstacles",
+                "bigImage": "./assets/images/road.png",
+                "titleColor": "#8c8c8c"
+            }
+        ],
+        "ALERTS": {
+            "0": "s'il vous plaît maintenez l'image des catégories pour obtenir plus d'informations à ce sujet! ",
+            "1": "désolé, vous devez choisir une option ci-dessus"
+        },
+        "custom": {
+            "head": "Ajoutez votre catégorie  personnalisé",
+            "errorMsg": "le catégorie  de reclamation est obligatoire"
+        }
+    },
+    "INFOPERSONNEL": {
+        "head": "Votre Info",
+        "description": " En fournissant des données claires de votre position, email..., Nous pouvons travailler plus rapidement et plus efficacement !",
+        "mapOffline": "Le mode hors ligne ne prend pas en charge la carte",
+        "confirm": "Confirmer",
+        "ALERTS": {
+            "validEmail": "S'il vous plaît, mettez une adresse email valide",
+            "fieldRequired": "Désolé, l'adresse e-mail et la ville sont obligatoires",
+            "offline": "Vous êtes en mode hors ligne L'emplacement sur la carte n'est pas disponible Voulez-vous continuer ?",
+            "outBoundries": "Désolé! Votre sélection est dans  {{country}}, veuillez sélectionner un emplacement dans les limites de la Tunisie",
+            "wrongCity": "{{selected}} n'est pas dans cette zone, vous voulez peut-être dire que vous vivez dans {{marked}} donc nous le réparons pour vous",
+            "seaMarker": "Pardon! vous avez sélectionné une mer, veuillez vous assurer que votre marqueur est sur la terre",
+            "generalError": " Une erreur s'est produite. Veuillez réessayer",
+            "button": "oui"
+        },
+        "placeholder": {
+            "city": "ville",
+            "municipality": "municipalité",
+            "email": "E-mail"
+        }
+    },
+    "INFREC": {
+        "head": "Reclamation Info",
+        "description": "fournir un titre court, des informations détaillées et une photo claire de votre réclamation le rendra plus prioritaire à coup sûr",
+        "confirm": "Confirmer",
+        "ALERTS": {
+            "NSFW": "La publication de contenu NSFW dans cette application pourrait vous interdire",
+            "fieldRequired": "désolé La description et le sujet sont obligatoires",
+            "offlineSucc": "Votre réclamation a été traitée avec succès , il nous sera envoyé dès que vous serez en ligne",
+            "onlineSucc": "Votre réclamation a été traitée avec succès",
+            "generalError": "Your Claim has been Completed Successfully",
+            "buttons": {
+                "ok": "ok",
+                "route": "go to welcome page"
+            }
+        },
+        "placeholder": {
+            "subject": "Subject Title",
+            "description": "Enter more information here..."
+        }
+    },
+    "ALLCLAIMS": {
+        "hotest": "Populaire",
+        "newest": "Plus récent ",
+        "mine": "Mien",
+        "claims": "reclamations",
+        "description": "Vous pouvez voter pour une réclamation pour augmenter sa priorité, n'hésitez pas à la signaler si ce n'est pas approprié",
+        "placeholders": {
+            "yourCity": "Ta ville"
+        },
+        "noClaims": "Aucunes réclamations  ",
+        "stopSeeingClaim": "masquer la reclamation",
+        "report": "signaler réclamation",
+        "timers": {
+            "yearsAgo": "il y a {{d}} ans",
+            "mounthsAgo": "il y a {{d}} moins",
+            "daysAgo": "il y a {{d}} jours",
+            "hours": "il y a {{d}} heures",
+            "hoursAndMin": "il y a {{d1}} heures et {{d2}} mins",
+            "minutes": "il y a {{d}} minutes",
+            "justNow": "a l'instant!"
+        }
     }
 }

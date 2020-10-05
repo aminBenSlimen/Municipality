@@ -11,7 +11,7 @@
     color: #63164e;
     text-transform: uppercase;
     font-weight: 500;" [ngStyle]="{'font-size': cssProp.titleSize,'top':cssProp.titleTop,'left': cssProp.titleLeft}">
-      Claim Categorie
+      {{"TYPEDERECLAMATION.head" | translate}}
     </ion-text>
   </div>
 
@@ -20,16 +20,20 @@
   left: 10%;
   right: 10%;
   color: #653658;
-  font-size: 15px;" [ngStyle]="{'opacity': cssProp.textOpacity,'top': cssProp.textTop}">Lorem ipsum dolor sit amet
-    consectetur adipisicing
-    elit. Dicta
-    debitis, minus eaque sit
-    voluptatum accusamus? </ion-text>
+  font-size: 15px;z-index: 3;" [ngStyle]="{'opacity': cssProp.textOpacity,'top': cssProp.textTop}">
+    {{"TYPEDERECLAMATION.description" | translate}} </ion-text>
   <img src="assets/images/typeBg.png" style="position: absolute;margin: 0;right: -10%;">
-  <div class="background" [ngStyle]="{'top': cssProp.backGroundTop}">
-  </div>
 
-  <ion-grid fixed style="padding: 1em;margin-top: 60%;margin-left: 1%;">
+  <ion-grid fixed style="position: absolute;
+  padding: 1em;
+  margin-top: 55%;
+  background: white;
+  z-index: 14;
+  padding-top: 3em;
+  box-shadow: 0px 0px 20px 1px white;
+  border-radius: 20px 20px 0px 0px;
+  width: 100%;
+  margin-bottom: 13%;">
     <ion-row>
       <ion-col size="6" *ngFor=" let type of types">
         <ion-card (touchstart)="cardTouchstart($event,type)" (touchend)="cardTouchend();" (click)="changeType(type)"
@@ -60,11 +64,12 @@
   background: #ffd7c4;
   width: 100%;
   height: 10%;
-  border-radius: 25px 25px 0 0;">
+  border-radius: 25px 25px 0 0;
+  z-index: 15;">
     <ion-button (click)="forward()" style="font-family:'Montserrat';--border-radius:50px;    width: 70%;
       margin-left: 7%;
       height: 60%;--background: #3e0d27;--box-shadow: none;">
-      Confirm
+      {{"TYPEDERECLAMATION.confirm" | translate }}
     </ion-button>
     <ion-button (click)="customType()" style="   font-family: 'Montserrat';
     --border-radius: 50px;

@@ -7,12 +7,14 @@ import { IonicModule } from '@ionic/angular';
 import { TypeDeReclamationPageRoutingModule } from './type-de-reclamation-routing.module';
 
 import { TypeDeReclamationPage } from './type-de-reclamation.page';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    TranslateModule,
     TypeDeReclamationPageRoutingModule
   ],
   declarations: [TypeDeReclamationPage],

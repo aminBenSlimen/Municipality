@@ -10,6 +10,7 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { PopoverComponentComponent } from 'src/app/components/popover-component/popover-component.component';
 import { ConnectionStatus, NetworkService } from 'src/app/services/network/network.service';
 import { Keyboard } from '@ionic-native/keyboard/ngx';
+import { TranslateService } from '@ngx-translate/core';
 declare var nsfwCheck: Function;
 
 @Component({
@@ -48,32 +49,7 @@ export class InformationDeReclamationPage implements OnInit {
   }
   result: Observable<any>
   Online;
-  types: Array<any> = [
-    {
-      name: "Public", bigImage: './assets/images/green.png'
-    },
-    {
-      name: "light", bigImage: './assets/images/light.png'
-    },
-    {
-      name: "trash", bigImage: './assets/images/trash.png'
-    },
-    {
-      name: "illigal", bigImage: './assets/images/illigal.png'
-    },
-    {
-      name: "structure", bigImage: './assets/images/structure.png'
-    },
-    {
-      name: "parking", bigImage: './assets/images/parking.png'
-    },
-    {
-      name: "sink", bigImage: './assets/images/sink.png'
-    },
-    {
-      name: "Patholes", bigImage: './assets/images/illigal.png'
-    }
-  ];
+  types: Array<any>;
   ScrollY: number;
   scrolling: boolean;
   handledInTouchEnd: boolean = true;
@@ -101,16 +77,18 @@ export class InformationDeReclamationPage implements OnInit {
     private popOver: PopoverController,
     private platform: Platform,
     private keyboard: Keyboard,
-    private networkService: NetworkService) {
+    private networkService: NetworkService,
+    private translate: TranslateService) {
 
     this.route.queryParams.subscribe((res) => {
       this.data = JSON.parse(res.p);
+      console.log(this.data);
+      this.types = this.translate.instant("TYPEDERECLAMATION.types")
       let ty: any = this.types.filter(elm => {
         if (elm.name == this.data.type) {
           return true;
         }
       })
-      console.log(ty);
 
       this.data.image = ty[0].bigImage;
     });
@@ -124,6 +102,7 @@ export class InformationDeReclamationPage implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
 
@@ -155,7 +134,8 @@ export class InformationDeReclamationPage implements OnInit {
         setTimeout(() => {
           if (this.nsfw == 'nsfw') {
             this.presentPopover(null, {
-              bigImage: "assets/images/nsfw.png", content: "استغفر الله ... احشم يا خرا"
+              bigImage: "assets/images/nsfw.png",
+              content: this.translate.instant("INFREC.NSFW")
             })
           } else {
             this.data.image = 'data:image/jpeg;base64,' + imageData;
@@ -241,7 +221,10 @@ export class InformationDeReclamationPage implements OnInit {
       }
     }
     else {
-      this.presentPopover(null, { bigImage: "assets/images/spam.png", content: "sorry Description and Subjet are required" })
+      this.presentPopover(null, {
+        bigImage: "assets/images/spam.png",
+        content: this.translate.instant("INFREC.ALERTS.fieldRequired")
+      })
     }
   }
   postClaim() {
@@ -250,8 +233,8 @@ export class InformationDeReclamationPage implements OnInit {
       this.spinner = false
       this.presentPopover(null, {
         bigImage: "assets/images/success.png",
-        content: "Your Claim has been Completed Successfully , it will be sent to us as soon as you get online",
-        role: "GoToWelcomePage"
+        content: this.translate.instant("INFREC.offlineSucc"),
+        role: this.translate.instant("INFREC.buttons.route")
       });
     }
     else
@@ -259,22 +242,22 @@ export class InformationDeReclamationPage implements OnInit {
         if (this.Online)
           this.presentPopover(null, {
             bigImage: "assets/images/success.png",
-            content: "Your Claim has been Completed Successfully",
-            role: "GoToWelcomePage"
+            content: this.translate.instant("INFREC.ALERTS.onlineSucc"),
+            role: this.translate.instant("INFREC.ALERTS.buttons.route")
           });
         else
           this.presentPopover(null, {
             bigImage: "assets/images/success.png",
-            content: "Your Claim has been Successfully stored in your device It will be send when you are reconnect to network !",
-            role: "GoToWelcomePage"
+            content: this.translate.instant("INFREC.ALERTS.offlineSucc"),
+            role: this.translate.instant("INFREC.ALERTS.buttons.route")
           });
         this.spinner = false;
       }, err => {
         this.spinner = false;
         this.presentPopover(null, {
           bigImage: "assets/images/spam.png",
-          content: "oops! some thing went wrong , for the time being i'm using a free host that dont accept image uploading",
-          role: "ok"
+          content: this.translate.instant("INFREC.ALERTS.generalError"),
+          role: this.translate.instant("INFREC.ALERTS.buttons.ok")
         });
       })
   }

@@ -7,6 +7,7 @@ import { NetworkService, ConnectionStatus } from './services/network/network.ser
 import { OfflineManagerService } from './services/offlineManager/offline-manager.service';
 import { UniqueDeviceID } from '@ionic-native/unique-device-id/ngx';
 import { PopoverComponentComponent } from './components/popover-component/popover-component.component';
+import { LanguageServiceService } from './services/languageService/language-service.service';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -20,7 +21,8 @@ export class AppComponent {
     private offlineManager: OfflineManagerService,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private uid: UniqueDeviceID
+    private uid: UniqueDeviceID,
+    private languageService: LanguageServiceService
   ) {
     this.initializeApp();
   }
@@ -33,6 +35,7 @@ export class AppComponent {
       //this.statusBar.styleDefault();
       this.statusBar.hide();
       this.splashScreen.hide();
+      this.languageService.initLang()
     });
 
     this.networkService.onNetworkChange().subscribe((status: ConnectionStatus) => {

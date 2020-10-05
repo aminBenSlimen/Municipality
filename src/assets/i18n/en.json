@@ -1,5 +1,159 @@
 {
-    "test": {
-        "welcome": "welcome"
+    "WELCOME": {
+        "sliders": {
+            "0": "Together !",
+            "1": "Tunisia better"
+        },
+        "button1": " Getting Started",
+        "button2": " See Other Claims",
+        "ALERTS": {
+            "serverProb": "Server is down would you like to continue ?",
+            "offline": "You are in Offline Mode would you like to continue ?",
+            "spam0": "Oops ! Sorry For that. We are unable to process any more request at this moment, Please try again after one hour",
+            "spam1": "Oops ! Sorry For that. We are unable to process any more request at this moment, Please try again after {{Time}} Hours ",
+            "buttons": "YES"
+        }
+    },
+    "TYPEDERECLAMATION": {
+        "head": "Claim Category",
+        "description": "choosing the right category for your claim can help us decide which team to send and waste as little time and money as possible",
+        "confirm": "Confirm",
+        "types": [
+            {
+                "name": "Public",
+                "image": "./assets/logos/green.png",
+                "color": "white",
+                "content": "Select this Option if there is any thing related to green spaces",
+                "bigImage": "./assets/images/green.png",
+                "titleColor": "#8c8c8c"
+            },
+            {
+                "name": "lightings",
+                "image": "./assets/logos/ligth.png",
+                "color": "white",
+                "content": "Select this Option if there is Some thing wrong in our Lighting system",
+                "bigImage": "./assets/images/light.png",
+                "titleColor": "#8c8c8c"
+            },
+            {
+                "name": "rubbish",
+                "image": "./assets/logos/trash.png",
+                "color": "white",
+                "content": "Select this Option if you find any polution",
+                "bigImage": "./assets/images/trash.png",
+                "titleColor": "#8c8c8c"
+            },
+            {
+                "name": "vendors",
+                "image": "./assets/logos/structure.png",
+                "color": "white",
+                "content": "Select this option when ever you see any type of street Vendors",
+                "bigImage": "./assets/images/illigal.png",
+                "titleColor": "#8c8c8c"
+            },
+            {
+                "name": "structures",
+                "image": "./assets/logos/struct.png",
+                "color": "white",
+                "content": "Select this option when you find any unconstitutional building",
+                "bigImage": "./assets/images/structure.png",
+                "titleColor": "#8c8c8c"
+            },
+            {
+                "name": "parking",
+                "image": "./assets/logos/parking.png",
+                "color": "white",
+                "content": "Our life and time matter , be safe , Select this option when you find any illicit vehicles parking ",
+                "bigImage": "./assets/images/parking.png",
+                "titleColor": "#8c8c8c"
+            },
+            {
+                "name": "drainage",
+                "image": "./assets/logos/sink.png",
+                "color": "white",
+                "content": "Select this option when you find a water leak ",
+                "bigImage": "./assets/images/sink.png",
+                "titleColor": "#8c8c8c"
+            },
+            {
+                "name": "Potholes",
+                "image": "./assets/logos/roades.png",
+                "color": "white",
+                "content": "Select this option when you find any potholes or obstacle",
+                "bigImage": "./assets/images/road.png",
+                "titleColor": "#8c8c8c"
+            }
+        ],
+        "ALERTS": {
+            "0": "please hold down on the categorie's picture to get more information about it ! ",
+            "1": "sorry You Have To choose one Option From above"
+        },
+        "custom": {
+            "head": "Add your custom category",
+            "errorMsg": "the claim category is required"
+        }
+    },
+    "INFOPERSONNEL": {
+        "head": "Your Info",
+        "description": " With providing clear data<br> of your position , email... We can Work faster and more effectiently to upgrate our country to the best .",
+        "mapOffline": "Offline mode doesn't support Map",
+        "confirm": "Confirm",
+        "ALERTS": {
+            "validEmail": "please enter a valid email address",
+            "fieldRequired": "Sorry E-mail And City Field are required ",
+            "offline": "You are in Offline Mode Map Location is not available would you Like to Continue?",
+            "outBoundries": "Sorry! your selection is in {{country}}, I'm afraid we can't help you, please select a location within tunisia limits",
+            "wrongCity": "Your Selected City {{selected}}  is Not in this area you maybe mean you live in {{marked}} So We fix it for you",
+            "seaMarker": "Sorry! you selected a sea , please make sure that your marker is on the land",
+            "generalError": "something went wrong please try again",
+            "button": "Yes"
+        },
+        "placeholder": {
+            "city": "city",
+            "municipality": "municipality",
+            "email": "E-mail"
+        }
+    },
+    "INFREC": {
+        "head": "Claim Info",
+        "description": "providing a short title, in-depth information and clear photo of your claim will for sure make your claim more prioritised",
+        "confirm": "Confirm",
+        "ALERTS": {
+            "NSFW": "Posting NSFW content in this app might get you banned",
+            "fieldRequired": "sorry Description and Subject are required",
+            "offlineSucc": "Your Claim has been Completed Successfully , it will be sent to us as soon as you get online",
+            "onlineSucc": "Your Claim has been Completed Successfully",
+            "generalError": "Une erreur s'est produite. Veuillez réessayer",
+            "buttons": {
+                "ok": "ok",
+                "route": "Aller à la page d'accueil"
+            }
+        },
+        "placeholder": {
+            "subject": "Titre du sujet",
+            "description": "Entrez plus d'informations ici ..."
+        }
+    },
+    "ALLCLAIMS": {
+        "hotest": "Hotest",
+        "newest": "Newest",
+        "mine": "Mine",
+        "claims": "claims",
+        "description": "  You can upvote a claim to increase its priority,Please dont hesitate reporting it if there is something wrong in it",
+        "placeholders": {
+            "yourCity": "Your city"
+        },
+        "noClaims": "No Claims",
+        "stopSeeingClaim": "Stop seeing this claim",
+        "report": "Report Claim",
+        "timers": {
+            "yearsAgo": "{{d}} Years Ago",
+            "mounthsAgo": "{{d}} Months Ago",
+            "daysAgo": "{{d}} Days ago",
+            "hours": "{{d}} Hours ago",
+            "hoursAndMin": "{{d1}} Hours And {{d2}} mins ago",
+            "minutes": "{{d}} Minutes ago",
+            "justNow": "Just Now"
+        }
     }
 }

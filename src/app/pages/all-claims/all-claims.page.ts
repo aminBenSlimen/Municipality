@@ -8,6 +8,7 @@ import { PopoverController, IonSearchbar, IonContent, AlertController } from '@i
 import { NetworkService, ConnectionStatus } from 'src/app/services/network/network.service';
 import { Storage } from '@ionic/storage';
 import { SocialSharingService } from 'src/app/services/socialSharing/social-sharing.service';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -58,7 +59,8 @@ export class AllClaimsPage implements OnInit {
     private networkService: NetworkService,
     private storage: Storage,
     public alert: AlertController,
-    private socialSharing: SocialSharingService) {
+    private socialSharing: SocialSharingService,
+    private translate: TranslateService) {
     this.likedClaims = []
     this.notWantedClaims = []
     this.Online = networkService.getCurrentNetworkStatus() == ConnectionStatus.Online ? true : false
@@ -152,14 +154,14 @@ export class AllClaimsPage implements OnInit {
     const defDmounth = Math.floor(def / (60 * 24 * 30));
     const defDyear = Math.floor(def / (60 * 24 * 30 * 12));
 
-    if (defDyear > 0) return defDyear + " Years Ago";
-    if (defDmounth > 0) return defDmounth + " Months Ago ";
-    if (defDDay > 0) return defDDay + " Days Ago ";
-    if (defHour > 2) return defHour + " Hours";
-    if (defHour > 0) return defHour + " Hours And " + defMinutes + " Min Ago ";
-    if (defMinutes <= 0) return "Just Now !";
+    if (defDyear > 0) return this.translate.instant("ALLCLAIMS.timers.yearAgo", { d: defDyear });
+    if (defDmounth > 0) return this.translate.instant("ALLCLAIMS.timers.mounthsAgo", { d: defDmounth });
+    if (defDDay > 0) return this.translate.instant("ALLCLAIMS.timers.daysAgo", { d: defDDay });
+    if (defHour > 2) return this.translate.instant("ALLCLAIMS.timers.hours", { d: defHour });
+    if (defHour > 0) return this.translate.instant("ALLCLAIMS.timers.hoursAndMin", { d1: defHour, d2: defMinutes });
+    if (defMinutes <= 0) this.translate.instant("ALLCLAIMS.timers.justNow");
     else
-      return defMinutes + " Minutes Ago ";
+      return this.translate.instant("ALLCLAIMS.timers.minutes", { d: defMinutes });
 
   }
   ngOnInit() {

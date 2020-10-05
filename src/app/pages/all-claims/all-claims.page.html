@@ -27,11 +27,11 @@ color: #63164e;" (click)="showDisplayFactor()"></ion-icon>
   color: #63164e;" [ngStyle]="{'opacity' : 1-cssProp.textOpacity }" (click)='popTheSearchBar()'></ion-icon>
 
   <ion-select value="Newest" #selectCat style="display:none;" (ionChange)="changeDisplayFactor()">
-    <ion-select-option value="Hotest"> Hotest
+    <ion-select-option value="Hotest"> {{"ALLCLAIMS.hotest" | translate}}
     </ion-select-option>
-    <ion-select-option value="Newest">Newest
+    <ion-select-option value="Newest">{{"ALLCLAIMS.newest" | translate}}
     </ion-select-option>
-    <ion-select-option value="Mine">Mine
+    <ion-select-option value="Mine">{{"ALLCLAIMS.mine" | translate}}
     </ion-select-option>
   </ion-select>
   <div style="position: fixed;
@@ -44,7 +44,7 @@ color: #63164e;" (click)="showDisplayFactor()"></ion-icon>
         color: #63164e;
         text-transform: uppercase;
         font-weight: 500;">
-      Claims
+      {{"ALLCLAIMS.claims" | translate}}
     </ion-text>
   </div>
   <ion-text style="position: fixed;
@@ -53,17 +53,17 @@ color: #63164e;" (click)="showDisplayFactor()"></ion-icon>
   color: #653658;
   font-size: 15px;
   z-index: 100;" [ngStyle]="{'opacity': cssProp.textOpacity,'top': cssProp.textTop}">
-    You can upvote a claim to increase its priority,
-    Please dont hesitate reporting it if there is something wrong in it
+    {{"ALLCLAIMS.description" | translate}}
   </ion-text>
   <ion-searchbar #FirstSearchBar class="searchbar" showCancelButton="focus" animated (keyup)="filterList($event)"
-    (ionCancel)='reset()' (ionClear)='reset()' placeholder="Your city" [ngStyle]="{'opacity': cssProp.textOpacity}">
+    (ionCancel)='reset()' (ionClear)='reset()' [placeholder]='"ALLCLAIMS.placeholders.yourCity" | translate'
+    [ngStyle]="{'opacity': cssProp.textOpacity}">
   </ion-searchbar>
 
   <!-- <img src="assets/images/typeBg.png" style="position: absolute;margin: 0;right: -10%;"> -->
   <div class="background" (click)="clickOnBg()"></div>
   <ion-searchbar #secondSearchBar animated (keyup)="setRealSearchBar($event)" (ionCancel)='reset()' (ionClear)='reset()'
-    placeholder="Your city" style="position: fixed;
+    [placeholder]='"ALLCLAIMS.placeholders.yourCity" | translate' style="position: fixed;
     z-index: 10;
     --background: linear-gradient(0deg,#ffd5d5,white);
     opacity: 1;
@@ -80,7 +80,7 @@ color: #63164e;" (click)="showDisplayFactor()"></ion-icon>
   <div *ngIf="this.claims.length == 0" style="position:absolute;width: 100%;height: 80%;top: 20%;">
     <div style="    position: absolute;
     top: 50%;
-    width: 50%;left:25%;text-align:center;color:#63164e ;"> NO Claims</div>
+    width: 50%;left:25%;text-align:center;color:#63164e ;"> {{"ALLCLAIMS.noClaims" | translate}}</div>
   </div>
   <ng-container *ngIf="!showSkeleton">
     <ion-card *ngFor="let claim of claims" style="background: #adadad;">
@@ -110,7 +110,7 @@ color: #63164e;" (click)="showDisplayFactor()"></ion-icon>
         height: 50%;
         width: 83%;
         left: 17%;
-        top: 15%;" (click)="reportClaim(claim)">Report Claim</div>
+        top: 15%;" (click)="reportClaim(claim)"> {{"ALLCLAIMS.stopSeeingClaim" | translate}}</div>
         <hr style="margin: 0;background: #737373;">
         <ion-icon name="eye-off-outline" style="position: absolute;
         font-size: 24px;
@@ -122,7 +122,7 @@ color: #63164e;" (click)="showDisplayFactor()"></ion-icon>
         height: 50%;
         width: 83%;
         left: 17%;
-        top: 15%;" (click)="addToNotWantedClaims(claim)">Stop seeing this claim
+        top: 15%;" (click)="addToNotWantedClaims(claim)"> {{"ALLCLAIMS.report" | translate}}
         </div>
       </div>
       <img [src]="claim.image" [id]="'image' + claim.id" (click)='ShowSingleClaim(claim)' width="100%"

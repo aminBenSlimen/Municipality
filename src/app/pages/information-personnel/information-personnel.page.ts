@@ -9,6 +9,7 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 import { Keyboard } from '@ionic-native/keyboard/ngx';
 import { HttpClaimService } from 'src/app/services/http/http-claim.service';
+import { TranslateService } from '@ngx-translate/core';
 /* importing/declaring javascript functions from assets/js  */
 
 declare var map: Function; // function that load the map API
@@ -417,7 +418,8 @@ export class InformationPersonnelPage implements OnInit {
     private keyboard: Keyboard,
     private networkService: NetworkService,
     private geolocation: Geolocation,
-    private http: HttpClaimService) {
+    private http: HttpClaimService,
+    private translate: TranslateService) {
 
     // detecting the network state
     this.Online = networkService.getCurrentNetworkStatus() == ConnectionStatus.Online ? true : false
@@ -497,6 +499,13 @@ export class InformationPersonnelPage implements OnInit {
     //  this.trainModule()
     this.splash = true
     if (this.checkDataEmpty()) {
+      if (!this.Online) {
+        this.router.navigate(["/information-de-reclamation"], {
+          queryParams: { p: JSON.stringify(this.data) },
+        })
+        return
+      }
+
       this.http.verifyEmail(this.data.email).subscribe(enf => {
         this.splash = false
         let status: any = enf;
@@ -507,15 +516,21 @@ export class InformationPersonnelPage implements OnInit {
         else
           this.presentPopover(null, {
             bigImage: "assets/images/spam.png",
-            content: "Please enter a valid email"
+            content: this.translate.instant("INFOPERSONNEL.ALERTS.validEmail")
           })
+      }, err => {
+        this.splash = false;
+        this.presentPopover(null, {
+          bigImage: "assets/images/spam.png",
+          content: this.translate.instant("INFOPERSONNEL.ALERTS.generalError")
+        })
       })
 
     }
     else {
       this.presentPopover(null, {
         bigImage: "assets/images/spam.png",
-        content: "Sorry E-mail And City Field are required  "
+        content: this.translate.instant("INFOPERSONNEL.ALERTS.fieldRequired")
       })
     }
   }
@@ -543,9 +558,9 @@ export class InformationPersonnelPage implements OnInit {
 
     } else {
       this.presentPopover(null, {
-        content: "You are in Offline Mode Map Location is not available would you Like to Continue ?",
+        content: this.translate.instant("INFOPERSONNEL.ALERTS.offline"),
         bigImage: 'assets/images/spam.png',
-        button: 'Yes'
+        button: this.translate.instant("INFOPERSONNEL.ALERTS.buttons")
       })
     }
 
@@ -583,7 +598,7 @@ export class InformationPersonnelPage implements OnInit {
         if (!exist) {
           this.presentPopover(null, {
             bigImage: "assets/images/geoLocation.png",
-            content: "Sorry! your selection is in " + v.country + ", i'm afraid we cant help you,  please select a location in tunisia boundaries"
+            content: this.translate.instant("INFOPERSONNEL.ALERTS.outBoundries", { country: v.country })
           })
           this.splash = false
           return
@@ -592,7 +607,7 @@ export class InformationPersonnelPage implements OnInit {
           if (this.data.city != '')
             this.presentPopover(null, {
               bigImage: "assets/images/geoLocation.png",
-              content: "Your Selected City " + this.data.city + "  is Not in this area you maybe mean you live in " + city + " So We fix it for you "
+              content: this.translate.instant("INFOPERSONNEL.ALERTS.wrongCity", { selected: this.data.city, marked: city })
             })
           this.data.municipalite = '';
           this.splash = false;
@@ -606,7 +621,7 @@ export class InformationPersonnelPage implements OnInit {
       } else {
         this.presentPopover(null, {
           bigImage: "assets/images/geoLocation.png",
-          content: "Sorry! you selected a sea , please make sure that your marker is on the land "
+          content: this.translate.instant("INFOPERSONNEL.ALERTS.seaMarker")
         })
         this.splash = false;
       }
@@ -617,7 +632,7 @@ export class InformationPersonnelPage implements OnInit {
       this.splash = false;
       this.presentPopover(null, {
         bigImage: "assets/images/geoLocation.png",
-        content: "something went wrong please try again"
+        content: this.translate.instant("INFOPERSONNEL.ALERTS.generalError")
       })
     })
     /*
@@ -712,7 +727,7 @@ export class InformationPersonnelPage implements OnInit {
           if (this.data.city != '')
             this.presentPopover(null, {
               bigImage: "assets/images/geoLocation.png",
-              content: "Your Selected City " + this.data.city + "  is Not in this area you maybe mean you live in " + v + " So We fix it for you "
+              content: this.translate.instant("INFOPERSONNEL.ALERTS.wrongCity", { selected: this.data.city, marked: v })
             })
         }
         this.splash = false;
@@ -728,7 +743,7 @@ export class InformationPersonnelPage implements OnInit {
         this.splash = false;
         this.presentPopover(null, {
           bigImage: "assets/images/geoLocation.png",
-          content: "something went wrong please try again"
+          content: this.translate.instant("INFOPERSONNEL.ALERTS.generalError")
         })
       })
       /*
