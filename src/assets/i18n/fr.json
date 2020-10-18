@@ -98,6 +98,7 @@
         "description": " En fournissant des données claires de votre position, email..., Nous pouvons travailler plus rapidement et plus efficacement !",
         "mapOffline": "Le mode hors ligne ne prend pas en charge la carte",
         "confirm": "Confirmer",
+        "waitMap": "attender s-v-p ..",
         "ALERTS": {
             "validEmail": "S'il vous plaît, mettez une adresse email valide",
             "fieldRequired": "Désolé, l'adresse e-mail et la ville sont obligatoires",
@@ -106,7 +107,7 @@
             "wrongCity": "{{selected}} n'est pas dans cette zone, vous voulez peut-être dire que vous vivez dans {{marked}} donc nous le réparons pour vous",
             "seaMarker": "Pardon! vous avez sélectionné une mer, veuillez vous assurer que votre marqueur est sur la terre",
             "generalError": " Une erreur s'est produite. Veuillez réessayer",
-            "button": "oui"
+            "button": "Compris"
         },
         "placeholder": {
             "city": "ville",
@@ -123,15 +124,15 @@
             "fieldRequired": "désolé La description et le sujet sont obligatoires",
             "offlineSucc": "Votre réclamation a été traitée avec succès , il nous sera envoyé dès que vous serez en ligne",
             "onlineSucc": "Votre réclamation a été traitée avec succès",
-            "generalError": "Your Claim has been Completed Successfully",
+            "generalError": "Une erreur s'est produite. Veuillez réessayer",
             "buttons": {
                 "ok": "ok",
                 "route": "aller à l'accueil page"
             }
         },
         "placeholder": {
-            "subject": "Subject Title",
-            "description": "Enter more information here..."
+            "subject": "Titre du sujet",
+            "description": "Entrez plus d'informations ici ..."
         }
     },
     "ALLCLAIMS": {
@@ -155,5 +156,6 @@
             "minutes": "il y a {{d}} minutes",
             "justNow": "a l'instant!"
         }
-    }
+    },
+    "PLSWAIT": "Une seconde.."
 }

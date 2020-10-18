@@ -21,6 +21,7 @@ declare var changeLabel: Function; // Function that store the data for training 
 declare var collectData: Function; // function that call training or prediction from the mljs API
 declare var train: Function; // setup the code for training 
 declare var returnToTs: Function; // setup the code for prediction 
+declare var mapReadyJS: Function; // setup the code for prediction 
 
 
 @Component({
@@ -39,6 +40,7 @@ export class InformationPersonnelPage implements OnInit {
   scrolling: boolean;
   handledInTouchEnd: boolean = true;
   isTouched: boolean;
+  mapReady = false;
   cityBeforeChanged = '';
   changedByMuni = false; // variable used in some in-depth algorithme 
   muni = []; // table that store the list of municipalities for the selected city 
@@ -474,10 +476,11 @@ export class InformationPersonnelPage implements OnInit {
       if (element.c.toString().trim() == event.detail.value.toString().trim())
         this.muni = element.m;
     });
-    if (this.Online && this.cityBeforeChanged != event.detail.value.toString().trim())
+    if (this.cityBeforeChanged != event.detail.value.toString().trim())
       this.citiesLat.forEach(element => {
         if (element.city == event.detail.value.toString().trim()) {
-          map([element.lng, element.lat])
+          if (this.Online)
+            map([element.lng, element.lat])
           this.data.lng = element.lng
           this.data.lat = element.lat
         }
@@ -516,13 +519,18 @@ export class InformationPersonnelPage implements OnInit {
         else
           this.presentPopover(null, {
             bigImage: "assets/images/spam.png",
-            content: this.translate.instant("INFOPERSONNEL.ALERTS.validEmail")
+            content: this.translate.instant("INFOPERSONNEL.ALERTS.validEmail"),
+            button: this.translate.instant("INFOPERSONNEL.ALERTS.button")
           })
       }, err => {
+
+        console.log(err);
+
         this.splash = false;
         this.presentPopover(null, {
           bigImage: "assets/images/spam.png",
-          content: this.translate.instant("INFOPERSONNEL.ALERTS.generalError")
+          content: this.translate.instant("INFOPERSONNEL.ALERTS.generalError"),
+          button: this.translate.instant("INFOPERSONNEL.ALERTS.button")
         })
       })
 
@@ -530,7 +538,8 @@ export class InformationPersonnelPage implements OnInit {
     else {
       this.presentPopover(null, {
         bigImage: "assets/images/spam.png",
-        content: this.translate.instant("INFOPERSONNEL.ALERTS.fieldRequired")
+        content: this.translate.instant("INFOPERSONNEL.ALERTS.fieldRequired"),
+        button: this.translate.instant("INFOPERSONNEL.ALERTS.button")
       })
     }
   }
@@ -560,7 +569,7 @@ export class InformationPersonnelPage implements OnInit {
       this.presentPopover(null, {
         content: this.translate.instant("INFOPERSONNEL.ALERTS.offline"),
         bigImage: 'assets/images/spam.png',
-        button: this.translate.instant("INFOPERSONNEL.ALERTS.buttons")
+        button: this.translate.instant("INFOPERSONNEL.ALERTS.button")
       })
     }
 
@@ -572,6 +581,12 @@ export class InformationPersonnelPage implements OnInit {
         });
     });
     this.splash = false;
+    setInterval(() => {
+      if (!this.mapReady)
+        this.mapReady = mapReadyJS();
+      else
+        return
+    }, 100);
   }
 
 
@@ -584,10 +599,17 @@ export class InformationPersonnelPage implements OnInit {
     this.data.lng = pos.lng;
     this.splash = true;
     this.http.getCityFromApi(pos.lat, pos.lng).subscribe(res => {
+      console.log(res);
+
       let region: any = res;
       let v = region.results[0].components;
+
       if (v.state || v.region) {
         let city = v.state || v.region
+        if (city == this.data.city) {
+          this.splash = false;
+          return
+        }
         let exist = false
         this.cities.forEach(element => {
           if (element.c == city) {
@@ -598,7 +620,8 @@ export class InformationPersonnelPage implements OnInit {
         if (!exist) {
           this.presentPopover(null, {
             bigImage: "assets/images/geoLocation.png",
-            content: this.translate.instant("INFOPERSONNEL.ALERTS.outBoundries", { country: v.country })
+            content: this.translate.instant("INFOPERSONNEL.ALERTS.outBoundries", { country: v.country }),
+            button: this.translate.instant("INFOPERSONNEL.ALERTS.button")
           })
           this.splash = false
           return
@@ -607,7 +630,8 @@ export class InformationPersonnelPage implements OnInit {
           if (this.data.city != '')
             this.presentPopover(null, {
               bigImage: "assets/images/geoLocation.png",
-              content: this.translate.instant("INFOPERSONNEL.ALERTS.wrongCity", { selected: this.data.city, marked: city })
+              content: this.translate.instant("INFOPERSONNEL.ALERTS.wrongCity", { selected: this.data.city, marked: city }),
+              button: this.translate.instant("INFOPERSONNEL.ALERTS.button")
             })
           this.data.municipalite = '';
           this.splash = false;
@@ -621,7 +645,8 @@ export class InformationPersonnelPage implements OnInit {
       } else {
         this.presentPopover(null, {
           bigImage: "assets/images/geoLocation.png",
-          content: this.translate.instant("INFOPERSONNEL.ALERTS.seaMarker")
+          content: this.translate.instant("INFOPERSONNEL.ALERTS.seaMarker"),
+          button: this.translate.instant("INFOPERSONNEL.ALERTS.button")
         })
         this.splash = false;
       }
@@ -632,7 +657,8 @@ export class InformationPersonnelPage implements OnInit {
       this.splash = false;
       this.presentPopover(null, {
         bigImage: "assets/images/geoLocation.png",
-        content: this.translate.instant("INFOPERSONNEL.ALERTS.generalError")
+        content: this.translate.instant("INFOPERSONNEL.ALERTS.generalError"),
+        button: this.translate.instant("INFOPERSONNEL.ALERTS.button")
       })
     })
     /*

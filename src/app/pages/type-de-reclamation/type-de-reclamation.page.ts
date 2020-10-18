@@ -44,7 +44,7 @@ export class TypeDeReclamationPage implements AfterViewInit {
   scrolling: boolean;
   handledInTouchEnd: boolean = true;
   isTouched: boolean;
-  types: Array<Object>;
+  types: any;
   constructor(private popOver: PopoverController,
     public alert: AlertController,
     public router: Router,
@@ -54,9 +54,9 @@ export class TypeDeReclamationPage implements AfterViewInit {
     private translate: TranslateService) {
     this.route.queryParams.subscribe((res) => {
       this.data = JSON.parse(res.p);
-      console.log(this.data);
     });
     this.types = this.translate.instant("TYPEDERECLAMATION.types")
+
     this.Online = ConnectionStatus.Online ? true : false
     this.cssProp.backGroundTop = "30%";
     this.platform.backButton.subscribe(() => {

@@ -27,6 +27,8 @@ export class OfflineManagerService {
   checkForEvents(): Observable<any> {
     return from(this.storage.get(STORAGE_REQ_KEY)).pipe(
       switchMap(storedOperations => {
+        console.log(storedOperations);
+
         let storedObj = JSON.parse(storedOperations);
         if (storedObj && storedObj.length > 0) {
           return this.sendRequests(storedObj).pipe(
@@ -41,7 +43,7 @@ export class OfflineManagerService {
             })
           );
         } else {
-          console.log('no local events to sync');
+          //  console.log('no local events to sync');
           return of(false);
         }
       })
@@ -77,19 +79,36 @@ export class OfflineManagerService {
   }
 
   sendRequests(operations: StoredRequest[]) {
+
+
     let obs = [];
     for (let op of operations) {
-      console.log('Make one request: ', op);
-      let headers: HttpHeaders = new HttpHeaders();
-      headers.append("Access-Control-Allow-Origin", '*');
-      headers.append("Access-Control-Allow-Methods", 'POST, GET, OPTIONS, DELETE');
-      headers.append("Access-Control-Allow-Headers", '*');
-      headers.append('Content-Type', 'application/json');
-      headers.append('Accept', 'application/json,text/plain');
       let oneObs;
       if (op.url == 'https://api.imgur.com/3/image') {
-        this.http.post(op.url, op.data.image, { headers: headers }).subscribe(inf => {
+        let image: string = op.data.image;
+        image = image.substring(22, image.length)
+        let d = {
+          'image': image,
+          'type': 'base64'
+        }
+
+        let header = new HttpHeaders({
+          "authorization": 'Client-ID ' + "3b4997d04fffe7c"
+        });
+        this.http.post(op.url, d, { headers: header }).subscribe(inf => {
+
+          let image: any = inf;
+          op.data.image = image.data.link;
+          console.log(image.data.link);
+
           op.data.upvote = 0;
+          op.data.report = 0;
+          let headers: HttpHeaders = new HttpHeaders();
+          headers.append("Access-Control-Allow-Origin", '*');
+          headers.append("Access-Control-Allow-Methods", 'POST, GET, OPTIONS, DELETE');
+          headers.append("Access-Control-Allow-Headers", '*');
+          headers.append('Content-Type', 'application/json');
+          headers.append('Accept', 'application/json,text/plain');
           const params = new HttpParams()
             .set('type', op.data.type)
             .set('email', op.data.email)
@@ -102,9 +121,9 @@ export class OfflineManagerService {
             .set('description', op.data.description)
             .set('image', op.data.image)
             .set('upvote', op.data.upvote)
+            .set('report', op.data.report)
           let requestOptions = { headers: headers, params: params }
-          oneObs = this.http.post('https://municipality00.000webhostapp.com/public/api/op.datas', null, requestOptions)
-          obs.push(oneObs);
+          this.http.post('https://municipality00.000webhostapp.com/public/api/Claims', null, requestOptions).subscribe()
         }, err => {
           console.log('error in the complicated offline request');
         })
@@ -121,6 +140,13 @@ export class OfflineManagerService {
           .set('description', op.data.description)
           .set('image', op.data.image)
           .set('upvote', op.data.upvote)
+          .set('report', op.data.upvote)
+        let headers: HttpHeaders = new HttpHeaders();
+        headers.append("Access-Control-Allow-Origin", '*');
+        headers.append("Access-Control-Allow-Methods", 'POST, GET, OPTIONS, DELETE');
+        headers.append("Access-Control-Allow-Headers", '*');
+        headers.append('Content-Type', 'application/json');
+        headers.append('Accept', 'application/json,text/plain');
         let requestOptions = { headers: headers, params: params }
         if (op.data.id)
           oneObs = this.http.post(op.url + '/' + op.data.id, null, requestOptions)

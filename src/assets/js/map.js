@@ -1,5 +1,9 @@
+var mapIsReady = false;
+function mapReadyJS() {
+    return mapIsReady;
+}
 function map(user_location = null, noClick = false) {
-
+    mapReady = false
     mapboxgl.accessToken = 'pk.eyJ1IjoiZmFraHJhd3kiLCJhIjoiY2pscWs4OTNrMmd5ZTNra21iZmRvdTFkOCJ9.15TZ2NtGk_AtUvLd27-8xA';
     var map = new mapboxgl.Map({
         container: 'map',
@@ -15,8 +19,8 @@ function map(user_location = null, noClick = false) {
     var marker;
     map.on('load', function () {
         addMarker(user_location, 'load');
+        mapIsReady = true;
         geocoder.on('result', function (ev) {
-            console.log(ev.result.center);
         });
     });
     if (!noClick)
@@ -63,21 +67,7 @@ function map(user_location = null, noClick = false) {
         // console.log('lng: ' + lngLat.lng + '<br />lat: ' + lngLat.lat);
     }
 
-    $('#signupForm').submit(function (event) {
-        event.preventDefault();
-        var lat = $('#lat').val();
-        var lng = $('#lng').val();
-        var url = 'locations_model.php?add_location&lat=' + lat + '&lng=' + lng;
-        $.ajax({
-            url: url,
-            method: 'GET',
-            dataType: 'json',
-            success: function (data) {
-                alert(data);
-                location.reload();
-            }
-        });
-    });
+
     return user_location;
 }
 function getLatLng() {

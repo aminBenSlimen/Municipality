@@ -1,62 +1,29 @@
 <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 
-<div *ngIf='splash' style="    position: fixed;
+<div *ngIf="splash" style="position: absolute;
 width: 100%;
-background: rgba(255, 151, 151, 0.301);
 height: 100%;
-top: 0;
-display: flex;
-justify-content: center;
-z-index: 1000;">
-  <img style="width: 50%;margin:0;" src="data:image/svg+xml;base64,PCEtLSBCeSBTYW0gSGVyYmVydCAoQHNoZXJiKSwgZm9yIGV2ZXJ5b25lLiBNb3JlIEAgaHR0cDov
-  L2dvby5nbC83QUp6YkwgLS0+Cjxzdmcgd2lkdGg9IjU4IiBoZWlnaHQ9IjU4IiB2aWV3Qm94PSIw
-  IDAgNTggNTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgICA8ZyBmaWxs
-  PSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNs
-  YXRlKDIgMSkiIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxLjUiPgogICAgICAgICAgICA8
-  Y2lyY2xlIGN4PSI0Mi42MDEiIGN5PSIxMS40NjIiIHI9IjUiIGZpbGwtb3BhY2l0eT0iMSIgZmls
-  bD0iI2ZmZiI+CiAgICAgICAgICAgICAgICA8YW5pbWF0ZSBhdHRyaWJ1dGVOYW1lPSJmaWxsLW9w
-  YWNpdHkiCiAgICAgICAgICAgICAgICAgICAgIGJlZ2luPSIwcyIgZHVyPSIxLjNzIgogICAgICAg
-  ICAgICAgICAgICAgICB2YWx1ZXM9IjE7MDswOzA7MDswOzA7MCIgY2FsY01vZGU9ImxpbmVhciIK
-  ICAgICAgICAgICAgICAgICAgICAgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiIC8+CiAgICAgICAg
-  ICAgIDwvY2lyY2xlPgogICAgICAgICAgICA8Y2lyY2xlIGN4PSI0OS4wNjMiIGN5PSIyNy4wNjMi
-  IHI9IjUiIGZpbGwtb3BhY2l0eT0iMCIgZmlsbD0iI2ZmZiI+CiAgICAgICAgICAgICAgICA8YW5p
-  bWF0ZSBhdHRyaWJ1dGVOYW1lPSJmaWxsLW9wYWNpdHkiCiAgICAgICAgICAgICAgICAgICAgIGJl
-  Z2luPSIwcyIgZHVyPSIxLjNzIgogICAgICAgICAgICAgICAgICAgICB2YWx1ZXM9IjA7MTswOzA7
-  MDswOzA7MCIgY2FsY01vZGU9ImxpbmVhciIKICAgICAgICAgICAgICAgICAgICAgcmVwZWF0Q291
-  bnQ9ImluZGVmaW5pdGUiIC8+CiAgICAgICAgICAgIDwvY2lyY2xlPgogICAgICAgICAgICA8Y2ly
-  Y2xlIGN4PSI0Mi42MDEiIGN5PSI0Mi42NjMiIHI9IjUiIGZpbGwtb3BhY2l0eT0iMCIgZmlsbD0i
-  I2ZmZiI+CiAgICAgICAgICAgICAgICA8YW5pbWF0ZSBhdHRyaWJ1dGVOYW1lPSJmaWxsLW9wYWNp
-  dHkiCiAgICAgICAgICAgICAgICAgICAgIGJlZ2luPSIwcyIgZHVyPSIxLjNzIgogICAgICAgICAg
-  ICAgICAgICAgICB2YWx1ZXM9IjA7MDsxOzA7MDswOzA7MCIgY2FsY01vZGU9ImxpbmVhciIKICAg
-  ICAgICAgICAgICAgICAgICAgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiIC8+CiAgICAgICAgICAg
-  IDwvY2lyY2xlPgogICAgICAgICAgICA8Y2lyY2xlIGN4PSIyNyIgY3k9IjQ5LjEyNSIgcj0iNSIg
-  ZmlsbC1vcGFjaXR5PSIwIiBmaWxsPSIjZmZmIj4KICAgICAgICAgICAgICAgIDxhbmltYXRlIGF0
-  dHJpYnV0ZU5hbWU9ImZpbGwtb3BhY2l0eSIKICAgICAgICAgICAgICAgICAgICAgYmVnaW49IjBz
-  IiBkdXI9IjEuM3MiCiAgICAgICAgICAgICAgICAgICAgIHZhbHVlcz0iMDswOzA7MTswOzA7MDsw
-  IiBjYWxjTW9kZT0ibGluZWFyIgogICAgICAgICAgICAgICAgICAgICByZXBlYXRDb3VudD0iaW5k
-  ZWZpbml0ZSIgLz4KICAgICAgICAgICAgPC9jaXJjbGU+CiAgICAgICAgICAgIDxjaXJjbGUgY3g9
-  IjExLjM5OSIgY3k9IjQyLjY2MyIgcj0iNSIgZmlsbC1vcGFjaXR5PSIwIiBmaWxsPSIjZmZmIj4K
-  ICAgICAgICAgICAgICAgIDxhbmltYXRlIGF0dHJpYnV0ZU5hbWU9ImZpbGwtb3BhY2l0eSIKICAg
-  ICAgICAgICAgICAgICAgICAgYmVnaW49IjBzIiBkdXI9IjEuM3MiCiAgICAgICAgICAgICAgICAg
-  ICAgIHZhbHVlcz0iMDswOzA7MDsxOzA7MDswIiBjYWxjTW9kZT0ibGluZWFyIgogICAgICAgICAg
-  ICAgICAgICAgICByZXBlYXRDb3VudD0iaW5kZWZpbml0ZSIgLz4KICAgICAgICAgICAgPC9jaXJj
-  bGU+CiAgICAgICAgICAgIDxjaXJjbGUgY3g9IjQuOTM4IiBjeT0iMjcuMDYzIiByPSI1IiBmaWxs
-  LW9wYWNpdHk9IjAiIGZpbGw9IiNmZmYiPgogICAgICAgICAgICAgICAgPGFuaW1hdGUgYXR0cmli
-  dXRlTmFtZT0iZmlsbC1vcGFjaXR5IgogICAgICAgICAgICAgICAgICAgICBiZWdpbj0iMHMiIGR1
-  cj0iMS4zcyIKICAgICAgICAgICAgICAgICAgICAgdmFsdWVzPSIwOzA7MDswOzA7MTswOzAiIGNh
-  bGNNb2RlPSJsaW5lYXIiCiAgICAgICAgICAgICAgICAgICAgIHJlcGVhdENvdW50PSJpbmRlZmlu
-  aXRlIiAvPgogICAgICAgICAgICA8L2NpcmNsZT4KICAgICAgICAgICAgPGNpcmNsZSBjeD0iMTEu
-  Mzk5IiBjeT0iMTEuNDYyIiByPSI1IiBmaWxsLW9wYWNpdHk9IjAiIGZpbGw9IiNmZmYiPgogICAg
-  ICAgICAgICAgICAgPGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iZmlsbC1vcGFjaXR5IgogICAgICAg
-  ICAgICAgICAgICAgICBiZWdpbj0iMHMiIGR1cj0iMS4zcyIKICAgICAgICAgICAgICAgICAgICAg
-  dmFsdWVzPSIwOzA7MDswOzA7MDsxOzAiIGNhbGNNb2RlPSJsaW5lYXIiCiAgICAgICAgICAgICAg
-  ICAgICAgIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAvPgogICAgICAgICAgICA8L2NpcmNsZT4K
-  ICAgICAgICAgICAgPGNpcmNsZSBjeD0iMjciIGN5PSI1IiByPSI1IiBmaWxsLW9wYWNpdHk9IjAi
-  IGZpbGw9IiNmZmYiPgogICAgICAgICAgICAgICAgPGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iZmls
-  bC1vcGFjaXR5IgogICAgICAgICAgICAgICAgICAgICBiZWdpbj0iMHMiIGR1cj0iMS4zcyIKICAg
-  ICAgICAgICAgICAgICAgICAgdmFsdWVzPSIwOzA7MDswOzA7MDswOzEiIGNhbGNNb2RlPSJsaW5l
-  YXIiCiAgICAgICAgICAgICAgICAgICAgIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAvPgogICAg
-  ICAgICAgICA8L2NpcmNsZT4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg==" alt="">
+z-index: 10000;
+background: rgb(255 255 255 / 88%);"><svg>
+    <g>
+      <path d="M 50,100 A 1,1 0 0 1 50,0" />
+    </g>
+    <g>
+      <path d="M 50,75 A 1,1 0 0 0 50,-25" />
+    </g>
+    <defs>
+      <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" style="stop-color:#fe7a9f;stop-opacity:1" />
+        <stop offset="100%" style="stop-color:#ffb067;stop-opacity:1" />
+      </linearGradient>
+    </defs>
+  </svg>
+  <div style="    color: #41627f;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 67vh;
+  font-size: 28px;">{{"PLSWAIT" | translate}}</div>
 </div>
 <ion-content #IonContent [scrollEvents]="true" (ionScrollStart)="startScroll()" (ionScroll)="logScrollStart($event)"
   (touchend)="touchend()" (touchstart)="touchstart()" (ionScrollEnd)="endScroll()">
@@ -168,7 +135,7 @@ z-index: 1000;">
     text-align: center; 
     padding: 13px;
     background: #642f4b;
-    z-index: 100000;
+    z-index: 900;
     border-radius: 50%;
     right: 3%;
     top: 28%;">
@@ -177,12 +144,20 @@ z-index: 1000;">
       height: 100%;" (click)="autoLocate()"></ion-icon>
     </div>
     <div *ngIf="Online" id="map" (click)='GetLatLng()'></div>
-    <div *ngIf="!Online" id="map" style="background: rgb(216, 216, 216);text-align: center;">
+    <div *ngIf="!Online" style="background: rgb(216, 216, 216);text-align: center;" id="map">
       <div style="position: absolute;
       top: 50%;
       width: 70%;
       color: #868686;
       left: 15%;"> {{"INFOPERSONNEL.mapOffline" | translate}}</div>
+    </div>
+    <div *ngIf="Online && !mapReady" id="map" style="background: rgb(216, 216, 216);text-align: center;">
+      <div style="position: absolute;
+      top: 50%;
+      width: 70%;
+      color: #868686;
+      left: 15%;"> {{"INFOPERSONNEL.waitMap" | translate}}</div>
+      <ion-skeleton-text animated style="width: 100%;padding: 3em;"></ion-skeleton-text>
     </div>
   </div>
   <div style="    position: fixed;

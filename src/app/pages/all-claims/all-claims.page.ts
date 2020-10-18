@@ -66,17 +66,6 @@ export class AllClaimsPage implements OnInit {
     this.Online = networkService.getCurrentNetworkStatus() == ConnectionStatus.Online ? true : false
     if (this.Online)
       this.loadData()
-    else {
-      this.showSkeleton = false;
-      this.presentPopover({
-        bigImage: './assets/images/nodata.png',
-        content: 'You Are in offline mode you Cant see Claims !',
-        role: "GoToWelcomePage"
-      });
-      return
-    }
-
-
   }
   getImgContent(image: string): any {
     if (image == './assets/images/NoImage.jpeg')
@@ -159,7 +148,7 @@ export class AllClaimsPage implements OnInit {
     if (defDDay > 0) return this.translate.instant("ALLCLAIMS.timers.daysAgo", { d: defDDay });
     if (defHour > 2) return this.translate.instant("ALLCLAIMS.timers.hours", { d: defHour });
     if (defHour > 0) return this.translate.instant("ALLCLAIMS.timers.hoursAndMin", { d1: defHour, d2: defMinutes });
-    if (defMinutes <= 0) this.translate.instant("ALLCLAIMS.timers.justNow");
+    if (defMinutes <= 0) return this.translate.instant("ALLCLAIMS.timers.justNow");
     else
       return this.translate.instant("ALLCLAIMS.timers.minutes", { d: defMinutes });
 
@@ -270,12 +259,10 @@ export class AllClaimsPage implements OnInit {
     } else if (this.selectCat.nativeElement.value == "Hotest") {
       this.storage.set('ClientFavDisplayFactor', "Hotest")
       this.claims = this.claims.sort((a, b) => b.upvote - a.upvote)
-
     }
     else if (this.selectCat.nativeElement.value == "Mine") {
       this.storage.set('ClientFavDisplayFactor', "Mine")
       this.storage.get("uuid").then(id => {
-        id = "m"
         this.claims = this.claims.filter(claim => {
           if (id == claim.uid) {
             return true;

@@ -98,6 +98,7 @@
         "description": " With providing clear data<br> of your position , email... We can Work faster and more effectiently to upgrate our country to the best .",
         "mapOffline": "Offline mode doesn't support Map",
         "confirm": "Confirm",
+        "waitMap": "Loading the map...",
         "ALERTS": {
             "validEmail": "please enter a valid email address",
             "fieldRequired": "Sorry E-mail And City Field are required ",
@@ -123,15 +124,15 @@
             "fieldRequired": "sorry Description and Subject are required",
             "offlineSucc": "Your Claim has been Completed Successfully , it will be sent to us as soon as you get online",
             "onlineSucc": "Your Claim has been Completed Successfully",
-            "generalError": "Une erreur s'est produite. Veuillez réessayer",
+            "generalError": "something went wrong please try again",
             "buttons": {
                 "ok": "ok",
-                "route": "Aller à la page d'accueil"
+                "route": "Go To Welcome Page"
             }
         },
         "placeholder": {
-            "subject": "Titre du sujet",
-            "description": "Entrez plus d'informations ici ..."
+            "subject": "Subject Title",
+            "description": "Enter more information here..."
         }
     },
     "ALLCLAIMS": {
@@ -155,5 +156,6 @@
             "minutes": "{{d}} Minutes ago",
             "justNow": "Just Now"
         }
-    }
+    },
+    "PLSWAIT": "One Second.."
 }

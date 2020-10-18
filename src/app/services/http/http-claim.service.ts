@@ -45,7 +45,7 @@ export class HttpClaimService {
     let image: string = data.image;
     image = image.substring(22, image.length)
     if (this.networkService.getCurrentNetworkStatus() == ConnectionStatus.Offline) {
-      this.offlineManager.storeRequest(url, 'POST', data)
+      this.offlineManager.storeRequest(data.url, 'POST', data)
     } else {
 
       let d = {
@@ -123,7 +123,7 @@ export class HttpClaimService {
     }
   }
   verifyEmail(email) {
-    let url = "https://app.verify-email.org/api/v1/4O8mL8MDfIXaLqAcu3jXYdWdTy1obqp5lH2iJ1XtbZc1EgAeUA/verify/" + email
+    let url = "https://app.verify-email.org/api/v1/c9vmh3kF21M4N9fJqeX6OVll1bW4tjM6PXm890ZpbPck3kMFvs/verify/" + email
     let headers: HttpHeaders = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
     headers.append('Accept', 'application/json');

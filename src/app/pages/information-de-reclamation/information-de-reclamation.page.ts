@@ -48,7 +48,7 @@ export class InformationDeReclamationPage implements OnInit {
     textTop: "16%"
   }
   result: Observable<any>
-  Online;
+  Online = false;
   types: Array<any>;
   ScrollY: number;
   scrolling: boolean;
@@ -109,7 +109,7 @@ export class InformationDeReclamationPage implements OnInit {
 
   cameraOptions(sourceType) {
     let options: CameraOptions = {
-      quality: 500,
+      quality: 100,
       sourceType: sourceType,
       saveToPhotoAlbum: false,
       correctOrientation: true,
@@ -209,14 +209,29 @@ export class InformationDeReclamationPage implements OnInit {
       if (this.imageType != 'base64') {
         this.postClaim()
       } else {
+        if (!this.Online) {
+          let data: any = this.data;
+          data.url = 'https://api.imgur.com/3/image'
+          this.http.uploadImage(this.data);
+          this.presentPopover(null, {
+            bigImage: "assets/images/success.png",
+            content: this.translate.instant("INFREC.ALERTS.offlineSucc"),
+            role: this.translate.instant("INFREC.ALERTS.buttons.route"),
+            button: this.translate.instant("INFREC.ALERTS.buttons.route"),
+          });
+        }
+        else {
+          this.spinner = true;
+          this.http.uploadImage(this.data).subscribe(inf => {
+            this.spinner = false;
+            let image: any = inf;
+            this.data.image = image.data.link;
+            this.postClaim()
+          }, err => {
+            console.log(err);
+          })
+        }
 
-        this.http.uploadImage(this.data).subscribe(inf => {
-          let image: any = inf;
-          this.data.image = image.data.link;
-          this.postClaim()
-        }, err => {
-          console.log(err);
-        })
       }
     }
     else {

@@ -64,11 +64,51 @@ export class WelcomePage implements OnInit {
       }
     });
 
+    this.Online = this.networkService.getCurrentNetworkStatus() == ConnectionStatus.Online ? true : false
 
     this.storage.get("firstTimeApp").then(res => {
-      this.firstTimeApp = (res != "false")
+      this.firstTimeApp = (res != "false");
+      this.luanguageSetup();
+      setTimeout(() => {
+        if (!this.firstTimeApp)
+          this.fireAlerts()
+      }, 1000);
     });
-    this.Online = networkService.getCurrentNetworkStatus() == ConnectionStatus.Online ? true : false
+
+
+    // this.languageService.setLanguage("en")
+
+    this.platform.ready().then(() => {
+      this.uid.get().then(value => {
+        this.storage.set("uuid", value);
+        this.data.uid = value
+      }).catch(error => {
+        this.storage.set("uuid", error);
+        this.data.uid = error
+      })
+    });
+  }
+
+  ngOnInit() {
+    this.splashScreen.hide();
+
+  }
+
+  seeClaims() {
+    this.router.navigate(["/all-claims"]);
+  }
+
+  slideChanged(slides) {
+    slides.startAutoplay();
+  }
+
+  changed(slides) {
+    slides.startAutoplay();
+  }
+
+  fireAlerts() {
+
+
     if (this.Online)
       this.http.getData().subscribe(data => {
         this.claims = data;
@@ -89,61 +129,38 @@ export class WelcomePage implements OnInit {
         button: this.translate.instant("WELCOME.ALERTS.buttons")
       })
     }
-    this.platform.ready().then(() => {
-      this.uid.get().then(value => {
-        this.storage.get("uuid").then(e => {
-          if (!e)
-            this.storage.set("uuid", value)
-        }).catch(() => {
-          this.storage.set("uuid", value)
-        })
-        this.data.uid = value
-      }).catch(error => {
-        this.data.uid = error
-      })
-    });
-  }
-
-  ngOnInit() {
-    this.splashScreen.hide();
-  }
-
-  seeClaims() {
-    this.router.navigate(["/all-claims"]);
-  }
-
-  slideChanged(slides) {
-    slides.startAutoplay();
-  }
-
-  changed(slides) {
-    slides.startAutoplay();
   }
 
   forward() {
     this.Online = this.networkService.getCurrentNetworkStatus() == ConnectionStatus.Online ? true : false
 
-    if (this.Online && this.claims != []) {
-      let Time = this.spamController.checkForSpam(this.data.uid, JSON.parse(JSON.stringify(this.claims)));
-      if (Time != -1) {
-        let cont;
-        if (Time == 0) {
-          cont = {
-            content: this.translate.instant("WELCOME.ALERTS.spam0"),
-            bigImage: 'assets/images/spam.png'
+    if (this.Online) {
+      this.http.getData().subscribe(data => {
+        let Time = this.spamController.checkForSpam(this.data.uid, JSON.parse(JSON.stringify(data)));
+        this.splash = true
+        setTimeout(() => {
+          this.splash = false
+          if (Time != -1) { // there is a spam
+            let cont;
+            if (Time == 0) { // one houre ban  
+              cont = {
+                content: this.translate.instant("WELCOME.ALERTS.spam0"),
+                bigImage: 'assets/images/spam.png'
+              }
+            } else { // less than 5 post in one day
+              cont = {
+                content: this.translate.instant("WELCOME.ALERTS.spam1", { Time }),
+                bigImage: 'assets/images/spam.png'
+              }
+            }
+            this.presentPopover(cont);
+          } else { // there is not a spamm
+            this.router.navigate(["/type-de-reclamation"], {
+              queryParams: { p: JSON.stringify(this.data) },
+            })
           }
-        } else {
-          cont = {
-            content: this.translate.instant("WELCOME.ALERTS.spam1", { Time }),
-            bigImage: 'assets/images/spam.png'
-          }
-        }
-        this.presentPopover(cont);
-      } else {
-        this.router.navigate(["/type-de-reclamation"], {
-          queryParams: { p: JSON.stringify(this.data) },
-        })
-      }
+        }, 1000);
+      })
 
     }
     else {
@@ -173,6 +190,7 @@ export class WelcomePage implements OnInit {
     return await popover.present();
   }
   setLanguage(lang) {
+
     this.firstTimeApp = false;
     this.storage.set('firstTimeApp', "false");
     this.languageService.setLanguage(lang);
@@ -180,14 +198,24 @@ export class WelcomePage implements OnInit {
       this.welcome = { a: "Together !", b: "Tunisia better" };
     else
       this.welcome = { a: "Ensemble !", b: "Tunisie mieux" }
+    setTimeout(() => {
+      this.fireAlerts()
+    }, 1000);
   }
-  ionViewWillEnter() {
-    let lag = this.translate.currentLang;
-    console.log(lag);
+  luanguageSetup() {
 
-    if (lag == "en")
-      this.welcome = { a: "Together !", b: "Tunisia better" };
-    else
-      this.welcome = { a: "Ensemble !", b: "Tunisie mieux" }
+
+    if (this.firstTimeApp)
+      return;
+
+    this.storage.get("language").then(res => {
+
+      if (res == "en" || !res)
+        this.welcome = { a: "Together !", b: "Tunisia better" };
+      else
+        this.welcome = { a: "Ensemble !", b: "Tunisie mieux" }
+    });
+
+
   }
 }

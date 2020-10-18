@@ -65,6 +65,7 @@ export class NetworkService {
   }
 
   public getCurrentNetworkStatus(): ConnectionStatus {
+    // return ConnectionStatus.Offline
     return this.isConnected() ? ConnectionStatus.Online : ConnectionStatus.Offline
     // return ConnectionStatus.Offline
   }
