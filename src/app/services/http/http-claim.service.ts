@@ -123,7 +123,7 @@ export class HttpClaimService {
     }
   }
   verifyEmail(email) {
-    let url = "https://app.verify-email.org/api/v1/c9vmh3kF21M4N9fJqeX6OVll1bW4tjM6PXm890ZpbPck3kMFvs/verify/" + email
+    let url = "https://app.verify-email.org/api/v1/X4t6YY88yL7sn2vx8ZyQIqT5Y4Vt1qblBHpRahn0qvYWrUIrnW/verify/" + email
     let headers: HttpHeaders = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
     headers.append('Accept', 'application/json');

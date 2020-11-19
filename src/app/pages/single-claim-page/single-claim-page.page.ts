@@ -155,24 +155,14 @@ export class SingleClaimPagePage implements OnInit {
     if (this.claim.state == 'heart-outline') {
       this.claim.state = 'heart'
       this.claim.upvote++;
-      this.http.updateUpvote(this.claim).subscribe(res => {
-        console.log('succ');
-      }, err => {
-        console.log(err);
-      })
+      this.http.updateUpvote(this.claim).subscribe()
 
       this.likedClaims.push(this.claim.id)
       this.storage.set(this.likedClaimsKey, this.likedClaims)
     } else if (this.claim.state == 'heart') {
       this.claim.state = 'heart-outline'
       this.claim.upvote--;
-      this.http.updateUpvote(this.claim).subscribe(res => {
-        console.log('succ');
-
-      }, err => {
-        console.log(err);
-
-      })
+      this.http.updateUpvote(this.claim).subscribe()
       const index = this.likedClaims.indexOf(this.claim.id)
       if (index > -1) {
         this.likedClaims.splice(index, 1);

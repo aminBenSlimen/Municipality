@@ -179,13 +179,7 @@ export class AllClaimsPage implements OnInit {
       if (elm.id == claim.id) {
         if (claim.state == 'heart-outline') {
           elm.upvote++;
-          this.http.updateUpvote(elm).subscribe(res => {
-            console.log(res);
-
-          }, err => {
-            console.log(err);
-
-          })
+          this.http.updateUpvote(elm).subscribe()
           if (!this.likedClaims)
             this.likedClaims = []
           this.likedClaims.push(elm.id)
@@ -194,17 +188,10 @@ export class AllClaimsPage implements OnInit {
         } else {
           elm.state = 'heart-outline'
           elm.upvote--;
-          this.http.updateUpvote(elm).subscribe(res => {
-            console.log('succ');
-
-          }, err => {
-            console.log(err);
-
-          })
+          this.http.updateUpvote(elm).subscribe()
           const index = this.likedClaims.indexOf(claim.id)
           if (index > -1) {
             this.likedClaims.splice(index, 1);
-            console.log(this.likedClaims);
             this.storage.set(this.likedClaimsKey, this.likedClaims)
           }
         }
@@ -334,7 +321,6 @@ export class AllClaimsPage implements OnInit {
     //  this.socialSharing.
   }
   doRefresh(event) {
-    console.log('hi');
 
     this.showSkeleton = true;
     setTimeout(() => {

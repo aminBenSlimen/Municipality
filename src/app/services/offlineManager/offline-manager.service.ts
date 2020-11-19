@@ -27,7 +27,6 @@ export class OfflineManagerService {
   checkForEvents(): Observable<any> {
     return from(this.storage.get(STORAGE_REQ_KEY)).pipe(
       switchMap(storedOperations => {
-        console.log(storedOperations);
 
         let storedObj = JSON.parse(storedOperations);
         if (storedObj && storedObj.length > 0) {
@@ -99,7 +98,6 @@ export class OfflineManagerService {
 
           let image: any = inf;
           op.data.image = image.data.link;
-          console.log(image.data.link);
 
           op.data.upvote = 0;
           op.data.report = 0;
@@ -125,7 +123,6 @@ export class OfflineManagerService {
           let requestOptions = { headers: headers, params: params }
           this.http.post('https://municipality00.000webhostapp.com/public/api/Claims', null, requestOptions).subscribe()
         }, err => {
-          console.log('error in the complicated offline request');
         })
       } else {
         const params = new HttpParams()

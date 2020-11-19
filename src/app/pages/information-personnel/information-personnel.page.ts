@@ -599,7 +599,6 @@ export class InformationPersonnelPage implements OnInit {
     this.data.lng = pos.lng;
     this.splash = true;
     this.http.getCityFromApi(pos.lat, pos.lng).subscribe(res => {
-      console.log(res);
 
       let region: any = res;
       let v = region.results[0].components;

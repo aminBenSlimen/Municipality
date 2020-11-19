@@ -228,7 +228,6 @@ export class InformationDeReclamationPage implements OnInit {
             this.data.image = image.data.link;
             this.postClaim()
           }, err => {
-            console.log(err);
           })
         }
 
